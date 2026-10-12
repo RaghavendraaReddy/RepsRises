@@ -1,0 +1,204 @@
+{
+  "format": "aira-workout-run-v1",
+  "label": "after",
+  "appVersion": "2.0.0",
+  "schemaVersion": "3",
+  "selectedProvider": "claude-cli",
+  "note": "Live ClaudeCLI run, mode: fast. Driven through the browser UI by a Playwright script.",
+  "events": [
+    {
+      "kind": "input",
+      "text": "Start a session please",
+      "at": "2026-10-11T09:54:17.062Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "I've built Pip's standard Starlight Circuit: four moves, forty seconds each.\n\n```openui\nroot = Screens([s0, m1, m2, m3, m4, end])\ns0 = Screen([s0_title, s0_text, s0_how, s0_prog, s0_cue, s0_follow])\ns0_title = Text(\"Starlight Circuit\", \"title\")\ns0_text = Text(\"Pip runs 4 moves of 40 seconds each while you call it from mission control.\", \"description\")\ns0_how = List([s0_how1, s0_how2, s0_how3])\ns0_how1 = ListItem(\"Start simulation, then let it run or tap Simulate finish\", \"numbered\")\ns0_how2 = ListItem(\"Next moves to the following move\", \"numbered\")\ns0_how3 = ListItem(\"Pause preview takes a break any time\", \"numbered\")\ns0_prog = Progress(\"Circuit progress\")\ns0_cue = Cue(\"Pip's on the launch pad, awaiting your call.\")\ns0_follow = FollowUps([\"Let's start\", \"Make it shorter\", \"Make it harder\"])\nm1 = Screen([m1_title, m1_text, m1_timer, m1_prog, m1_cue, m1_follow])\nm1_title = Text(\"Move 1 of 4 · Comet Hops\", \"title\")\nm1_text = Text(\"Pip hops from comet to comet without spilling a single sparkle.\", \"description\")\nm1_timer = Timer(\"Comet Hops\", 40)\nm1_prog = Progress(\"Circuit progress\")\nm1_cue = Cue(\"First comet's in range. Pip's ready.\")\nm1_follow = FollowUps([\"I'm getting tired\", \"Skip this move\", \"Too easy\"])\nm2 = Screen([m2_title, m2_text, m2_timer, m2_prog, m2_cue, m2_follow])\nm2_title = Text(\"Move 2 of 4 · Orbit Hold\", \"title\")\nm2_text = Text(\"Pip parks in a tidy orbit around a very patient moon.\", \"description\")\nm2_timer = Timer(\"Orbit Hold\", 40)\nm2_prog = Progress(\"Circuit progress\")\nm2_cue = Cue(\"Orbit's locked in. Pip's circling the moon.\")\nm2_follow = FollowUps([\"I'm getting tired\", \"Skip this move\", \"Too easy\"])\nm3 = Screen([m3_title, m3_text, m3_timer, m3_prog, m3_cue, m3_follow])\nm3_title = Text(\"Move 3 of 4 · Nebula Reach\", \"title\")\nm3_text = Text(\"Pip stretches a tiny antenna toward a glowing purple cloud.\", \"description\")\nm3_timer = Timer(\"Nebula Reach\", 40)\nm3_prog = Progress(\"Circuit progress\")\nm3_cue = Cue(\"The nebula's glowing. Pip's antenna is up.\")\nm3_follow = FollowUps([\"I'm getting tired\", \"Skip this move\", \"Too easy\"])\nm4 = Screen([m4_title, m4_text, m4_timer, m4_prog, m4_cue, m4_follow])\nm4_title = Text(\"Move 4 of 4 · Meteor Shuffle\", \"title\")\nm4_text = Text(\"Pip sidesteps a slow parade of meteors, polite as ever.\", \"description\")\nm4_timer = Timer(\"Meteor Shuffle\", 40)\nm4_prog = Progress(\"Circuit progress\")\nm4_cue = Cue(\"Last move. Meteors are lining up.\")\nm4_follow = FollowUps([\"I'm getting tired\", \"Skip this move\", \"Too easy\"])\nend = Screen([end_title, end_text, end_prog, end_cue, end_follow])\nend_title = Text(\"Pip's done\", \"title\")\nend_text = Text(\"Pip's back at base, so take a look at how the circuit went.\", \"body\")\nend_prog = Progress(\"Circuit progress\")\nend_cue = Cue(\"Pip's docked. Report's ready when you are.\")\nend_follow = FollowUps([\"Show my summary\"])\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "e08fb793b06401173e1d1feecfde52148c41725e93fd5bcfcbe5a8978f665810",
+          "protocolHash": "78fdb234559559c175a2c7f89bcae1873625a48b78b431c0c7187739056e42a3",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T09:54:34.993Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 2 of 6 (screen m1).",
+      "at": "2026-10-11T09:54:35.153Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Started a timer for Comet Hops — 40 seconds.",
+      "at": "2026-10-11T09:54:35.326Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Used Simulate finish on the timer for Comet Hops with 40 seconds still to go.",
+      "at": "2026-10-11T09:54:35.795Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 3 of 6 (screen m2).",
+      "at": "2026-10-11T09:54:35.861Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Started a timer for Orbit Hold — 40 seconds.",
+      "at": "2026-10-11T09:54:36.024Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Used Simulate finish on the timer for Orbit Hold with 39 seconds still to go.",
+      "at": "2026-10-11T09:54:36.529Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 4 of 6 (screen m3).",
+      "at": "2026-10-11T09:54:36.615Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Started a timer for Nebula Reach — 40 seconds.",
+      "at": "2026-10-11T09:54:36.776Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Used Simulate finish on the timer for Nebula Reach with 40 seconds still to go.",
+      "at": "2026-10-11T09:54:37.241Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 5 of 6 (screen m4).",
+      "at": "2026-10-11T09:54:37.306Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Started a timer for Meteor Shuffle — 40 seconds.",
+      "at": "2026-10-11T09:54:37.472Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Used Simulate finish on the timer for Meteor Shuffle with 40 seconds still to go.",
+      "at": "2026-10-11T09:54:37.911Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 6 of 6 (screen end).",
+      "at": "2026-10-11T09:54:38.007Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Reached the final screen. This is not evidence of physical completion.",
+      "at": "2026-10-11T09:54:38.173Z"
+    },
+    {
+      "kind": "input",
+      "text": "Show my summary",
+      "at": "2026-10-11T09:54:38.177Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "All four moves fast-forwarded, so Pip barely had time to wave at the comets.\n\n```openui\nroot = Screens([s0, m1, m2, m3, m4, end, sum], sum)\nsum = Screen([sum_title, sum_done, sum_prog, sum_list, sum_note, sum_cue, sum_follow])\nsum_title = Text(\"Mission report\", \"title\")\nsum_done = Keyword(\"4\", \"simulated moves completed\")\nsum_prog = Progress(\"Final tally\")\nsum_list = List([sum_l1, sum_l2, sum_l3, sum_l4])\nsum_l1 = ListItem(\"Comet Hops: fast-forwarded\", \"bullet\")\nsum_l2 = ListItem(\"Orbit Hold: fast-forwarded\", \"bullet\")\nsum_l3 = ListItem(\"Nebula Reach: fast-forwarded\", \"bullet\")\nsum_l4 = ListItem(\"Meteor Shuffle: fast-forwarded\", \"bullet\")\nsum_note = Text(\"Every move ended on Simulate finish. Orbit Hold got one second before the fast-forward, and the rest got none.\", \"description\")\nsum_cue = Cue(\"Quick circuit. Pip's still buzzing for more.\")\nsum_follow = FollowUps([\"Start a new session\", \"Add a bonus move\"])\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "e08fb793b06401173e1d1feecfde52148c41725e93fd5bcfcbe5a8978f665810",
+          "protocolHash": "78fdb234559559c175a2c7f89bcae1873625a48b78b431c0c7187739056e42a3",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T09:54:48.166Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Tapped \"Add a bonus move\" on screen sum.",
+      "at": "2026-10-11T09:54:48.321Z"
+    },
+    {
+      "kind": "input",
+      "text": "Add a bonus move",
+      "at": "2026-10-11T09:54:48.325Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "Four fast-forwards, so Pip still has fuel to spare: one bonus Moonwalk Glide.\n\n```openui\nroot = Screens([s0, m1, m2, m3, m4, m5, end, sum], m5)\nm5 = Screen([m5_title, m5_text, m5_timer, m5_prog, m5_cue, m5_follow])\nm5_title = Text(\"Bonus move · Moonwalk Glide\", \"title\")\nm5_text = Text(\"Pip glides backward across the moon, leaving neat little bootprints.\", \"description\")\nm5_timer = Timer(\"Moonwalk Glide\", 40)\nm5_prog = Progress(\"Circuit progress\")\nm5_cue = Cue(\"Bonus round. Pip's moon boots are on.\")\nm5_follow = FollowUps([\"Show my summary\", \"Skip this move\", \"I'm getting tired\"])\nend_cue = Cue(\"Bonus glide logged. Pip's finally docked.\")\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "e08fb793b06401173e1d1feecfde52148c41725e93fd5bcfcbe5a8978f665810",
+          "protocolHash": "78fdb234559559c175a2c7f89bcae1873625a48b78b431c0c7187739056e42a3",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T09:54:59.862Z"
+    }
+  ],
+  "state": {
+    "ui_state": "root = Screens([s0, m1, m2, m3, m4, m5, end, sum], m5)\ns0 = Screen([s0_title, s0_text, s0_how, s0_prog, s0_cue, s0_follow])\ns0_title = Text(\"Starlight Circuit\", \"title\")\ns0_text = Text(\"Pip runs 4 moves of 40 seconds each while you call it from mission control.\", \"description\")\ns0_how = List([s0_how1, s0_how2, s0_how3])\ns0_how1 = ListItem(\"Start simulation, then let it run or tap Simulate finish\", \"numbered\")\ns0_how2 = ListItem(\"Next moves to the following move\", \"numbered\")\ns0_how3 = ListItem(\"Pause preview takes a break any time\", \"numbered\")\ns0_prog = Progress(\"Circuit progress\")\ns0_cue = Cue(\"Pip's on the launch pad, awaiting your call.\")\ns0_follow = FollowUps([\"Let's start\", \"Make it shorter\", \"Make it harder\"])\nm1 = Screen([m1_title, m1_text, m1_timer, m1_prog, m1_cue, m1_follow])\nm1_title = Text(\"Move 1 of 4 · Comet Hops\", \"title\")\nm1_text = Text(\"Pip hops from comet to comet without spilling a single sparkle.\", \"description\")\nm1_timer = Timer(\"Comet Hops\", 40)\nm1_prog = Progress(\"Circuit progress\")\nm1_cue = Cue(\"First comet's in range. Pip's ready.\")\nm1_follow = FollowUps([\"I'm getting tired\", \"Skip this move\", \"Too easy\"])\nm2 = Screen([m2_title, m2_text, m2_timer, m2_prog, m2_cue, m2_follow])\nm2_title = Text(\"Move 2 of 4 · Orbit Hold\", \"title\")\nm2_text = Text(\"Pip parks in a tidy orbit around a very patient moon.\", \"description\")\nm2_timer = Timer(\"Orbit Hold\", 40)\nm2_prog = Progress(\"Circuit progress\")\nm2_cue = Cue(\"Orbit's locked in. Pip's circling the moon.\")\nm2_follow = FollowUps([\"I'm getting tired\", \"Skip this move\", \"Too easy\"])\nm3 = Screen([m3_title, m3_text, m3_timer, m3_prog, m3_cue, m3_follow])\nm3_title = Text(\"Move 3 of 4 · Nebula Reach\", \"title\")\nm3_text = Text(\"Pip stretches a tiny antenna toward a glowing purple cloud.\", \"description\")\nm3_timer = Timer(\"Nebula Reach\", 40)\nm3_prog = Progress(\"Circuit progress\")\nm3_cue = Cue(\"The nebula's glowing. Pip's antenna is up.\")\nm3_follow = FollowUps([\"I'm getting tired\", \"Skip this move\", \"Too easy\"])\nm4 = Screen([m4_title, m4_text, m4_timer, m4_prog, m4_cue, m4_follow])\nm4_title = Text(\"Move 4 of 4 · Meteor Shuffle\", \"title\")\nm4_text = Text(\"Pip sidesteps a slow parade of meteors, polite as ever.\", \"description\")\nm4_timer = Timer(\"Meteor Shuffle\", 40)\nm4_prog = Progress(\"Circuit progress\")\nm4_cue = Cue(\"Last move. Meteors are lining up.\")\nm4_follow = FollowUps([\"I'm getting tired\", \"Skip this move\", \"Too easy\"])\nend = Screen([end_title, end_text, end_prog, end_cue, end_follow])\nend_title = Text(\"Pip's done\", \"title\")\nend_text = Text(\"Pip's back at base, so take a look at how the circuit went.\", \"body\")\nend_prog = Progress(\"Circuit progress\")\nend_cue = Cue(\"Bonus glide logged. Pip's finally docked.\")\nend_follow = FollowUps([\"Show my summary\"])\nsum = Screen([sum_title, sum_done, sum_prog, sum_list, sum_note, sum_cue, sum_follow])\nsum_title = Text(\"Mission report\", \"title\")\nsum_done = Keyword(\"4\", \"simulated moves completed\")\nsum_prog = Progress(\"Final tally\")\nsum_list = List([sum_l1, sum_l2, sum_l3, sum_l4])\nsum_l1 = ListItem(\"Comet Hops: fast-forwarded\", \"bullet\")\nsum_l2 = ListItem(\"Orbit Hold: fast-forwarded\", \"bullet\")\nsum_l3 = ListItem(\"Nebula Reach: fast-forwarded\", \"bullet\")\nsum_l4 = ListItem(\"Meteor Shuffle: fast-forwarded\", \"bullet\")\nsum_note = Text(\"Every move ended on Simulate finish. Orbit Hold got one second before the fast-forward, and the rest got none.\", \"description\")\nsum_cue = Cue(\"Quick circuit. Pip's still buzzing for more.\")\nsum_follow = FollowUps([\"Start a new session\", \"Add a bonus move\"])\nm5 = Screen([m5_title, m5_text, m5_timer, m5_prog, m5_cue, m5_follow])\nm5_title = Text(\"Bonus move · Moonwalk Glide\", \"title\")\nm5_text = Text(\"Pip glides backward across the moon, leaving neat little bootprints.\", \"description\")\nm5_timer = Timer(\"Moonwalk Glide\", 40)\nm5_prog = Progress(\"Circuit progress\")\nm5_cue = Cue(\"Bonus round. Pip's moon boots are on.\")\nm5_follow = FollowUps([\"Show my summary\", \"Skip this move\", \"I'm getting tired\"])",
+    "client_events": []
+  },
+  "timers": [
+    {
+      "id": "m1_timer",
+      "label": "Comet Hops",
+      "seconds": 40,
+      "remaining": 0,
+      "status": "done"
+    },
+    {
+      "id": "m2_timer",
+      "label": "Orbit Hold",
+      "seconds": 40,
+      "remaining": 0,
+      "status": "done"
+    },
+    {
+      "id": "m3_timer",
+      "label": "Nebula Reach",
+      "seconds": 40,
+      "remaining": 0,
+      "status": "done"
+    },
+    {
+      "id": "m4_timer",
+      "label": "Meteor Shuffle",
+      "seconds": 40,
+      "remaining": 0,
+      "status": "done"
+    },
+    {
+      "id": "m5_timer",
+      "label": "Moonwalk Glide",
+      "seconds": 40,
+      "remaining": 40,
+      "status": "stopped"
+    }
+  ]
+}

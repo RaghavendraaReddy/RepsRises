@@ -1,0 +1,30 @@
+{
+  "format": "aira-workout-run-v1",
+  "label": "before",
+  "appVersion": "2.0.0",
+  "schemaVersion": "3",
+  "selectedProvider": "claude-cli",
+  "note": "Original starter kit (only the local Windows CLI opt-in added). First-time user: Mock, then live ClaudeCLI with the empty skill.",
+  "events": [
+    {
+      "kind": "input",
+      "text": "Hi, I am new. Can you start a beginner workout?",
+      "at": "2026-10-11T09:43:30.626Z"
+    },
+    {
+      "kind": "error",
+      "text": "The response has an invalid OpenUI screen. The previous screen is kept. Retry or check your component/skill.",
+      "at": "2026-10-11T09:43:54.215Z"
+    },
+    {
+      "kind": "error",
+      "text": "The response has an invalid OpenUI screen. The previous screen is kept. Retry or check your component/skill.",
+      "at": "2026-10-11T09:44:11.834Z"
+    }
+  ],
+  "state": {
+    "ui_state": "",
+    "client_events": []
+  },
+  "timers": []
+}

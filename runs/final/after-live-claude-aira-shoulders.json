@@ -1,0 +1,70 @@
+{
+  "format": "aira-workout-run-v1",
+  "label": "after",
+  "appVersion": "2.0.0",
+  "schemaVersion": "3",
+  "selectedProvider": "claude-cli",
+  "note": "Final pass (Aira, plain move names): one live ClaudeCLI message on the final skill: \"give me a shoulder workout\".",
+  "events": [
+    {
+      "kind": "input",
+      "text": "give me a shoulder workout",
+      "at": "2026-10-12T03:45:48.155Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "Shoulders it is: four moves, forty seconds each, two minutes forty total. I do every move, coach, and you run the clock.\n\n```openui\nroot = Screens([s0, m1, m2, m3, m4, end])\ns0 = Screen([s0_prog, s0_title, s0_role, s0_plan, s0_cue, s0_follow])\ns0_prog = Progress(\"Your session\")\ns0_title = Text(\"Aira's Shoulder Day\", \"title\")\ns0_role = Text(\"I do the moves, you're my coach and run the clock.\", \"description\")\ns0_plan = List([s0_p1, s0_p2, s0_p3, s0_p4])\ns0_p1 = ListItem(\"Shoulder Rolls, 40 seconds\", \"numbered\")\ns0_p2 = ListItem(\"Arm Circles, 40 seconds\", \"numbered\")\ns0_p3 = ListItem(\"Shoulder Shrugs, 40 seconds\", \"numbered\")\ns0_p4 = ListItem(\"Reach Up, 40 seconds\", \"numbered\")\ns0_cue = Cue(\"Shoulder Rolls first. Tap Next when you're ready, coach.\")\ns0_follow = FollowUps([\"Make it shorter\", \"Make it harder\"])\nm1 = Screen([m1_prog, m1_title, m1_text, m1_timer, m1_beats, m1_cue, m1_follow])\nm1_prog = Progress(\"Your session\")\nm1_title = Text(\"Shoulder Rolls\", \"title\")\nm1_text = Text(\"I'm rolling my shoulders back in slow circles. They creak a little.\", \"description\")\nm1_timer = Timer(\"Shoulder Rolls\", 40)\nm1_beats = Beats(\"Rolling now. Slow and round.\", \"Halfway. My shoulders are warming up.\", \"Done. I'm letting them settle.\", \"Shoulders ready whenever you start the clock.\")\nm1_cue = Cue(\"Shoulder Rolls. Start the clock and I'll begin.\")\nm1_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm2 = Screen([m2_prog, m2_title, m2_text, m2_timer, m2_beats, m2_cue, m2_follow])\nm2_prog = Progress(\"Your session\")\nm2_title = Text(\"Arm Circles\", \"title\")\nm2_text = Text(\"I'm drawing small arm circles in the air. Tiny wheels, big focus.\", \"description\")\nm2_timer = Timer(\"Arm Circles\", 40)\nm2_beats = Beats(\"Arms out, circles going.\", \"Halfway. Switching direction, very dramatically.\", \"Finished. Arms are floating down.\", \"My arms are out and waiting, coach.\")\nm2_cue = Cue(\"Arm Circles now. Small ones, I promise.\")\nm2_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm3 = Screen([m3_prog, m3_title, m3_text, m3_timer, m3_beats, m3_cue, m3_follow])\nm3_prog = Progress(\"Your session\")\nm3_title = Text(\"Shoulder Shrugs\", \"title\")\nm3_text = Text(\"I'm shrugging up to my ears, then dropping. Like saying 'who knows'.\", \"description\")\nm3_timer = Timer(\"Shoulder Shrugs\", 40)\nm3_beats = Beats(\"Up, and down. Very expressive.\", \"Halfway. I've shrugged at everything in the room.\", \"Done. Shoulders back where they belong.\", \"Ready to shrug when you are.\")\nm3_cue = Cue(\"Shoulder Shrugs. I've been practising my 'no idea' face.\")\nm3_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm4 = Screen([m4_prog, m4_title, m4_text, m4_timer, m4_beats, m4_cue, m4_follow])\nm4_prog = Progress(\"Your session\")\nm4_title = Text(\"Reach Up\", \"title\")\nm4_text = Text(\"I'm reaching both arms up high, trying to touch the ceiling. Not close.\", \"description\")\nm4_timer = Timer(\"Reach Up\", 40)\nm4_beats = Beats(\"Reaching up. Ceiling, here I come.\", \"Halfway. Still haven't touched it.\", \"Done. Arms down, very satisfied.\", \"Arms up whenever you say, coach.\")\nm4_cue = Cue(\"Reach Up, the last one. I'm aiming for the ceiling.\")\nm4_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nend = Screen([end_prog, end_title, end_text, end_cue, end_follow])\nend_prog = Progress(\"Your session\")\nend_title = Text(\"Finish line\", \"title\")\nend_text = Text(\"Let's look at how the session went, move by move.\", \"body\")\nend_cue = Cue(\"Here we are, coach. Want to see how it went?\")\nend_follow = FollowUps([\"See how we did\"])\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "3ccb00e6514ca4670f45d4cc6f80a8c9ca3bb840189c1cab549c89637ee5e0d7",
+          "protocolHash": "47986bb5a9f087393ae4aef279e7065ba45e03fb7b24ef60630208e2ebb21cc1",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-12T03:46:10.144Z"
+    }
+  ],
+  "state": {
+    "ui_state": "root = Screens([s0, m1, m2, m3, m4, end], s0)\ns0 = Screen([s0_prog, s0_title, s0_role, s0_plan, s0_cue, s0_follow])\ns0_prog = Progress(\"Your session\")\ns0_title = Text(\"Aira's Shoulder Day\", \"title\")\ns0_role = Text(\"I do the moves, you're my coach and run the clock.\", \"description\")\ns0_plan = List([s0_p1, s0_p2, s0_p3, s0_p4])\ns0_p1 = ListItem(\"Shoulder Rolls, 40 seconds\", \"numbered\")\ns0_p2 = ListItem(\"Arm Circles, 40 seconds\", \"numbered\")\ns0_p3 = ListItem(\"Shoulder Shrugs, 40 seconds\", \"numbered\")\ns0_p4 = ListItem(\"Reach Up, 40 seconds\", \"numbered\")\ns0_cue = Cue(\"Shoulder Rolls first. Tap Next when you're ready, coach.\")\ns0_follow = FollowUps([\"Make it shorter\", \"Make it harder\"])\nm1 = Screen([m1_prog, m1_title, m1_text, m1_timer, m1_beats, m1_cue, m1_follow])\nm1_prog = Progress(\"Your session\")\nm1_title = Text(\"Shoulder Rolls\", \"title\")\nm1_text = Text(\"I'm rolling my shoulders back in slow circles. They creak a little.\", \"description\")\nm1_timer = Timer(\"Shoulder Rolls\", 40)\nm1_beats = Beats(\"Rolling now. Slow and round.\", \"Halfway. My shoulders are warming up.\", \"Done. I'm letting them settle.\", \"Shoulders ready whenever you start the clock.\")\nm1_cue = Cue(\"Shoulder Rolls. Start the clock and I'll begin.\")\nm1_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm2 = Screen([m2_prog, m2_title, m2_text, m2_timer, m2_beats, m2_cue, m2_follow])\nm2_prog = Progress(\"Your session\")\nm2_title = Text(\"Arm Circles\", \"title\")\nm2_text = Text(\"I'm drawing small arm circles in the air. Tiny wheels, big focus.\", \"description\")\nm2_timer = Timer(\"Arm Circles\", 40)\nm2_beats = Beats(\"Arms out, circles going.\", \"Halfway. Switching direction, very dramatically.\", \"Finished. Arms are floating down.\", \"My arms are out and waiting, coach.\")\nm2_cue = Cue(\"Arm Circles now. Small ones, I promise.\")\nm2_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm3 = Screen([m3_prog, m3_title, m3_text, m3_timer, m3_beats, m3_cue, m3_follow])\nm3_prog = Progress(\"Your session\")\nm3_title = Text(\"Shoulder Shrugs\", \"title\")\nm3_text = Text(\"I'm shrugging up to my ears, then dropping. Like saying 'who knows'.\", \"description\")\nm3_timer = Timer(\"Shoulder Shrugs\", 40)\nm3_beats = Beats(\"Up, and down. Very expressive.\", \"Halfway. I've shrugged at everything in the room.\", \"Done. Shoulders back where they belong.\", \"Ready to shrug when you are.\")\nm3_cue = Cue(\"Shoulder Shrugs. I've been practising my 'no idea' face.\")\nm3_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm4 = Screen([m4_prog, m4_title, m4_text, m4_timer, m4_beats, m4_cue, m4_follow])\nm4_prog = Progress(\"Your session\")\nm4_title = Text(\"Reach Up\", \"title\")\nm4_text = Text(\"I'm reaching both arms up high, trying to touch the ceiling. Not close.\", \"description\")\nm4_timer = Timer(\"Reach Up\", 40)\nm4_beats = Beats(\"Reaching up. Ceiling, here I come.\", \"Halfway. Still haven't touched it.\", \"Done. Arms down, very satisfied.\", \"Arms up whenever you say, coach.\")\nm4_cue = Cue(\"Reach Up, the last one. I'm aiming for the ceiling.\")\nm4_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nend = Screen([end_prog, end_title, end_text, end_cue, end_follow])\nend_prog = Progress(\"Your session\")\nend_title = Text(\"Finish line\", \"title\")\nend_text = Text(\"Let's look at how the session went, move by move.\", \"body\")\nend_cue = Cue(\"Here we are, coach. Want to see how it went?\")\nend_follow = FollowUps([\"See how we did\"])",
+    "client_events": []
+  },
+  "timers": [
+    {
+      "id": "m1_timer",
+      "label": "Shoulder Rolls",
+      "seconds": 40,
+      "remaining": 40,
+      "status": "stopped"
+    },
+    {
+      "id": "m2_timer",
+      "label": "Arm Circles",
+      "seconds": 40,
+      "remaining": 40,
+      "status": "stopped"
+    },
+    {
+      "id": "m3_timer",
+      "label": "Shoulder Shrugs",
+      "seconds": 40,
+      "remaining": 40,
+      "status": "stopped"
+    },
+    {
+      "id": "m4_timer",
+      "label": "Reach Up",
+      "seconds": 40,
+      "remaining": 40,
+      "status": "stopped"
+    }
+  ]
+}

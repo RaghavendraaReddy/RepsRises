@@ -1,6 +1,6 @@
 import { access, lstat, mkdtemp, realpath, rm } from 'node:fs/promises';
 import { constants } from 'node:fs';
-import { basename, dirname, isAbsolute, join } from 'node:path';
+import { basename, delimiter, dirname, isAbsolute, join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { isTurn, turnSchema, type RequestData, type Turn } from '../shared/contracts.js';
 import { PublicError } from './provider.js';
@@ -8,12 +8,19 @@ import { runProcess, type Invocation, type ProcessTransport } from './subprocess
 
 export const CLAUDE_PROFILE = 'claude-no-action-tools-v1';
 export const CODEX_BLOCKER = 'CodexCLI execution is disabled: a supported no-command/no-private-read profile has not been verified. Read-only sandboxing is insufficient. Use Mock, OpenAIAPI or the restricted ClaudeCLI route; see docs/RUNTIMES.md.';
-export type CliConfig = { enabled: boolean; profileAcknowledged: boolean; binary: string; model: string; timeoutMs: number };
+export type CliConfig = { enabled: boolean; profileAcknowledged: boolean; binary: string; model: string; timeoutMs: number; allowWindows?: boolean };
 const flags = ['--safe-mode', '--tools', '--disallowedTools', '--strict-mcp-config', '--mcp-config', '--setting-sources', '--settings', '--permission-mode', '--disable-slash-commands', '--no-session-persistence', '--no-chrome', '--output-format', '--json-schema'];
 
 // Keep official CLI login working through HOME/keychain, without reading it ourselves.
 // Never inherit API keys, OAuth tokens, proxies, runtime injection or SSH agents.
 export function cliEnvironment(env: NodeJS.ProcessEnv, binary: string): NodeJS.ProcessEnv {
+  if (process.platform === 'win32') {
+    // Local Windows opt-in (CLI_ALLOW_WINDOWS): login lives under USERPROFILE; SystemRoot/TEMP are needed to start.
+    const root = env.SystemRoot || 'C:\\Windows';
+    const clean: NodeJS.ProcessEnv = { PATH: [...new Set([dirname(binary), dirname(process.execPath), join(root, 'System32'), root])].join(delimiter) };
+    for (const name of ['HOME', 'USERPROFILE', 'APPDATA', 'LOCALAPPDATA', 'SystemRoot', 'SystemDrive', 'TEMP', 'TMP', 'HOMEDRIVE', 'HOMEPATH', 'USERNAME', 'PATHEXT', 'ComSpec']) if (env[name]) clean[name] = env[name];
+    return clean;
+  }
   const clean: NodeJS.ProcessEnv = { PATH: [...new Set([dirname(binary), dirname(process.execPath), '/usr/bin', '/bin', '/usr/sbin', '/sbin'])].join(':') };
   for (const name of ['HOME', 'USER', 'LOGNAME', 'LANG', 'LC_ALL', 'TMPDIR']) if (env[name]) clean[name] = env[name];
   return clean;
@@ -22,7 +29,8 @@ export async function resolveClaudeBinary(path: string): Promise<string> {
   if (!isAbsolute(path) || !['claude', 'claude.exe'].includes(basename(path))) throw new PublicError('CLI_PATH', 'Set CLAUDE_CLI_PATH to the absolute path of your trusted official claude executable.', 400);
   try {
     const resolved = await realpath(path); const info = await lstat(resolved);
-    if (!info.isFile() || (info.mode & 0o022) !== 0) throw new Error('writable');
+    // Windows reports synthetic POSIX mode bits, so the group/other-writable check only applies elsewhere.
+    if (!info.isFile() || (process.platform !== 'win32' && (info.mode & 0o022) !== 0)) throw new Error('writable');
     await access(resolved, constants.X_OK); return resolved;
   } catch { throw new PublicError('CLI_MISSING', 'Claude Code was not found at the configured path, is not executable, or is writable by other users. Install/review it yourself; this app will not install it.', 503); }
 }
@@ -86,7 +94,7 @@ export function parseClaudeOutput(stdout: string): { turn: Turn; returnedModel: 
 export async function claudeTurn(input: RequestData, skill: string, config: CliConfig, signal: AbortSignal,
   transport: ProcessTransport = runProcess, resolveBinary: (path: string) => Promise<string> = resolveClaudeBinary, env: NodeJS.ProcessEnv = process.env) {
   if (!config.enabled || !config.profileAcknowledged || !input.consent) throw new PublicError('CLI_OPT_IN', 'Enable ClaudeCLI locally and explicitly agree to subscription usage before sending.', 403);
-  if (process.platform === 'win32') throw new PublicError('CLI_PLATFORM', 'The restricted CLI runner currently supports macOS/Linux only. Use Mock or OpenAIAPI here.', 503);
+  if (process.platform === 'win32' && !config.allowWindows) throw new PublicError('CLI_PLATFORM', 'The restricted CLI runner currently supports macOS/Linux only. Use Mock or OpenAIAPI here.', 503);
   if (signal.aborted) throw new PublicError('CANCELLED', 'Reply cancelled.', 408);
   const binary = await resolveBinary(config.binary);
   const cwd = await mkdtemp(join(tmpdir(), 'workout-cli-'));

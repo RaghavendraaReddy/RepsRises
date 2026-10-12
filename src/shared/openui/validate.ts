@@ -6,6 +6,7 @@ const text = (v: unknown) => typeof v === 'string' && v.length <= 1200;
 const oneOf = (v: unknown, allowed: string[]) => typeof v === 'string' && allowed.includes(v);
 const optional = (v: unknown, check: (v: unknown) => boolean) => v === undefined || v === null || check(v);
 const color = (v: unknown) => typeof v === 'string' && /^#[0-9a-fA-F]{6}$/.test(v);
+const line = (v: unknown) => typeof v === 'string' && v.trim().length > 0 && v.length <= 140;
 const children = (v: unknown) => Array.isArray(v) && v.length <= 24 && v.every(isStatementNode);
 export const propValidators: Record<string, (p: Record<string, unknown>) => boolean> = {
   Screens: p => children(p.screens) && (p.screens as StatementNode[]).length <= 12 && (p.screens as StatementNode[]).every(n => n.name === 'Screen') && optional(p.cursor, v => isStatementNode(v) && (p.screens as StatementNode[]).some(s => s.key === v.key)),
@@ -18,6 +19,8 @@ export const propValidators: Record<string, (p: Record<string, unknown>) => bool
   Timer: p => text(p.label) && Number.isInteger(p.seconds) && Number(p.seconds) > 0 && Number(p.seconds) <= 3600 && (p.image === undefined || p.image === null),
   Cue: p => text(p.text),
   FollowUps: p => Array.isArray(p.prompts) && p.prompts.length <= 6 && p.prompts.every(text),
+  Progress: p => text(p.label),
+  Beats: p => line(p.going) && optional(p.halfway, line) && optional(p.done, line) && optional(p.waiting, line),
 };
 export function validateProgram(code: string, library: Vocabulary = OPENUI_LIBRARY, validators = propValidators): StatementNode {
   if (code.length > 40000 || code.split('\n').length > 600) throw new Error('Screen program is full. Export and reset.');

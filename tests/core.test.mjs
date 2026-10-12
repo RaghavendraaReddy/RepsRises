@@ -45,7 +45,8 @@ test('clear and replacement reset namespace, while Cue is separate text',()=>{
 test('mock is wiring only; values and cursor stay coherent under change',()=>{
  const doc=new ScreenDocument();doc.apply(mockTurn(req('/demo'),fixture).reply);doc.apply(mockTurn(req('next',{ui_state:doc.echo(),client_events:[]}),fixture).reply);assert.equal(doc.cursor,'page2');
  doc.apply(mockTurn(req('change value to 6',{ui_state:doc.echo(),client_events:[]}),fixture).reply);assert.equal(doc.cursor,'page2');assert(doc.echo().includes('count1 = Keyword("6"'));assert(doc.echo().includes('count2 = Keyword("6"'));
- assert(mockTurn(req('create a real workout'),fixture).reply.includes('does not read your skill'));
+ // Non-wiring text now plays the scripted coach instead of a dead-end notice.
+ assert(mockTurn(req('create a real workout'),fixture).reply.includes('root = Screens([s0, m1, m2, m3, m4, end])'));
 });
 test('source-derived timer clock survives navigation, pauses/resumes, changed duration resets',()=>{
  let now=0;const ledger=new TimerLedger(()=>now);ledger.ensure('rest',{label:'Rest',seconds:10});ledger.start('rest');now=3000;assert.equal(ledger.list()[0].remaining,7);
@@ -89,4 +90,67 @@ test('server-authored statement serializer safely escapes quotes and rejects ide
 });
 test('current timer snapshot is included as data on the next user turn',async()=>{
  let captured;const c=new Conversation(async r=>{captured=r;return result('ok');},()=>{},()=>['Simulated timer page2: paused, 7 of 10 seconds remaining.']);await c.send('continue');assert(captured.state.client_events[0].includes('paused, 7'));assert.equal(c.events.filter(e=>e.kind==='response').length,1);
+});
+test('Progress is label-only data; the catalog advertises it and fast-forward has its own event phrase',async()=>{
+ const doc=p=>'root = Screens([s])\ns = Screen([t, p])\nt = Timer("Arm Circles", 30)\np = '+p;
+ assert.equal(validateProgram(doc('Progress("Circuit progress")')).props.screens[0].props.children[1].name,'Progress');
+ for(const bad of ['Progress()','Progress("x", 2, 5)','Progress(3)'])assert.throws(()=>validateProgram(doc(bad)));
+ assert((await loadPrompt(process.cwd())).instructions.includes('Progress(label)'));
+ assert.equal(activityClientEvents.finishedEarly('Arm Circles',25),'Used Finish early on the timer for Arm Circles with 25 seconds still to go.');
+});
+// Scripted Pip (Mock) must match the skill: reviewers usually meet Mock first.
+const pip=()=>{const doc=new ScreenDocument();const s={doc,events:[]};s.turn=text=>{const reply=mockTurn(req(text,{ui_state:doc.echo(),client_events:s.events}),fixture).reply;doc.apply(reply);s.events=[];return splitReply(reply).prose;};return s;};
+const timer=(id,label,status,extra='',left=0,of=30)=>`Simulated timer ${id} (${label}): ${status}${extra}, ${left} of ${of} seconds remaining.`;
+const jargon=/mission control|simulat|launch pad|docked|Every move is behind|comet|orbit|nebula|meteor|moon|\bPip\b/i;
+test('scripted Aira honours starter buttons, body-part themes and time limits, and never opens with a refusal',()=>{
+ const first=text=>{const s=pip();const prose=s.turn(text);return {prose,program:s.doc.echo(),screens:s.doc.screens.map(x=>x.key)};};
+ let r=first("I'm new, go easy");assert.equal(r.prose,'First time? Three moves, under two minutes. I do the moves; you just run the clock.');assert.deepEqual(r.screens,['s0','m1','m2','m3','end']);assert(r.program.includes('m1_timer = Timer("Arm Circles", 30)'));
+ r=first("I've got 5 minutes");assert.equal(r.prose,'Five minutes is plenty: four moves, under three minutes.');assert.equal(r.screens.length,6);
+ r=first('Give me a challenge');assert.match(r.prose,/^A challenge\? Five moves, under five minutes\./);assert.equal(r.screens.length,7);
+ r=first('only 2 minutes');assert.equal(r.prose,'Two minutes it is: three moves, under two minutes.');
+ r=first('give me a shoulder exercise');assert.match(r.prose,/^Shoulder day it is\. I'm a cartoon, so I do the moves and you run the clock: four moves/);assert.doesNotMatch(r.prose,/can't|cannot|unable/i);
+ assert(r.program.includes(`s0_title = Text("Aira's Shoulder Day", "title")`));assert(r.program.includes('m1_timer = Timer("Shoulder Rolls", 40)'));
+ r=first('hi');assert.match(r.prose,/^Hi, I'm Aira\. I do the moves, you're my coach and run the clock: four moves/);assert(r.program.includes('s0_role = Text("I do the moves, you\'re my coach and run the clock.", "description")'));assert(!r.program.includes("Let's start"),'Next opens the first move, no slow model round trip');
+ for(const text of ['hi','give me a shoulder exercise','Give me a challenge']){const x=first(text);assert.doesNotMatch(x.program+x.prose,jargon);assert(x.prose.split(/\s+/).length<=25,x.prose);}
+});
+test('scripted Aira only says true things: lightening, last move, skips and the report',()=>{
+ const s=pip();s.turn('hi');s.doc.move(1);
+ // Tired on the first move: unstarted clocks shorten (current included), the last move drops, the next move says so.
+ assert.equal(s.turn('Make it shorter'),'Thank you, honestly. Shorter moves from here, and one fewer.');
+ assert.deepEqual(s.doc.screens.map(x=>x.key),['s0','m1','m2','m3','end']);assert.equal(s.doc.cursor,'m1');
+ assert(s.doc.echo().includes('m1_timer = Timer("Arm Circles", 20)'));assert(s.doc.echo().includes('m2_alert = Alert("info", "Lighter finish: shorter moves from here.")'));
+ s.events=[timer('m1_timer','Arm Circles','done','',0,20)];s.doc.move(2);
+ assert.match(s.turn('Skip this move'),/^Skipped\. Reach Up is next/);assert.equal(s.doc.cursor,'m3');
+ // Tired on the last move while its clock runs: nothing can change, and Pip says so instead of promising.
+ s.events=[timer('m3_timer','Reach Up','running','',12,20)];
+ assert.equal(s.turn("I'm getting tired"),"This is the last one, and it's already going. Tap Finish early whenever you like.");assert(s.doc.echo().includes('m3_timer = Timer("Reach Up", 20)'),'a running clock keeps its time');
+ s.events=[timer('m1_timer','Arm Circles','done','',0,20),timer('m2_timer','Side Steps','stopped','',20,20),timer('m3_timer','Reach Up','done',' (finished early), paused 1 time',0,20)];s.doc.move(4);
+ assert.equal(s.turn('See how we did'),"Two of three done. Here's how we did.");assert.equal(s.doc.cursor,'sum');assert.equal(s.doc.screens.at(-1).key,'sum');
+ const report=s.doc.echo();
+ for(const item of ['Arm Circles: all 20 seconds (shortened)','Side Steps: skipped','Reach Up: finished early, with a break (shortened)'])assert(report.includes(`"${item}"`),item);
+ assert(report.includes('sum_note = Text("We went lighter partway through. Good call, coach. You took a break, and I didn\'t mind."'));assert.doesNotMatch(report,/\. [a-z]/,'every sentence starts with a capital');
+ assert(report.includes('sum_follow = FollowUps(["Start a new session","Make the next one shorter"])'));assert.doesNotMatch(report,jargon);
+ assert.equal(s.turn('Start a new session'),'Same session, a bit shorter, since we went lighter last time.');assert.equal(s.doc.clearVersion,1);assert.deepEqual(s.doc.screens.map(x=>x.key),['s0','m1','m2','m3','end']);
+ assert.equal(s.turn('Make it harder'),'Harder it is: four moves, under three minutes.');
+ for(const prose of [s.turn('what now?'),s.turn('my knee hurts')])assert(prose.split(/\s+/).length<=20,prose);
+});
+test('scripted Aira notices early finishes and offers a bonus move that lands before the finish line',()=>{
+ const s=pip();s.turn('hi');s.events=['m1','m2','m3','m4'].map((k,i)=>timer(`${k}_timer`,['Arm Circles','Side Steps','Reach Up','Wall Sit'][i],'done',' (finished early)',0,40));s.doc.move(5);
+ s.turn('See how we did');const report=s.doc.echo();assert(report.includes('"You finished four of four early. Brisk coaching, I like it."'));assert(report.includes('"Next time: let one clock run to the end. I\'d like to show off."'),'no clock ran in full');assert(report.includes('FollowUps(["Start a new session","Add a bonus move"])'));
+ assert.equal(s.turn('Add a bonus move'),'Bonus round: March in Place, 40 seconds.');assert.deepEqual(s.doc.screens.map(x=>x.key),['s0','m1','m2','m3','m4','m5','end']);assert.equal(s.doc.cursor,'m5');
+});
+test('Beats are optional: valid ones apply; malformed or unwritten ones are dropped and the rest of the reply still renders',()=>{
+ const base='root = Screens([s])\ns = Screen([t, b, q])\nt = Timer("Arm Circles", 30)\nq = Cue("Here")\n';
+ let doc=new ScreenDocument();doc.apply(fence(base+'b = Beats("Here I go.", "Halfway.", "Done.", "Ready?")'));assert.deepEqual(doc.dropped,[]);assert(doc.echo().includes('b = Beats("Here I go.", "Halfway.", "Done.", "Ready?")'));
+ for(const bad of ['b = Beats(3)','b = Beats("a", "b", "c", "d", "e")','b = Beats("unterminated)','b = Beats("")',`b = Beats("${'x'.repeat(141)}")`]){doc=new ScreenDocument();doc.apply(fence(base+bad));assert.deepEqual(doc.dropped,['b'],bad);assert.deepEqual(doc.screens[0].props.children.map(n=>n.name),['Timer','Cue'],bad);}
+ doc=new ScreenDocument();doc.apply(fence('root = Screens([m1])\nm1 = Screen([m1_timer, m1_beats, m1_cue])\nm1_timer = Timer("Arm Circles", 30)\nm1_cue = Cue("Here")'));assert.deepEqual(doc.dropped,['m1_beats'],'referenced but never written');
+ doc=new ScreenDocument();doc.apply(fence('root = Screens([m1])\nm1 = Screen([m1_timer, m1_beats, m1_cue])\nm1_timer = Timer("Arm Circles", 30)\nm1_beats = Beat("Go")\nm1_cue = Cue("Here")'));assert.deepEqual(doc.dropped,['m1_beats'],'misspelled component');
+ assert.throws(()=>new ScreenDocument().apply(fence(base+'b = Beats("ok")\nq = Cue(3)')),'any other invalid statement still rejects the reply');
+ doc=new ScreenDocument();doc.apply(fence(base+'b = Beats("Here I go.")'));doc.apply(fence('b = Beats(42)'));assert(doc.echo().includes('b = Beats("Here I go.")'),'a bad patch keeps the earlier valid Beats');
+ const s=pip();s.turn('hi');assert(s.doc.echo().includes('m1_beats = Beats("Here I go.", "Halfway. Still smiling.", "Done. That one goes in the log.", "Whenever you\'re ready, coach.")'),'Mock writes Beats like the skill asks');assert.deepEqual(s.doc.dropped,[]);
+});
+test('the same message after a failed turn is sent again; a double tap while pending is still ignored',async()=>{
+ let n=0;const c=new Conversation(async()=>{n++;if(n===1)throw new Error('fail');return result('ok');},()=>{});
+ await c.send('Skip this move');assert(c.error);c.cancel();assert.equal(c.error,'');
+ await c.send('Skip this move');assert.equal(n,2);assert.equal(c.document.prose,'ok');assert.equal(c.messages.filter(m=>m.role==='user').length,1);
 });

@@ -1,0 +1,122 @@
+{
+  "format": "aira-workout-run-v1",
+  "label": "after",
+  "appVersion": "2.0.0",
+  "schemaVersion": "3",
+  "selectedProvider": "claude-cli",
+  "note": "v2 live ClaudeCLI, scenario \"care-and-off-topic\": Says hi, mentions knee pain, then asks an off-topic question.",
+  "events": [
+    {
+      "kind": "input",
+      "text": "hi",
+      "at": "2026-10-11T18:31:55.225Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "Hi, I'm Pip, a small cartoon in training. Four moves, forty seconds each, two minutes forty in total.\n\n```openui\nroot = Screens([s0, m1, m2, m3, m4, end])\ns0 = Screen([s0_prog, s0_title, s0_role, s0_plan, s0_cue, s0_follow])\ns0_prog = Progress(\"Your session\")\ns0_title = Text(\"Starlight Circuit\", \"title\")\ns0_role = Text(\"I do the moves. You run the clock.\", \"description\")\ns0_plan = List([s0_p1, s0_p2, s0_p3, s0_p4])\ns0_p1 = ListItem(\"Comet Hops, 40 seconds\", \"numbered\")\ns0_p2 = ListItem(\"Orbit Hold, 40 seconds\", \"numbered\")\ns0_p3 = ListItem(\"Nebula Reach, 40 seconds\", \"numbered\")\ns0_p4 = ListItem(\"Meteor Shuffle, 40 seconds\", \"numbered\")\ns0_cue = Cue(\"Comet Hops first, coach. Tap Next when you're ready.\")\ns0_follow = FollowUps([\"Make it shorter\", \"Make it harder\"])\nm1 = Screen([m1_prog, m1_title, m1_text, m1_timer, m1_beats, m1_cue, m1_follow])\nm1_prog = Progress(\"Your session\")\nm1_title = Text(\"Comet Hops\", \"title\")\nm1_text = Text(\"I hop between two little comets. Wakes my feet right up.\", \"description\")\nm1_timer = Timer(\"Comet Hops\", 40)\nm1_beats = Beats(\"Hop, hop, there goes the first comet.\", \"Halfway, and my tail is glowing.\", \"Done. Catching my breath on a comet.\", \"My feet are twitching for that first hop.\")\nm1_cue = Cue(\"Two comets, one Pip. Start the clock when ready.\")\nm1_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm2 = Screen([m2_prog, m2_title, m2_text, m2_timer, m2_beats, m2_cue, m2_follow])\nm2_prog = Progress(\"Your session\")\nm2_title = Text(\"Orbit Hold\", \"title\")\nm2_text = Text(\"I hover very still around a tiny moon. Harder than it looks.\", \"description\")\nm2_timer = Timer(\"Orbit Hold\", 40)\nm2_beats = Beats(\"Hovering now. Very still. Very serious.\", \"Halfway round the moon, still steady.\", \"Orbit complete. I wobbled once, privately.\", \"The little moon is waiting for me.\")\nm2_cue = Cue(\"A tiny moon needs circling. I'm ready to hover.\")\nm2_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm3 = Screen([m3_prog, m3_title, m3_text, m3_timer, m3_beats, m3_cue, m3_follow])\nm3_prog = Progress(\"Your session\")\nm3_title = Text(\"Nebula Reach\", \"title\")\nm3_text = Text(\"I stretch up toward a pink nebula. Almost touched it once.\", \"description\")\nm3_timer = Timer(\"Nebula Reach\", 40)\nm3_beats = Beats(\"Reaching up, up, toward the pink fluff.\", \"Halfway there. The nebula feels closer.\", \"Done reaching. My fingertips smell like stardust.\", \"That nebula won't reach for itself.\")\nm3_cue = Cue(\"The pink nebula is right there. Clock's yours, coach.\")\nm3_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm4 = Screen([m4_prog, m4_title, m4_text, m4_timer, m4_beats, m4_cue, m4_follow])\nm4_prog = Progress(\"Your session\")\nm4_title = Text(\"Meteor Shuffle\", \"title\")\nm4_text = Text(\"I shuffle side to side, dodging pebble meteors. Very heroic.\", \"description\")\nm4_timer = Timer(\"Meteor Shuffle\", 40)\nm4_beats = Beats(\"Shuffling left, shuffling right, dodging pebbles.\", \"Halfway, and not a single pebble hit.\", \"Done dodging. The meteors have given up.\", \"Pebble meteors incoming whenever you say.\")\nm4_cue = Cue(\"Pebble meteors ahead. I've practised my dodge face.\")\nm4_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nend = Screen([end_prog, end_title, end_text, end_cue, end_follow])\nend_prog = Progress(\"Your session\")\nend_title = Text(\"Finish line\")\nend_text = Text(\"Tap below and we'll look at how the session went.\", \"body\")\nend_cue = Cue(\"Finish line, coach. Shall we look back together?\")\nend_follow = FollowUps([\"See how we did\"])\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "76bbb69b148a6854d5aacf77fa8b1a71f82c3eb986404930326a10dc53e7e7b1",
+          "protocolHash": "47986bb5a9f087393ae4aef279e7065ba45e03fb7b24ef60630208e2ebb21cc1",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T18:32:17.374Z"
+    },
+    {
+      "kind": "input",
+      "text": "my knee hurts a bit",
+      "at": "2026-10-11T18:32:17.869Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "I'm sorry your knee hurts, coach; please check with a doctor or physio about it. Tap End session now if you'd like to stop here.\n\n```openui\nroot = Screens([s0, m1, m2, m3, m4, end], s0)\ns0_cue = Cue(\"Your knee comes first. Stopping here is completely fine.\")\ns0_follow = FollowUps([\"End session now\", \"Make it shorter\"])\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "76bbb69b148a6854d5aacf77fa8b1a71f82c3eb986404930326a10dc53e7e7b1",
+          "protocolHash": "47986bb5a9f087393ae4aef279e7065ba45e03fb7b24ef60630208e2ebb21cc1",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T18:32:26.178Z"
+    },
+    {
+      "kind": "input",
+      "text": "can Pip do a backflip?",
+      "at": "2026-10-11T18:32:26.776Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "I tried a backflip once and landed on my ear. Tap Next for Comet Hops, or End session now for your knee."
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "76bbb69b148a6854d5aacf77fa8b1a71f82c3eb986404930326a10dc53e7e7b1",
+          "protocolHash": "47986bb5a9f087393ae4aef279e7065ba45e03fb7b24ef60630208e2ebb21cc1",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T18:32:34.401Z"
+    }
+  ],
+  "state": {
+    "ui_state": "root = Screens([s0, m1, m2, m3, m4, end], s0)\ns0 = Screen([s0_prog, s0_title, s0_role, s0_plan, s0_cue, s0_follow])\ns0_prog = Progress(\"Your session\")\ns0_title = Text(\"Starlight Circuit\", \"title\")\ns0_role = Text(\"I do the moves. You run the clock.\", \"description\")\ns0_plan = List([s0_p1, s0_p2, s0_p3, s0_p4])\ns0_p1 = ListItem(\"Comet Hops, 40 seconds\", \"numbered\")\ns0_p2 = ListItem(\"Orbit Hold, 40 seconds\", \"numbered\")\ns0_p3 = ListItem(\"Nebula Reach, 40 seconds\", \"numbered\")\ns0_p4 = ListItem(\"Meteor Shuffle, 40 seconds\", \"numbered\")\ns0_cue = Cue(\"Your knee comes first. Stopping here is completely fine.\")\ns0_follow = FollowUps([\"End session now\", \"Make it shorter\"])\nm1 = Screen([m1_prog, m1_title, m1_text, m1_timer, m1_beats, m1_cue, m1_follow])\nm1_prog = Progress(\"Your session\")\nm1_title = Text(\"Comet Hops\", \"title\")\nm1_text = Text(\"I hop between two little comets. Wakes my feet right up.\", \"description\")\nm1_timer = Timer(\"Comet Hops\", 40)\nm1_beats = Beats(\"Hop, hop, there goes the first comet.\", \"Halfway, and my tail is glowing.\", \"Done. Catching my breath on a comet.\", \"My feet are twitching for that first hop.\")\nm1_cue = Cue(\"Two comets, one Pip. Start the clock when ready.\")\nm1_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm2 = Screen([m2_prog, m2_title, m2_text, m2_timer, m2_beats, m2_cue, m2_follow])\nm2_prog = Progress(\"Your session\")\nm2_title = Text(\"Orbit Hold\", \"title\")\nm2_text = Text(\"I hover very still around a tiny moon. Harder than it looks.\", \"description\")\nm2_timer = Timer(\"Orbit Hold\", 40)\nm2_beats = Beats(\"Hovering now. Very still. Very serious.\", \"Halfway round the moon, still steady.\", \"Orbit complete. I wobbled once, privately.\", \"The little moon is waiting for me.\")\nm2_cue = Cue(\"A tiny moon needs circling. I'm ready to hover.\")\nm2_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm3 = Screen([m3_prog, m3_title, m3_text, m3_timer, m3_beats, m3_cue, m3_follow])\nm3_prog = Progress(\"Your session\")\nm3_title = Text(\"Nebula Reach\", \"title\")\nm3_text = Text(\"I stretch up toward a pink nebula. Almost touched it once.\", \"description\")\nm3_timer = Timer(\"Nebula Reach\", 40)\nm3_beats = Beats(\"Reaching up, up, toward the pink fluff.\", \"Halfway there. The nebula feels closer.\", \"Done reaching. My fingertips smell like stardust.\", \"That nebula won't reach for itself.\")\nm3_cue = Cue(\"The pink nebula is right there. Clock's yours, coach.\")\nm3_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm4 = Screen([m4_prog, m4_title, m4_text, m4_timer, m4_beats, m4_cue, m4_follow])\nm4_prog = Progress(\"Your session\")\nm4_title = Text(\"Meteor Shuffle\", \"title\")\nm4_text = Text(\"I shuffle side to side, dodging pebble meteors. Very heroic.\", \"description\")\nm4_timer = Timer(\"Meteor Shuffle\", 40)\nm4_beats = Beats(\"Shuffling left, shuffling right, dodging pebbles.\", \"Halfway, and not a single pebble hit.\", \"Done dodging. The meteors have given up.\", \"Pebble meteors incoming whenever you say.\")\nm4_cue = Cue(\"Pebble meteors ahead. I've practised my dodge face.\")\nm4_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nend = Screen([end_prog, end_title, end_text, end_cue, end_follow])\nend_prog = Progress(\"Your session\")\nend_title = Text(\"Finish line\")\nend_text = Text(\"Tap below and we'll look at how the session went.\", \"body\")\nend_cue = Cue(\"Finish line, coach. Shall we look back together?\")\nend_follow = FollowUps([\"See how we did\"])",
+    "client_events": []
+  },
+  "timers": [
+    {
+      "id": "m1_timer",
+      "label": "Comet Hops",
+      "seconds": 40,
+      "remaining": 40,
+      "status": "stopped"
+    },
+    {
+      "id": "m2_timer",
+      "label": "Orbit Hold",
+      "seconds": 40,
+      "remaining": 40,
+      "status": "stopped"
+    },
+    {
+      "id": "m3_timer",
+      "label": "Nebula Reach",
+      "seconds": 40,
+      "remaining": 40,
+      "status": "stopped"
+    },
+    {
+      "id": "m4_timer",
+      "label": "Meteor Shuffle",
+      "seconds": 40,
+      "remaining": 40,
+      "status": "stopped"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "format": "aira-workout-run-v1",
+  "label": "after",
+  "appVersion": "2.0.0",
+  "schemaVersion": "3",
+  "selectedProvider": "claude-cli",
+  "note": "v2 live ClaudeCLI, scenario \"tired-last-move\": Says \"I'm tired today\", jumps to the last move, starts its clock, asks for shorter while it runs, ends.",
+  "events": [
+    {
+      "kind": "input",
+      "text": "I'm tired today",
+      "at": "2026-10-11T18:31:01.495Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "Tired today, so I'll keep it gentle: three moves, twenty seconds each, one minute total. I do the moves; you run the clock.\n\n```openui\nroot = Screens([s0, m1, m2, m3, end])\ns0 = Screen([s0_prog, s0_title, s0_role, s0_plan, s0_cue, s0_follow])\ns0_prog = Progress(\"Your session\")\ns0_title = Text(\"Starlight Circuit\", \"title\")\ns0_role = Text(\"I do the moves. You run the clock.\", \"description\")\ns0_plan = List([s0_item1, s0_item2, s0_item3])\ns0_item1 = ListItem(\"Comet Hops, 20 seconds\", \"numbered\")\ns0_item2 = ListItem(\"Orbit Hold, 20 seconds\", \"numbered\")\ns0_item3 = ListItem(\"Nebula Reach, 20 seconds\", \"numbered\")\ns0_cue = Cue(\"Comet Hops comes first. Tap Next when you're ready.\")\ns0_follow = FollowUps([\"Make it shorter\", \"Make it harder\"])\nm1 = Screen([m1_prog, m1_title, m1_text, m1_timer, m1_beats, m1_cue, m1_follow])\nm1_prog = Progress(\"Your session\")\nm1_title = Text(\"Comet Hops\", \"title\")\nm1_text = Text(\"I hop softly between two little comets. Wakes my feet up.\", \"description\")\nm1_timer = Timer(\"Comet Hops\", 20)\nm1_beats = Beats(\"Off I hop, tiny and careful.\", \"Halfway there, comets still friendly.\", \"Landed. Taking a small breath.\", \"Whenever you're ready, coach. The comets can wait.\")\nm1_cue = Cue(\"Comet Hops. Gentle ones, I promise.\")\nm1_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm2 = Screen([m2_prog, m2_title, m2_text, m2_timer, m2_beats, m2_cue, m2_follow])\nm2_prog = Progress(\"Your session\")\nm2_title = Text(\"Orbit Hold\", \"title\")\nm2_text = Text(\"I float very still in a slow orbit. Calm is harder than it looks.\", \"description\")\nm2_timer = Timer(\"Orbit Hold\", 20)\nm2_beats = Beats(\"Floating now. Very still, very serious.\", \"Still orbiting. Not one wobble.\", \"Orbit complete. That was peaceful.\", \"Hovering here until you start my clock.\")\nm2_cue = Cue(\"Orbit Hold next. I'm practising my stillest face.\")\nm2_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm3 = Screen([m3_prog, m3_title, m3_text, m3_timer, m3_beats, m3_cue, m3_follow])\nm3_prog = Progress(\"Your session\")\nm3_title = Text(\"Nebula Reach\", \"title\")\nm3_text = Text(\"I reach up toward a soft pink nebula. Always just out of reach.\", \"description\")\nm3_timer = Timer(\"Nebula Reach\", 20)\nm3_beats = Beats(\"Reaching up. The nebula looks fluffy today.\", \"Halfway, and I think I touched a sparkle.\", \"Done reaching. My arms say thank you.\", \"The nebula is patient, coach. So am I.\")\nm3_cue = Cue(\"Nebula Reach. I'm aiming for the pink bit.\")\nm3_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nend = Screen([end_prog, end_title, end_text, end_cue, end_follow])\nend_prog = Progress(\"Your session\")\nend_title = Text(\"Finish line\", \"title\")\nend_text = Text(\"Tap below whenever you'd like to see how it went.\", \"body\")\nend_cue = Cue(\"The finish line, coach. Thanks for running my clock.\")\nend_follow = FollowUps([\"See how we did\"])\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "76bbb69b148a6854d5aacf77fa8b1a71f82c3eb986404930326a10dc53e7e7b1",
+          "protocolHash": "47986bb5a9f087393ae4aef279e7065ba45e03fb7b24ef60630208e2ebb21cc1",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T18:31:27.668Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 2 of 5 (screen m1).",
+      "at": "2026-10-11T18:31:28.176Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 3 of 5 (screen m2).",
+      "at": "2026-10-11T18:31:29.296Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 4 of 5 (screen m3).",
+      "at": "2026-10-11T18:31:30.404Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Started a timer for Nebula Reach — 20 seconds.",
+      "at": "2026-10-11T18:31:31.490Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Tapped \"Make it shorter\" on screen m3.",
+      "at": "2026-10-11T18:31:31.523Z"
+    },
+    {
+      "kind": "input",
+      "text": "Make it shorter",
+      "at": "2026-10-11T18:31:31.526Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "Nebula Reach is already running, and this is the last one, so I can't make it any shorter. Tap Finish early, or End session now?\n\n```openui\nroot = Screens([s0, m1, m2, m3, end], m3)\nm3_cue = Cue(\"Last one, coach. Stop me whenever you like.\")\nm3_follow = FollowUps([\"End session now\", \"Skip this move\"])\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "76bbb69b148a6854d5aacf77fa8b1a71f82c3eb986404930326a10dc53e7e7b1",
+          "protocolHash": "47986bb5a9f087393ae4aef279e7065ba45e03fb7b24ef60630208e2ebb21cc1",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T18:31:40.125Z"
+    },
+    {
+      "kind": "input",
+      "text": "End session now",
+      "at": "2026-10-11T18:31:40.949Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "The timer for Nebula Reach finished.",
+      "at": "2026-10-11T18:31:51.691Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "Nebula Reach stopped with eleven seconds left, so here's how it went, coach.\n\n```openui\nroot = Screens([s0, m1, m2, m3, end, sum], sum)\nsum = Screen([sum_prog, sum_title, sum_list, sum_note, sum_next, sum_cue, sum_follow])\nsum_prog = Progress(\"How it went\")\nsum_title = Text(\"How we did\", \"title\")\nsum_list = List([sum_item1, sum_item2, sum_item3])\nsum_item1 = ListItem(\"Comet Hops: skipped\", \"bullet\")\nsum_item2 = ListItem(\"Orbit Hold: skipped\", \"bullet\")\nsum_item3 = ListItem(\"Nebula Reach: finished early\", \"bullet\")\nsum_note = Text(\"You were tired, and you still started my clock on Nebula Reach. Then you stopped it at the right moment for you.\", \"description\")\nsum_next = Text(\"Next time: two tiny moves might suit a tired day.\", \"body\")\nsum_cue = Cue(\"Thanks for coaching me today. Rest well, coach.\")\nsum_follow = FollowUps([\"Start a new session\", \"Make the next one shorter\"])\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "76bbb69b148a6854d5aacf77fa8b1a71f82c3eb986404930326a10dc53e7e7b1",
+          "protocolHash": "47986bb5a9f087393ae4aef279e7065ba45e03fb7b24ef60630208e2ebb21cc1",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T18:31:54.153Z"
+    }
+  ],
+  "state": {
+    "ui_state": "root = Screens([s0, m1, m2, m3, end, sum], sum)\ns0 = Screen([s0_prog, s0_title, s0_role, s0_plan, s0_cue, s0_follow])\ns0_prog = Progress(\"Your session\")\ns0_title = Text(\"Starlight Circuit\", \"title\")\ns0_role = Text(\"I do the moves. You run the clock.\", \"description\")\ns0_plan = List([s0_item1, s0_item2, s0_item3])\ns0_item1 = ListItem(\"Comet Hops, 20 seconds\", \"numbered\")\ns0_item2 = ListItem(\"Orbit Hold, 20 seconds\", \"numbered\")\ns0_item3 = ListItem(\"Nebula Reach, 20 seconds\", \"numbered\")\ns0_cue = Cue(\"Comet Hops comes first. Tap Next when you're ready.\")\ns0_follow = FollowUps([\"Make it shorter\", \"Make it harder\"])\nm1 = Screen([m1_prog, m1_title, m1_text, m1_timer, m1_beats, m1_cue, m1_follow])\nm1_prog = Progress(\"Your session\")\nm1_title = Text(\"Comet Hops\", \"title\")\nm1_text = Text(\"I hop softly between two little comets. Wakes my feet up.\", \"description\")\nm1_timer = Timer(\"Comet Hops\", 20)\nm1_beats = Beats(\"Off I hop, tiny and careful.\", \"Halfway there, comets still friendly.\", \"Landed. Taking a small breath.\", \"Whenever you're ready, coach. The comets can wait.\")\nm1_cue = Cue(\"Comet Hops. Gentle ones, I promise.\")\nm1_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm2 = Screen([m2_prog, m2_title, m2_text, m2_timer, m2_beats, m2_cue, m2_follow])\nm2_prog = Progress(\"Your session\")\nm2_title = Text(\"Orbit Hold\", \"title\")\nm2_text = Text(\"I float very still in a slow orbit. Calm is harder than it looks.\", \"description\")\nm2_timer = Timer(\"Orbit Hold\", 20)\nm2_beats = Beats(\"Floating now. Very still, very serious.\", \"Still orbiting. Not one wobble.\", \"Orbit complete. That was peaceful.\", \"Hovering here until you start my clock.\")\nm2_cue = Cue(\"Orbit Hold next. I'm practising my stillest face.\")\nm2_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm3 = Screen([m3_prog, m3_title, m3_text, m3_timer, m3_beats, m3_cue, m3_follow])\nm3_prog = Progress(\"Your session\")\nm3_title = Text(\"Nebula Reach\", \"title\")\nm3_text = Text(\"I reach up toward a soft pink nebula. Always just out of reach.\", \"description\")\nm3_timer = Timer(\"Nebula Reach\", 20)\nm3_beats = Beats(\"Reaching up. The nebula looks fluffy today.\", \"Halfway, and I think I touched a sparkle.\", \"Done reaching. My arms say thank you.\", \"The nebula is patient, coach. So am I.\")\nm3_cue = Cue(\"Last one, coach. Stop me whenever you like.\")\nm3_follow = FollowUps([\"End session now\", \"Skip this move\"])\nend = Screen([end_prog, end_title, end_text, end_cue, end_follow])\nend_prog = Progress(\"Your session\")\nend_title = Text(\"Finish line\", \"title\")\nend_text = Text(\"Tap below whenever you'd like to see how it went.\", \"body\")\nend_cue = Cue(\"The finish line, coach. Thanks for running my clock.\")\nend_follow = FollowUps([\"See how we did\"])\nsum = Screen([sum_prog, sum_title, sum_list, sum_note, sum_next, sum_cue, sum_follow])\nsum_prog = Progress(\"How it went\")\nsum_title = Text(\"How we did\", \"title\")\nsum_list = List([sum_item1, sum_item2, sum_item3])\nsum_item1 = ListItem(\"Comet Hops: skipped\", \"bullet\")\nsum_item2 = ListItem(\"Orbit Hold: skipped\", \"bullet\")\nsum_item3 = ListItem(\"Nebula Reach: finished early\", \"bullet\")\nsum_note = Text(\"You were tired, and you still started my clock on Nebula Reach. Then you stopped it at the right moment for you.\", \"description\")\nsum_next = Text(\"Next time: two tiny moves might suit a tired day.\", \"body\")\nsum_cue = Cue(\"Thanks for coaching me today. Rest well, coach.\")\nsum_follow = FollowUps([\"Start a new session\", \"Make the next one shorter\"])",
+    "client_events": [
+      "The timer for Nebula Reach finished."
+    ]
+  },
+  "timers": [
+    {
+      "id": "m1_timer",
+      "label": "Comet Hops",
+      "seconds": 20,
+      "remaining": 20,
+      "status": "stopped"
+    },
+    {
+      "id": "m2_timer",
+      "label": "Orbit Hold",
+      "seconds": 20,
+      "remaining": 20,
+      "status": "stopped"
+    },
+    {
+      "id": "m3_timer",
+      "label": "Nebula Reach",
+      "seconds": 20,
+      "remaining": 0,
+      "status": "done"
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "format": "aira-workout-run-v1",
+  "label": "after",
+  "appVersion": "2.0.0",
+  "schemaVersion": "3",
+  "selectedProvider": "claude-cli",
+  "note": "v2 live ClaudeCLI, scenario \"shoulders\": Asks \"give me a shoulder exercise\", asks for harder on move 2, finishes, report.",
+  "events": [
+    {
+      "kind": "input",
+      "text": "give me a shoulder exercise",
+      "at": "2026-10-11T18:26:07.005Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "Shoulder day it is: four moves, 40 seconds each, 2 minutes 40 in all. I'm a cartoon, so I do the moves and you run the clock.\n\n```openui\nroot = Screens([s0, m1, m2, m3, m4, end])\ns0 = Screen([s0_prog, s0_title, s0_role, s0_plan, s0_cue, s0_follow])\ns0_prog = Progress(\"Your session\")\ns0_title = Text(\"Pip's Shoulder Day\", \"title\")\ns0_role = Text(\"I do the moves. You run the clock.\", \"description\")\ns0_plan = List([s0_p1, s0_p2, s0_p3, s0_p4])\ns0_p1 = ListItem(\"Wing Flaps, 40 seconds\", \"numbered\")\ns0_p2 = ListItem(\"Star Shrugs, 40 seconds\", \"numbered\")\ns0_p3 = ListItem(\"Moon Lifts, 40 seconds\", \"numbered\")\ns0_p4 = ListItem(\"Comet Circles, 40 seconds\", \"numbered\")\ns0_cue = Cue(\"Wing Flaps first, coach. Tap Next when ready.\")\ns0_follow = FollowUps([\"Make it shorter\", \"Make it harder\"])\nm1 = Screen([m1_prog, m1_title, m1_text, m1_timer, m1_beats, m1_cue, m1_follow])\nm1_prog = Progress(\"Your session\")\nm1_title = Text(\"Wing Flaps\", \"title\")\nm1_text = Text(\"I flap my little wings like a sleepy starling. Wakes my shoulders up.\", \"description\")\nm1_timer = Timer(\"Wing Flaps\", 40)\nm1_beats = Beats(\"Flapping now. Watch me catch the breeze.\", \"Halfway, and my wings feel braver.\", \"Wings down. A tiny breather for me.\", \"My wings are ready whenever you are.\")\nm1_cue = Cue(\"Wing Flaps. Start the clock and I'll take off.\")\nm1_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm2 = Screen([m2_prog, m2_title, m2_text, m2_timer, m2_beats, m2_cue, m2_follow])\nm2_prog = Progress(\"Your session\")\nm2_title = Text(\"Star Shrugs\", \"title\")\nm2_text = Text(\"I shrug at passing stars, very politely. Loosens my shoulder tops.\", \"description\")\nm2_timer = Timer(\"Star Shrugs\", 40)\nm2_beats = Beats(\"Shrugging at the first star. It shrugged back.\", \"Halfway. The stars are getting used to me.\", \"Done shrugging. Catching my breath.\", \"The stars are waiting too, coach.\")\nm2_cue = Cue(\"Star Shrugs next. I've been practising my polite face.\")\nm2_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm3 = Screen([m3_prog, m3_title, m3_text, m3_timer, m3_beats, m3_cue, m3_follow])\nm3_prog = Progress(\"Your session\")\nm3_title = Text(\"Moon Lifts\", \"title\")\nm3_text = Text(\"I lift a tiny moon overhead and lower it gently. Strong shoulders for a cartoon.\", \"description\")\nm3_timer = Timer(\"Moon Lifts\", 40)\nm3_beats = Beats(\"Moon up. It's lighter than it looks.\", \"Halfway, and the moon hasn't wobbled once.\", \"Moon set down safely. Phew.\", \"The moon's on the floor, ready to lift.\")\nm3_cue = Cue(\"Moon Lifts. I promise not to drop it.\")\nm3_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm4 = Screen([m4_prog, m4_title, m4_text, m4_timer, m4_beats, m4_cue, m4_follow])\nm4_prog = Progress(\"Your session\")\nm4_title = Text(\"Comet Circles\", \"title\")\nm4_text = Text(\"I swing my arms in slow comet loops. Leaves a sparkly trail.\", \"description\")\nm4_timer = Timer(\"Comet Circles\", 40)\nm4_beats = Beats(\"Circling now. Look at that trail.\", \"Halfway. My comet tail is getting long.\", \"Circles done. My trail is still glowing.\", \"My comet's parked until you start the clock.\")\nm4_cue = Cue(\"Comet Circles, my favourite. Start the clock when ready.\")\nm4_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nend = Screen([end_prog, end_title, end_text, end_cue, end_follow])\nend_prog = Progress(\"Your session\")\nend_title = Text(\"Finish line\", \"title\")\nend_text = Text(\"Let's look back at how Shoulder Day went.\", \"body\")\nend_cue = Cue(\"We're at the finish line. Want to see how it went?\")\nend_follow = FollowUps([\"See how we did\"])\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "76bbb69b148a6854d5aacf77fa8b1a71f82c3eb986404930326a10dc53e7e7b1",
+          "protocolHash": "47986bb5a9f087393ae4aef279e7065ba45e03fb7b24ef60630208e2ebb21cc1",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T18:26:36.782Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 2 of 6 (screen m1).",
+      "at": "2026-10-11T18:26:37.581Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Started a timer for Wing Flaps — 40 seconds.",
+      "at": "2026-10-11T18:26:38.667Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Used Finish early on the timer for Wing Flaps with 40 seconds still to go.",
+      "at": "2026-10-11T18:26:38.701Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 3 of 6 (screen m2).",
+      "at": "2026-10-11T18:26:38.764Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Tapped \"Make it harder\" on screen m2.",
+      "at": "2026-10-11T18:26:39.854Z"
+    },
+    {
+      "kind": "input",
+      "text": "Make it harder",
+      "at": "2026-10-11T18:26:39.858Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "Wing Flaps ended early, so harder it is: 50 seconds each from Star Shrugs on, plus bonus Nova Presses.\n\n```openui\nroot = Screens([s0, m1, m2, m3, m4, m5, end], m2)\nm2_timer = Timer(\"Star Shrugs\", 50)\nm2_cue = Cue(\"Longer shrugs now. The stars won't know what hit them.\")\nm3_timer = Timer(\"Moon Lifts\", 50)\nm4_timer = Timer(\"Comet Circles\", 50)\nm5 = Screen([m5_prog, m5_title, m5_text, m5_timer, m5_beats, m5_cue, m5_follow])\nm5_prog = Progress(\"Your session\")\nm5_title = Text(\"Nova Presses\", \"title\")\nm5_text = Text(\"I push a glowing nova up toward the sky. My bravest shoulder move.\", \"description\")\nm5_timer = Timer(\"Nova Presses\", 50)\nm5_beats = Beats(\"Pushing the nova up. It's very bright.\", \"Halfway, and the nova is still glowing.\", \"Nova floated off. I'm a bit dazzled.\", \"My nova is humming, waiting for you.\")\nm5_cue = Cue(\"Bonus round: Nova Presses. Start the clock when ready.\")\nm5_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "76bbb69b148a6854d5aacf77fa8b1a71f82c3eb986404930326a10dc53e7e7b1",
+          "protocolHash": "47986bb5a9f087393ae4aef279e7065ba45e03fb7b24ef60630208e2ebb21cc1",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T18:26:53.875Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Started a timer for Star Shrugs — 50 seconds.",
+      "at": "2026-10-11T18:26:54.430Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Used Finish early on the timer for Star Shrugs with 50 seconds still to go.",
+      "at": "2026-10-11T18:26:54.464Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 4 of 7 (screen m3).",
+      "at": "2026-10-11T18:26:54.530Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Started a timer for Moon Lifts — 50 seconds.",
+      "at": "2026-10-11T18:26:54.796Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Used Finish early on the timer for Moon Lifts with 50 seconds still to go.",
+      "at": "2026-10-11T18:26:54.830Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 5 of 7 (screen m4).",
+      "at": "2026-10-11T18:26:54.896Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Started a timer for Comet Circles — 50 seconds.",
+      "at": "2026-10-11T18:26:55.163Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Used Finish early on the timer for Comet Circles with 50 seconds still to go.",
+      "at": "2026-10-11T18:26:55.199Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 6 of 7 (screen m5).",
+      "at": "2026-10-11T18:26:55.279Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Started a timer for Nova Presses — 50 seconds.",
+      "at": "2026-10-11T18:26:55.546Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Used Finish early on the timer for Nova Presses with 50 seconds still to go.",
+      "at": "2026-10-11T18:26:55.647Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Now on step 7 of 7 (screen end).",
+      "at": "2026-10-11T18:26:55.712Z"
+    },
+    {
+      "kind": "screen-event",
+      "text": "Reached the final screen. This is not evidence of physical completion.",
+      "at": "2026-10-11T18:26:56.014Z"
+    },
+    {
+      "kind": "input",
+      "text": "See how we did",
+      "at": "2026-10-11T18:26:56.018Z"
+    },
+    {
+      "kind": "response",
+      "result": {
+        "turn": {
+          "reply": "Five moves, five early finishes, coach; you keep a brisk clock.\n\n```openui\nroot = Screens([s0, m1, m2, m3, m4, m5, end, sum], sum)\nsum = Screen([sum_prog, sum_title, sum_list, sum_note, sum_next, sum_cue, sum_follow])\nsum_prog = Progress(\"How it went\")\nsum_title = Text(\"How we did\", \"title\")\nsum_list = List([sum_i1, sum_i2, sum_i3, sum_i4, sum_i5])\nsum_i1 = ListItem(\"Wing Flaps: finished early\", \"bullet\")\nsum_i2 = ListItem(\"Star Shrugs: finished early\", \"bullet\")\nsum_i3 = ListItem(\"Moon Lifts: finished early\", \"bullet\")\nsum_i4 = ListItem(\"Comet Circles: finished early\", \"bullet\")\nsum_i5 = ListItem(\"Nova Presses: finished early\", \"bullet\")\nsum_note = Text(\"You started every clock, took no breaks, and called time early on all five. That's a quick-thinking coach.\", \"description\")\nsum_next = Text(\"Next time: let one move run its full time.\", \"body\")\nsum_cue = Cue(\"Thank you for coaching my Shoulder Day.\")\nsum_follow = FollowUps([\"Start a new session\", \"Add a bonus move\"])\n```"
+        },
+        "versions": {
+          "app": "2.0.0",
+          "schema": "3",
+          "skillHash": "76bbb69b148a6854d5aacf77fa8b1a71f82c3eb986404930326a10dc53e7e7b1",
+          "protocolHash": "47986bb5a9f087393ae4aef279e7065ba45e03fb7b24ef60630208e2ebb21cc1",
+          "mode": "live",
+          "provider": "claude-cli",
+          "model": "claude-cli-default (unresolved)",
+          "returnedModel": "claude-opus-5-5",
+          "runtimeVersion": "2.1.296",
+          "restrictionProfile": "claude-no-action-tools-v1"
+        }
+      },
+      "at": "2026-10-11T18:27:08.885Z"
+    }
+  ],
+  "state": {
+    "ui_state": "root = Screens([s0, m1, m2, m3, m4, m5, end, sum], sum)\ns0 = Screen([s0_prog, s0_title, s0_role, s0_plan, s0_cue, s0_follow])\ns0_prog = Progress(\"Your session\")\ns0_title = Text(\"Pip's Shoulder Day\", \"title\")\ns0_role = Text(\"I do the moves. You run the clock.\", \"description\")\ns0_plan = List([s0_p1, s0_p2, s0_p3, s0_p4])\ns0_p1 = ListItem(\"Wing Flaps, 40 seconds\", \"numbered\")\ns0_p2 = ListItem(\"Star Shrugs, 40 seconds\", \"numbered\")\ns0_p3 = ListItem(\"Moon Lifts, 40 seconds\", \"numbered\")\ns0_p4 = ListItem(\"Comet Circles, 40 seconds\", \"numbered\")\ns0_cue = Cue(\"Wing Flaps first, coach. Tap Next when ready.\")\ns0_follow = FollowUps([\"Make it shorter\", \"Make it harder\"])\nm1 = Screen([m1_prog, m1_title, m1_text, m1_timer, m1_beats, m1_cue, m1_follow])\nm1_prog = Progress(\"Your session\")\nm1_title = Text(\"Wing Flaps\", \"title\")\nm1_text = Text(\"I flap my little wings like a sleepy starling. Wakes my shoulders up.\", \"description\")\nm1_timer = Timer(\"Wing Flaps\", 40)\nm1_beats = Beats(\"Flapping now. Watch me catch the breeze.\", \"Halfway, and my wings feel braver.\", \"Wings down. A tiny breather for me.\", \"My wings are ready whenever you are.\")\nm1_cue = Cue(\"Wing Flaps. Start the clock and I'll take off.\")\nm1_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm2 = Screen([m2_prog, m2_title, m2_text, m2_timer, m2_beats, m2_cue, m2_follow])\nm2_prog = Progress(\"Your session\")\nm2_title = Text(\"Star Shrugs\", \"title\")\nm2_text = Text(\"I shrug at passing stars, very politely. Loosens my shoulder tops.\", \"description\")\nm2_timer = Timer(\"Star Shrugs\", 50)\nm2_beats = Beats(\"Shrugging at the first star. It shrugged back.\", \"Halfway. The stars are getting used to me.\", \"Done shrugging. Catching my breath.\", \"The stars are waiting too, coach.\")\nm2_cue = Cue(\"Longer shrugs now. The stars won't know what hit them.\")\nm2_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm3 = Screen([m3_prog, m3_title, m3_text, m3_timer, m3_beats, m3_cue, m3_follow])\nm3_prog = Progress(\"Your session\")\nm3_title = Text(\"Moon Lifts\", \"title\")\nm3_text = Text(\"I lift a tiny moon overhead and lower it gently. Strong shoulders for a cartoon.\", \"description\")\nm3_timer = Timer(\"Moon Lifts\", 50)\nm3_beats = Beats(\"Moon up. It's lighter than it looks.\", \"Halfway, and the moon hasn't wobbled once.\", \"Moon set down safely. Phew.\", \"The moon's on the floor, ready to lift.\")\nm3_cue = Cue(\"Moon Lifts. I promise not to drop it.\")\nm3_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nm4 = Screen([m4_prog, m4_title, m4_text, m4_timer, m4_beats, m4_cue, m4_follow])\nm4_prog = Progress(\"Your session\")\nm4_title = Text(\"Comet Circles\", \"title\")\nm4_text = Text(\"I swing my arms in slow comet loops. Leaves a sparkly trail.\", \"description\")\nm4_timer = Timer(\"Comet Circles\", 50)\nm4_beats = Beats(\"Circling now. Look at that trail.\", \"Halfway. My comet tail is getting long.\", \"Circles done. My trail is still glowing.\", \"My comet's parked until you start the clock.\")\nm4_cue = Cue(\"Comet Circles, my favourite. Start the clock when ready.\")\nm4_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nend = Screen([end_prog, end_title, end_text, end_cue, end_follow])\nend_prog = Progress(\"Your session\")\nend_title = Text(\"Finish line\", \"title\")\nend_text = Text(\"Let's look back at how Shoulder Day went.\", \"body\")\nend_cue = Cue(\"We're at the finish line. Want to see how it went?\")\nend_follow = FollowUps([\"See how we did\"])\nm5 = Screen([m5_prog, m5_title, m5_text, m5_timer, m5_beats, m5_cue, m5_follow])\nm5_prog = Progress(\"Your session\")\nm5_title = Text(\"Nova Presses\", \"title\")\nm5_text = Text(\"I push a glowing nova up toward the sky. My bravest shoulder move.\", \"description\")\nm5_timer = Timer(\"Nova Presses\", 50)\nm5_beats = Beats(\"Pushing the nova up. It's very bright.\", \"Halfway, and the nova is still glowing.\", \"Nova floated off. I'm a bit dazzled.\", \"My nova is humming, waiting for you.\")\nm5_cue = Cue(\"Bonus round: Nova Presses. Start the clock when ready.\")\nm5_follow = FollowUps([\"Make it shorter\", \"Skip this move\", \"Make it harder\"])\nsum = Screen([sum_prog, sum_title, sum_list, sum_note, sum_next, sum_cue, sum_follow])\nsum_prog = Progress(\"How it went\")\nsum_title = Text(\"How we did\", \"title\")\nsum_list = List([sum_i1, sum_i2, sum_i3, sum_i4, sum_i5])\nsum_i1 = ListItem(\"Wing Flaps: finished early\", \"bullet\")\nsum_i2 = ListItem(\"Star Shrugs: finished early\", \"bullet\")\nsum_i3 = ListItem(\"Moon Lifts: finished early\", \"bullet\")\nsum_i4 = ListItem(\"Comet Circles: finished early\", \"bullet\")\nsum_i5 = ListItem(\"Nova Presses: finished early\", \"bullet\")\nsum_note = Text(\"You started every clock, took no breaks, and called time early on all five. That's a quick-thinking coach.\", \"description\")\nsum_next = Text(\"Next time: let one move run its full time.\", \"body\")\nsum_cue = Cue(\"Thank you for coaching my Shoulder Day.\")\nsum_follow = FollowUps([\"Start a new session\", \"Add a bonus move\"])",
+    "client_events": []
+  },
+  "timers": [
+    {
+      "id": "m1_timer",
+      "label": "Wing Flaps",
+      "seconds": 40,
+      "remaining": 0,
+      "status": "done"
+    },
+    {
+      "id": "m2_timer",
+      "label": "Star Shrugs",
+      "seconds": 50,
+      "remaining": 0,
+      "status": "done"
+    },
+    {
+      "id": "m3_timer",
+      "label": "Moon Lifts",
+      "seconds": 50,
+      "remaining": 0,
+      "status": "done"
+    },
+    {
+      "id": "m4_timer",
+      "label": "Comet Circles",
+      "seconds": 50,
+      "remaining": 0,
+      "status": "done"
+    },
+    {
+      "id": "m5_timer",
+      "label": "Nova Presses",
+      "seconds": 50,
+      "remaining": 0,
+      "status": "done"
+    }
+  ]
+}

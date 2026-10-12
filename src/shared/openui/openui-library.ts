@@ -11,4 +11,8 @@ export const OPENUI_LIBRARY = {
   Timer: { args: ["label", "seconds", "image"], required: 2 },
   Cue: { args: ["text"], required: 1 },
   FollowUps: { args: ["prompts"], required: 1 },
+  // Local addition: tally derived from the screen timers by the trusted renderer.
+  Progress: { args: ["label"], required: 1 },
+  // Local addition: Aira's timed lines for one move (clock starts, half time, clock ends, coach gone quiet). Optional extras.
+  Beats: { args: ["going", "halfway", "done", "waiting"], required: 1 },
 } as const satisfies Record<string, StatementSpec>;

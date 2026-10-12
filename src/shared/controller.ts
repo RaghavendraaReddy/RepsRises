@@ -13,7 +13,9 @@ export class Conversation {
   localEvent(text: string, interrupt = true) { if (interrupt && this.pending) this.cancel('interrupted'); this.clientEvents.push(text); this.clientEvents=this.clientEvents.slice(-120); this.record({kind:'screen-event',text}); this.changed(); }
   async send(text: string, fault: RequestData['fault']='none', retry=false) {
     const input=text.trim(); if(!input || input.length>2000) return;
-    if(!retry && this.messages.at(-1)?.role==='user' && this.messages.at(-1)?.content===input) return;
+    // A repeat while the reply is pending is a double tap. A repeat after a failed or cancelled turn (the last
+    // message never got an answer) is the user trying again, so it is sent again rather than silently dropped.
+    if(!retry && this.messages.at(-1)?.role==='user' && this.messages.at(-1)?.content===input){if(this.pending)return;retry=true;}
     if(!retry && this.messages.length>=58) {this.error='Run full. Export and reset.';this.changed();return;}
     this.cancel('interrupted');
     if(!retry) {this.messages.push({role:'user',content:input});this.record({kind:'input',text:input});}
@@ -25,6 +27,8 @@ export class Conversation {
       if(!isTurn(result.turn))throw new Error('Invalid model response schema. Retry this turn.');
       this.document.apply(result.turn.reply);
       this.messages.push({role:'assistant',content:result.turn.reply});this.record({kind:'response',result});this.clientEvents.splice(0,eventCount);
+      // Builder evidence only (exports): optional Beats that were malformed or never written were skipped.
+      for(const name of this.document.dropped)this.record({kind:'note',text:`Ignored invalid or missing Beats ${name}; the screen rendered without it.`});
     }catch(error){if(generation!==this.generation)return;this.error=error instanceof Error?error.message:'Request failed.';this.record({kind:'error',text:this.error});}
     finally{if(generation===this.generation){this.pending=false;this.changed();}}
   }

@@ -60,6 +60,10 @@ export const activityClientEvents = {
   stoppedTimer: (label: string): string => {
     return `Stopped the timer for ${label} before it finished.`;
   },
+  /** Finish early with time left: lets the coach tell an early finish from a full run. */
+  finishedEarly: (label: string, remaining: number): string => {
+    return `Used Finish early on the timer for ${label} with ${durationPhrase(remaining)} still to go.`;
+  },
 
 
 };
