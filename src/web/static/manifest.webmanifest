@@ -1,0 +1,10 @@
+{
+  "name": "Icarus",
+  "short_name": "Icarus",
+  "description": "Premium fitness coaching: plans, guided sessions, set tracking and progress.",
+  "start_url": "/#/today",
+  "display": "standalone",
+  "background_color": "#0c0c0d",
+  "theme_color": "#0c0c0d",
+  "icons": [{ "src": "/web/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
