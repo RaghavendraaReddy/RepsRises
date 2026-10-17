@@ -4,7 +4,7 @@
 should feel like a friend, not a manual.
 
 **Run it:** `npm ci --ignore-scripts && npm start`, open http://127.0.0.1:4319, follow the short
-tour, then tap **I'm new, go easy**. Mock needs no key. Checked from a fresh unzip.
+tour, then tap **I'm new, go easy*. Mock needs no key. Checked from a fresh unzip.
 
 **What it is:** a fictional workout where **Aira, a tiny cartoon in training, does every move and
 you're her coach and run the clock**. The protocol forbids exercise instructions. So instead of
