@@ -57,11 +57,11 @@ function resumePill() {
     h('span', { class: 'dot', 'aria-hidden': 'true' }), h('span', { class: 'resume-time tabular' }, store.session.pausedAt ? 'Paused' : formatClock(elapsedMs(store.session, Date.now()))), h('span', { class: 'resume-label' }, 'Resume'));
 }
 
-/** Where "Get started" leads: audience first, then the training set-up, then discovery. */
-function startHref() {
-  if (!store.local.audience) return '#/welcome';
-  if (!store.profile) return '#/onboarding';
-  return '#/gyms';
+/** "Get Started" leads to the next unfinished step; once everything is set up it becomes "Today". */
+function start(): { href: string; label: string } {
+  if (!store.local.audience) return { href: '#/welcome', label: 'Get Started' };
+  if (!store.profile) return { href: '#/onboarding', label: 'Get Started' };
+  return { href: '#/today', label: 'Today' };
 }
 
 function openMenu(trigger: HTMLElement) {
@@ -76,7 +76,7 @@ function openMenu(trigger: HTMLElement) {
     h('div', { class: 'menu-foot container' },
       audienceSwitch(),
       h('a', { class: 'btn ghost', href: '#/profile', onclick: close }, icon('user'), 'Profile'),
-      h('a', { class: 'btn primary', href: startHref(), onclick: close }, 'Get Started')));
+      h('a', { class: 'btn primary', href: start().href, onclick: close }, start().label)));
   panel.addEventListener('close', () => { panel.remove(); trigger.focus(); });
   panel.addEventListener('click', event => { if ((event.target as HTMLElement).closest('.audience-switch')) close(); });
   document.body.append(panel);
@@ -91,7 +91,7 @@ function renderChrome() {
     h('nav', { class: 'nav-links', 'aria-label': 'Primary' }, NAV.map(item => h('a', { class: 'nav-link', href: item.href, 'aria-current': currentNav === item.key || (item.key === 'workouts' && training) ? 'page' : null }, item.label))),
     h('div', { class: 'nav-actions' }, resumePill(),
       h('a', { class: 'nav-link nav-profile', href: '#/profile', 'aria-current': currentNav === 'profile' ? 'page' : null }, icon('user'), h('span', null, 'Profile')),
-      currentNav === 'welcome' ? null : h('a', { class: 'btn primary small nav-start', href: startHref() }, 'Get Started'),
+      currentNav === 'welcome' || currentNav === 'onboarding' ? null : h('a', { class: 'btn primary small nav-start', href: start().href }, start().label),
       menuButton)));
   tabbar.hidden = !training || immersive;
   replace(tabbar, TABS.map(item => h('a', { href: item.href, 'aria-current': currentNav === item.key ? 'page' : null }, icon(item.icon), item.label)));

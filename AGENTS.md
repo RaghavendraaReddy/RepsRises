@@ -2,7 +2,7 @@
 
 Read README.md, docs/ARCHITECTURE.md and docs/DESIGN.md first.
 
-- Domain logic belongs in `src/shared/fitness` and stays pure and unit-tested. Screens call `store` actions; they do not write to storage directly.
+- Domain logic belongs in `src/shared` (`fitness`, `marketplace`, `audience.ts`) and stays pure and unit-tested. Screens call `store` actions; they do not write to storage directly.
 - Never insert model or user text as HTML. Build DOM with `h()` from `src/web/core/dom.ts`; `npm run lint` enforces this.
 - Coach replies must pass `checkReply` in `src/shared/coach/contracts.ts`. Change the schema there, then update `prompts/system.md`.
 - Use design tokens from `src/web/styles/tokens.css`; components read only the semantic variables (`--bg`, `--fg`, `--line`, `--accent`, `--signal`).

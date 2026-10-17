@@ -2,7 +2,7 @@ import { exerciseById, findExercise } from '../fitness/exercises.js';
 import { AUDIENCES, EQUIPMENT, GOALS, LEVELS } from '../fitness/types.js';
 import { int, list, nullable, obj, oneOf, str, valid } from '../schema.js';
 
-export const APP_VERSION = '3.0.0';
+export const APP_VERSION = '4.0.0';
 
 export const PROVIDERS = ['offline', 'anthropic-api', 'openai-api', 'claude-cli', 'codex-cli'] as const;
 export type ProviderId = typeof PROVIDERS[number];

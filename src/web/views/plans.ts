@@ -1,5 +1,5 @@
 import { exerciseById, MUSCLE_LABEL } from '../../shared/fitness/exercises.js';
-import { emptyPlan, estimateMinutes, generatePlan, planExercise, prescribe, SPLITS, uid } from '../../shared/fitness/programs.js';
+import { emptyPlan, estimateMinutes, generatePlan, planExercise, prescribe, SPLITS, splitsFor, uid } from '../../shared/fitness/programs.js';
 import type { Level, Plan, PlanDay, PlanExercise, SplitId } from '../../shared/fitness/types.js';
 import { debounce, h, replace } from '../core/dom.js';
 import type { View, ViewContext } from '../core/router.js';
@@ -15,7 +15,7 @@ const splitName = (split: SplitId) => SPLITS.find(item => item.id === split)?.na
 
 export function createFromTemplate(split: Exclude<SplitId, 'custom'>, level: Level): Plan {
   const profile = store.profile!;
-  return store.upsertPlan(generatePlan({ split, level, goal: profile.goal, equipment: profile.equipment, minutes: profile.minutes }), !store.plans.length);
+  return store.upsertPlan(generatePlan({ split, level, goal: profile.goal, equipment: profile.equipment, minutes: profile.minutes, audience: store.audience() }), !store.plans.length);
 }
 
 export function plansView(context: ViewContext): View {
@@ -52,7 +52,7 @@ export function plansView(context: ViewContext): View {
         h('div', { class: 'row between' }, h('div', { class: 'stack', style: { '--stack': '6px' } }, h('h2', { class: 'title', id: 'templates-title' }, 'Start from a template'),
           h('p', { class: 'muted small' }, `Filled with exercises for your equipment and ${profile.minutes}-minute sessions. Sensible defaults, not a guarantee: adjust anything.`)),
         segmented({ label: 'Build for', name: 'template-level', value: level, items: (['beginner', 'intermediate', 'advanced'] as Level[]).map(value => ({ value, label: LEVEL_LABEL[value] })), onChange: value => { level = value; } })),
-        h('ul', { class: 'template-grid', role: 'list' }, SPLITS.map(split => h('li', { class: 'template' },
+        h('ul', { class: 'template-grid', role: 'list' }, splitsFor(store.audience()).map(split => h('li', { class: 'template' },
           h('p', { class: 'numeral template-days' }, String(split.days), h('small', null, split.days === 1 ? 'day' : 'days')),
           h('h3', { class: 'title' }, split.name.split(' · ')[0]),
           h('p', { class: 'muted small' }, split.summary),
@@ -123,7 +123,7 @@ export function planEditorView(context: ViewContext): View {
         button('Replace', async () => {
           const choice = await pickExercise({ title: `Replace ${name}`, replacing: item.exerciseId });
           if (!choice) return;
-          const fresh = planExercise(choice, prescribe(choice, exerciseById(item.exerciseId)?.compound ? 'main' : 'accessory', draft.level, draft.goal));
+          const fresh = planExercise(choice, prescribe(choice, exerciseById(item.exerciseId)?.compound ? 'main' : 'accessory', draft.level, draft.goal, store.audience()));
           list[index] = { ...fresh, sets: item.sets, restSec: item.restSec, note: item.note, ...(choice.kind === (exercise?.kind ?? 'reps') ? { reps: fresh.reps === null ? null : item.reps ?? fresh.reps, repsMax: fresh.repsMax === null ? null : item.repsMax, seconds: fresh.seconds === null ? null : item.seconds ?? fresh.seconds } : {}) };
           changed(true);
           toast(`Replaced with ${choice.name}.`);
@@ -179,7 +179,7 @@ export function planEditorView(context: ViewContext): View {
         if (day.exercises.length >= 30) { toast('A session can hold up to 30 exercises.', { kind: 'error' }); return; }
         const choice = await pickExercise({ title: `Add to ${day.name}` });
         if (!choice) return;
-        day.exercises.push(planExercise(choice, prescribe(choice, choice.compound ? 'main' : choice.primary.includes('core') ? 'core' : 'accessory', draft.level, draft.goal)));
+        day.exercises.push(planExercise(choice, prescribe(choice, choice.compound ? 'main' : choice.primary.includes('core') ? 'core' : 'accessory', draft.level, draft.goal, store.audience())));
         changed(true);
         toast(`${choice.name} added.`);
       }, { icon: 'plus', block: true })));

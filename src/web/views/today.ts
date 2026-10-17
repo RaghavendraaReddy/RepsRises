@@ -75,7 +75,7 @@ export function todayView(context: ViewContext): View {
       h('div', { class: 'row' }, linkButton('Build a plan', '#/plans', { variant: 'primary', iconAfter: 'arrow' }), linkButton('Ask the coach', '#/coach', { variant: 'ghost' })));
     heroFigure.append(demo('goblet-squat', { caption: false, controls: false }));
   } else if (!trainingDay) {
-    const mobility = generateSession({ muscles: ['mobility'], level: profile.level, goal: profile.goal, equipment: profile.equipment, minutes: 15 });
+    const mobility = generateSession({ muscles: ['mobility'], level: profile.level, goal: profile.goal, equipment: profile.equipment, minutes: 15, audience: store.audience() });
     heroBody.append(
       h('p', { class: 'eyebrow' }, `${date} · Rest day`),
       h('h1', { class: 'display' }, 'Recover with ', h('em', null, 'intent.')),

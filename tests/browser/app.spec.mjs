@@ -1,38 +1,21 @@
 import { test, expect } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
+import { chooseAudience, onboard, watchErrors } from './helpers.mjs';
 
 const CAPTURE = process.env.CAPTURE_SCREENSHOTS === '1';
 const shots = 'docs/screenshots';
 
-async function onboard(page, { days = '7' } = {}) {
-  await page.goto('/#/welcome');
-  await page.goto('/#/onboarding');
-  await page.getByLabel('Your first name (optional)').fill('Alex');
-  await page.getByRole('radio', { name: /Build muscle/ }).check();
-  await page.getByRole('button', { name: 'Continue' }).click();
-  await page.getByRole('radio', { name: /^Intermediate/ }).check();
-  await page.getByRole('button', { name: 'Continue' }).click();
-  await page.getByRole('button', { name: 'Home with dumbbells' }).click();
-  await page.getByRole('button', { name: 'Continue' }).click();
-  await page.getByRole('radio', { name: days, exact: true }).check();
-  await page.getByRole('button', { name: 'Continue' }).click();
-  await page.getByRole('button', { name: 'Build my programme' }).click();
-  await expect(page).toHaveURL(/#\/today/);
-}
-
-function watchErrors(page) {
-  const errors = [];
-  page.on('pageerror', error => errors.push(error.message));
-  page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
-  return errors;
-}
-
-test('landing introduces the product and leads to onboarding', async ({ page }) => {
+test('first visit asks for the audience, then the homepage leads to training set-up', async ({ page }) => {
   const errors = watchErrors(page);
   await page.goto('/');
   await expect(page).toHaveURL(/#\/welcome/);
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Rise with');
-  await page.getByRole('link', { name: 'Begin your programme' }).first().click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Who are you exploring for?');
+  await page.locator('input[name="audience"][value="adults"]').check();
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Your fitness.');
+  await expect(page.getByRole('link', { name: 'Explore Gyms' }).first()).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Find My Coaching Team' }).first()).toBeVisible();
+  await page.getByRole('link', { name: 'Get Started' }).click();
   await expect(page.getByRole('heading', { name: 'What are you training for?' })).toBeVisible();
   // Validation: a goal is required before continuing.
   await page.getByRole('button', { name: 'Continue' }).click();
@@ -163,6 +146,7 @@ test('settings: profile edits, appearance, export and full reset', async ({ page
 });
 
 test('accessibility basics: keyboard onboarding, named controls, no horizontal scroll on phones', async ({ page }) => {
+  await chooseAudience(page, 'adults');
   await page.goto('/#/onboarding');
   await page.getByLabel('Your first name (optional)').focus();
   await page.keyboard.type('Kai');
@@ -189,22 +173,45 @@ test('accessibility basics: keyboard onboarding, named controls, no horizontal s
   }
 });
 
-test('reduced motion: demonstrations hold still', async ({ page }) => {
+test('reduced motion: photo demonstrations hold the start frame and can be stepped manually', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/#/library/goblet-squat');
-  const figure = page.locator('.detail-figure polyline').first();
-  const before = await figure.getAttribute('points');
-  await page.waitForTimeout(800);
-  expect(await figure.getAttribute('points')).toBe(before);
+  const demo = page.locator('.detail-media .demo');
+  await expect(demo).toHaveAttribute('data-frame', '0');
+  await expect(demo.locator('.demo-frame.f1')).toHaveCSS('opacity', '0');
+  await demo.getByRole('button', { name: 'Finish' }).click();
+  await expect(demo.locator('.demo-frame.f1')).toHaveCSS('opacity', '1');
 });
 
 test('README screenshots', async ({ page }) => {
   test.skip(!CAPTURE, 'Set CAPTURE_SCREENSHOTS=1 to refresh docs/screenshots');
   await mkdir(shots, { recursive: true });
+  const settle = async (ms = 900) => { await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 500) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); } window.scrollTo(0, 0); }); await page.waitForTimeout(ms); };
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/#/welcome');
-  await page.waitForTimeout(2600);
-  await page.screenshot({ path: `${shots}/landing.png` });
+  await page.waitForTimeout(1200);
+  await page.screenshot({ path: `${shots}/audience.png` });
+  await chooseAudience(page, 'adults');
+  await page.goto('/#/');
+  await page.waitForTimeout(1600);
+  await page.screenshot({ path: `${shots}/home.png` });
+  await page.goto('/#/gyms?lat=12.97&lng=77.64&city=bengaluru&label=Indiranagar%2C+Bengaluru');
+  await settle();
+  await page.screenshot({ path: `${shots}/gyms.png` });
+  await page.goto('/#/gyms/forge-athletic-club');
+  await settle(1200);
+  await page.screenshot({ path: `${shots}/gym-detail.png` });
+  await page.goto('/#/coaching/complete-transformation');
+  await page.waitForTimeout(600);
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.locator('fieldset[data-field="trainerId"] .pro-card').first().click();
+  await page.locator('fieldset[data-field="nutritionistId"] .pro-card').first().click();
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: `${shots}/coaching.png` });
+  await page.goto('/#/library/romanian-deadlift');
+  await page.waitForTimeout(1200);
+  await page.screenshot({ path: `${shots}/exercise.png` });
   await onboard(page);
   await page.goto('/#/today');
   await page.waitForTimeout(800);
@@ -222,10 +229,10 @@ test('README screenshots', async ({ page }) => {
   await page.waitForSelector('.coach-card');
   await page.waitForTimeout(600);
   await page.screenshot({ path: `${shots}/coach.png` });
-  await page.goto('/#/library/romanian-deadlift');
-  await page.waitForTimeout(1200);
-  await page.screenshot({ path: `${shots}/exercise.png` });
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/');
+  await page.waitForTimeout(1400);
+  await page.screenshot({ path: `${shots}/mobile-home.png` });
   await page.goto('/#/workout');
   await page.waitForTimeout(1200);
   await page.screenshot({ path: `${shots}/mobile-workout.png` });

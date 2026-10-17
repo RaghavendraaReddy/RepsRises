@@ -197,8 +197,18 @@ export function workoutView(context: ViewContext): View | string {
         h('p', { class: 'lead' }, 'The clock and any rest timer are frozen. Your progress is saved.'),
         h('div', { class: 'row' }, button('Resume', togglePause, { variant: 'primary', icon: 'play' }), button('End workout', () => void endWorkout(), { variant: 'ghost' })))) : null;
 
+    // Keep keyboard focus in place across re-renders: same control if it still exists, else the next set to log.
+    const active = document.activeElement as HTMLElement | null;
+    const hadFocus = Boolean(active && el.contains(active) && active !== document.body);
+    const focusLabel = hadFocus ? active!.getAttribute('aria-label') ?? active!.textContent?.trim() ?? '' : '';
     replace(el, topbar, h('div', { class: 'container workout-body' }, h('div', { class: 'workout-grid' }, stage, controls), strip), paused, live);
     if (paused) (paused.querySelector('button') as HTMLElement | null)?.focus();
+    else if (hadFocus) {
+      const buttons = [...el.querySelectorAll<HTMLElement>('button, a[href], input')];
+      const same = buttons.find(node => (node.getAttribute('aria-label') ?? node.textContent?.trim()) === focusLabel && !(node as HTMLButtonElement).disabled);
+      const next = el.querySelector<HTMLElement>('button[aria-label^="Log set"]:not([disabled]), button[aria-label^="Start hold"]');
+      (same ?? next ?? el.querySelector<HTMLElement>('h1'))?.focus({ preventScroll: true });
+    }
     for (const fn of tickers) fn();
   }
 

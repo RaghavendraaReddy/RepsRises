@@ -284,8 +284,25 @@ export function exerciseById(id: string): Exercise | undefined {
   return BY_ID.get(id) ?? BY_ID.get(LEGACY[id] ?? '');
 }
 
+// Written for Icarus where the source dataset has no steps for the photographed exercise.
+const AUTHORED: Record<string, string[]> = {
+  'kettlebell-swing': [
+    'Stand with feet a little wider than your hips, the kettlebell on the floor about a foot in front of you.',
+    'Hinge at the hips with a flat back, grip the handle and hike the bell back between your thighs.',
+    'Drive your hips forward hard and stand tall; let the bell float up to chest height on that momentum. Your arms only guide it.',
+    'Let the bell fall back between your legs as you hinge again, then repeat. Park it on the floor in front of you to finish.',
+  ],
+  'side-plank': [
+    'Lie on your side with your elbow under your shoulder and your legs stacked, or knees bent for an easier version.',
+    'Lift your hips until your body forms a straight line from head to feet (or knees).',
+    'Hold, breathing steadily, without letting your hips sag or roll forward.',
+    'Lower with control and repeat on the other side.',
+  ],
+};
+
 export function instructionsFor(exercise: Exercise): string[] {
-  return INSTRUCTIONS[exercise.photo] ?? [];
+  const steps = INSTRUCTIONS[exercise.photo];
+  return steps?.length ? steps : AUTHORED[exercise.id] ?? [];
 }
 
 export function safetyFor(exercise: Exercise): string {

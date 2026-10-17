@@ -15,7 +15,7 @@ export function pickExercise(options: { title: string; replacing?: string }): Pr
     let mine = true;
     const equipment = store.profile?.equipment ?? ['bodyweight'];
     const results = h('ul', { class: 'list picker-results', role: 'list', 'aria-live': 'polite' });
-    const suggestions = options.replacing ? substitutes(options.replacing, equipment).slice(0, 4) : [];
+    const suggestions = options.replacing ? substitutes(options.replacing, equipment, 'advanced', store.audience()).slice(0, 4) : [];
 
     const row = (exercise: Exercise, close: () => void) => h('li', null, h('button', { type: 'button', class: 'list-row exercise-row', onclick: () => { chosen = exercise; close(); } },
       thumb(exercise.id),

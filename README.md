@@ -1,27 +1,48 @@
 # Icarus
 
-**Premium fitness coaching that runs on your own machine.** Icarus builds a training plan around your goal, experience, equipment and schedule, guides you through every session with set tracking and a rest clock that never loses count, records your history and personal bests, and answers training questions through a built-in coach or the AI provider of your choice.
+**Discover gyms. Build your coaching team. Train with a plan.** Icarus brings three things together in one place:
 
-![The Icarus arrival screen](docs/screenshots/landing.png)
+- **Discover:** find gyms near you, filter by price, facilities, hours and suitability, and compare memberships by their real terms.
+- **Train:** follow a weekly programme with guided sessions, a rest clock that never loses count, real photographic exercise demonstrations and an AI coach.
+- **Transform:** book a personal trainer and a nutritionist together in a single package request.
 
-## Features
+Everything adapts to who is training: **Kids**, **Adults** or **Older Adults**.
 
-- **Onboarding in five steps.** Goal, experience, equipment, schedule and units, each with a short explanation of why it matters. Everything can be changed later.
-- **Plans.** Six templates (full body 3-day, upper/lower 4-day, push/pull/legs 3- and 6-day, 5-day hybrid, and a full week with recovery days), each generated for beginner, intermediate or advanced lifters and trimmed to your session length. The plan builder adds, removes, reorders (buttons or drag) and replaces exercises, and edits sets, rep ranges, timed holds, rest and notes. Changes save automatically.
-- **Today.** The next session in your rotation, or a rest-day recovery option; your week at a glance, weekly streak, recent workouts, personal bests and a recovery note based on what you logged in the last 48 hours.
-- **Guided workouts.** Animated demonstration, targets, technique cues and common mistakes for each exercise. Log load and reps per set (pre-filled from last time), add or remove sets, run timed holds, and get an automatic rest timer with −15 s / +15 s / skip. Pause the whole session, move between exercises, and leave the screen: timers keep correct time and the workout survives reloads. Keyboard shortcuts for desktop, screen wake lock on supported phones, and optional chimes and vibration.
-- **Summaries and progress.** Duration, sets, reps, volume and new personal bests after each session; weekly charts, a training calendar, full history and a records table.
-- **Exercise library.** 62 exercises with demonstrations, cues, mistakes and alternatives for your equipment.
-- **Coach.** Ask for a session for any muscle group, a weekly split, substitutions, or explanations of sets, reps, rest and technique. Suggested sessions start with one tap or save into your plan; suggested splits become editable plans. Warning symptoms (pain, dizziness, chest tightness) get a stop-and-seek-help answer and no workout.
-- **Your data.** Stored in this browser only, with export, import and delete-everything in Settings.
+> **Demonstration data.** This build ships with fictional gyms, trainers, nutritionists, prices and offers set in real neighbourhoods of Bengaluru, Mumbai, New Delhi and Hyderabad. They are labelled **Demo** everywhere they appear. Icarus does not take payments, and it never marks a booking as confirmed: requests are recorded and, when you configure it, forwarded to the provider. See [What is needed to go live](#what-is-needed-to-go-live).
 
-| Today | Workout | Plan builder |
+![Icarus homepage](docs/screenshots/home.png)
+
+## What you can do
+
+**First visit.** Choose who you are exploring for. The choice shapes every list, and you can change it from the menu at any time.
+
+- **Kids (5–17).** Supervised, play-based programmes only. A parent or guardian makes every request and gives consent; Icarus never asks for a child's name. No weight-loss programmes, calorie targets, nutrition consultations or meal plans.
+- **Adults (18–64).** The full range of gyms, programmes, coaching and nutrition.
+- **Older Adults (65+).** Balance, mobility and moderate strength work, accessible facilities and safety guidance.
+
+**Gym discovery.** Search by city, area or postcode, or share your device location (asked first, rounded to about 1 km, kept on your device). Filter by name, distance, monthly price range, membership duration, gym type, facilities, opening hours, classes, trainer availability, step-free access and verified ratings. Results show as a list or a map. Each gym page has a captioned gallery, location and directions, facilities, equipment, classes, accessibility, trainers and nutritionists, policies, and reviews from verified sources only (none in the demo data, so none are shown).
+
+**Memberships and offers.** Every plan shows its total, effective monthly price, payment schedule, joining fee, deposit, inclusions, personal training sessions, renewal and cancellation terms, and any offer with its end date. Durations of 1, 2, 3, 6, 9, 10 and 12 months. Compare two durations at one gym, or up to four plans across gyms. Savings appear only when they follow from the gym's own one-month price; there are no "best value" labels.
+
+**Coaching packages.** Fitness Essentials, Strength & Performance, Complete Transformation and Premium Personal Coaching for adults, plus Young Athlete Foundations (kids) and Active Ageing (older adults). A seven-step request: package, team, location and format, dates, your details, review, confirmation. The estimate is built from each professional's listed rate and recomputed on the server. Qualifications show whether they are verified.
+
+**Nutrition.** General education kept visibly separate from personalised advice, dietary preferences, a weekly meal organiser for your own notes, nutritionist profiles and your consultation requests. Safeguards for children, medical conditions and disordered eating are on the page, not in the small print.
+
+**Exercise library.** 74 exercises across chest, back, shoulders, arms, legs, glutes, core, full body, cardio, mobility, bodyweight and equipment, with kids and older-adult categories. Each has real start and finish photographs (playable, or stepped by hand), step-by-step instructions, coaching cues, common mistakes, easier and harder variations, safety notes, a suggested starting dose and Add to plan. Search, filter, sort and save.
+
+**Workouts.** A five-step set-up builds a programme around your goal, experience, equipment and schedule. Guided sessions log load and reps per set, run rest and hold timers that stay correct when you leave the screen or reload, and can be paused and resumed. History, streaks, personal bests and weekly charts follow from what you actually logged.
+
+**AI coach.** Ask for a session, a weekly split, substitutions or technique help. Works offline out of the box; connect Claude or OpenAI for open-ended conversation. Replies are validated and rendered as text, never HTML. See [docs/AI_PROVIDERS.md](docs/AI_PROVIDERS.md).
+
+**Your profile.** There are no accounts yet, and Icarus does not pretend otherwise: your profile, saved items, comparison, requests, meal notes and training history live in this browser. Review, export or erase them at any time.
+
+| Gym discovery | Gym and memberships | Coaching request |
 |---|---|---|
-| ![Today](docs/screenshots/today.png) | ![Workout with rest timer](docs/screenshots/workout.png) | ![Plan builder](docs/screenshots/plan-builder.png) |
+| ![Gym search with filters](docs/screenshots/gyms.png) | ![Gym detail with membership plans](docs/screenshots/gym-detail.png) | ![Seven-step coaching request](docs/screenshots/coaching.png) |
 
-| Coach | Exercise detail | Phone |
+| Exercise demonstration | Guided workout | Phone |
 |---|---|---|
-| ![Coach](docs/screenshots/coach.png) | ![Exercise](docs/screenshots/exercise.png) | ![Workout on a phone](docs/screenshots/mobile-workout.png) |
+| ![Exercise with photo demonstration](docs/screenshots/exercise.png) | ![Workout with rest timer](docs/screenshots/workout.png) | ![Homepage on a phone](docs/screenshots/mobile-home.png) |
 
 ## Quick start
 
@@ -32,73 +53,86 @@ npm ci
 npm start
 ```
 
-Open http://127.0.0.1:4319. No account or key is needed: the built-in offline coach works out of the box. To use a different port, set `PORT` in `.env`.
+Open http://127.0.0.1:4319. No account, key or database is needed.
 
 ## Configuration
 
-Copy `.env.example` to `.env`. Every setting is optional.
+Copy `.env.example` to `.env`. Every setting is optional; restart the server after editing it.
 
 | Variable | Purpose |
 |---|---|
 | `PORT` | Port to listen on (default `4319`). |
 | `HOST` | Interface to bind (default `127.0.0.1`). Anything other than loopback requires `ALLOWED_HOSTS`. |
 | `ALLOWED_HOSTS` | Comma-separated public host names the server answers to. |
-| `TRUST_PROXY` | `1` to read the client address from `X-Forwarded-For` behind a trusted proxy (used for rate limiting). |
-| `AI_REQUESTS_PER_10_MIN` | AI coach requests allowed per client address per 10 minutes (default 40). |
+| `TRUST_PROXY` | `1` to read the client address from `X-Forwarded-For` behind a trusted proxy (used for rate limits). |
+| `AI_REQUESTS_PER_10_MIN` | AI coach requests per client address per 10 minutes (default 40). |
 | `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL` | Claude through the Anthropic API (default model `claude-opus-5-5`). |
 | `OPENAI_API_KEY`, `OPENAI_MODEL` | OpenAI Responses API (default model `gpt-6-astra`). |
 | `CLAUDE_CLI_PATH`, `CLAUDE_MODEL` | Claude Code CLI with your existing login. |
 | `CODEX_CLI_PATH`, `CODEX_MODEL` | Codex CLI with your existing login. |
-
-Each AI provider turns on when its key or path is set; restart the server after editing `.env`. See [docs/AI_PROVIDERS.md](docs/AI_PROVIDERS.md) for what each provider receives, how replies are validated, and the safety limits on the CLI providers.
+| `DATA_DIR` | Where enquiries and booking requests are stored (default `data/runtime`, git-ignored). |
+| `REQUEST_RETENTION_DAYS` | Requests are deleted after this many days (default 90). |
+| `REQUEST_WEBHOOK_URL` | HTTPS endpoint that receives each new request, for your CRM or a provider integration. |
+| `MAP_TILE_URL`, `MAP_ATTRIBUTION` | HTTPS tile server for the gym map. Without it the map view draws a to-scale position plot and says so. |
+| `SUPPORT_EMAIL` | Contact address shown in the footer, privacy notice and support page. |
 
 ## Development
 
 ```sh
-npm run build        # compile TypeScript and copy styles, fonts and static files to dist/
+npm run build        # compile TypeScript; copy styles, fonts, photos and static files to dist/
 npm start            # build, then run the server
 npm run typecheck
 npm run lint         # static safety checks (no innerHTML/eval, no server env in browser code)
 npm test             # unit and HTTP tests (node:test)
 npm run check        # typecheck + lint + tests
-npm run test:ui      # end-to-end browser tests (Playwright, starts its own server on port 4320)
+npm run test:ui      # browser tests, including journeys A–E (Playwright, own server on port 4320)
 ```
 
-Browser tests need a Chromium for Playwright 1.56 (`npx playwright install chromium`), or set `PLAYWRIGHT_CHROME_PATH` to an installed Chrome. `CAPTURE_SCREENSHOTS=1 npm run test:ui` refreshes the images in `docs/screenshots/`.
+Browser tests need a Chromium for Playwright (`npx playwright install chromium`), or set `PLAYWRIGHT_CHROME_PATH`. `CAPTURE_SCREENSHOTS=1 npm run test:ui` refreshes `docs/screenshots/`. `node scripts/generate-demo-data.mjs` rebuilds the demo dataset; `scripts/fetch-exercise-media.py` re-downloads the exercise photographs and instructions.
 
-The server reads built files once and keeps them in memory, so restart it after rebuilding. Prompt and skill files (`prompts/system.md`, `skills/workout.md`) are re-read when they change.
+The server keeps built files in memory, so restart it after rebuilding.
 
-## Architecture
+## How it is built
 
-Plain TypeScript and ES modules, no front-end framework and no bundler; one runtime dependency (`@anthropic-ai/sdk`). Shared domain logic (exercise catalog, plan generator, workout engine, statistics, storage) runs in both the browser and the server and is unit-tested. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the module map, decisions and security model, and [docs/DESIGN.md](docs/DESIGN.md) for the design system.
+Plain TypeScript and ES modules, no front-end framework and no bundler; one runtime dependency (`@anthropic-ai/sdk`). Domain logic (exercises, programmes, workout engine, pricing, search, request validation, audience rules) lives in `src/shared`, runs in the browser and on the server, and is unit-tested. The marketplace data source sits behind a `MarketplaceProvider` interface, so the demo dataset can be replaced by a live directory without touching screens.
 
-## Deployment
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): module map, data flow, API and security model.
+- [docs/DESIGN.md](docs/DESIGN.md): design language and tokens.
+- [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md): production set-up, database and external services.
+- [docs/PRIVACY.md](docs/PRIVACY.md): what is collected, where it is kept, safeguards for children.
+- [docs/ASSETS.md](docs/ASSETS.md): where every image, font and dataset comes from, and its licence.
 
-Icarus is designed as a single-person app. To run it on a server:
+## What is needed to go live
 
-1. `npm ci && npm run build` (fonts and TypeScript are dev dependencies needed at build time).
-2. Run `node --env-file=.env dist/server/main.js` under a process manager.
-3. Put it behind an HTTPS reverse proxy. Set `HOST=127.0.0.1` if the proxy is on the same machine, or `HOST=0.0.0.0` with `ALLOWED_HOSTS=your.domain`. Set `TRUST_PROXY=1` only when a trusted proxy sets `X-Forwarded-For`.
-4. `GET /api/health` returns `{ "ok": true }` for health checks.
+This repository is a working product with demonstration data. It is not a live service. Before real people rely on it:
 
-**There is no user authentication.** Anyone who can reach the server can use its AI providers on your account (within the rate limit). For anything beyond personal use, put it behind an authenticating proxy, or leave AI keys unset so only the offline coach is available. Do not enable the CLI providers on a shared or public server.
+1. **Real listings.** Replace `DemoProvider` with a provider backed by verified gyms and professionals (your own database or a partner API). Only that source may set `demo: false`.
+2. **Request handling.** Set `REQUEST_WEBHOOK_URL` so requests reach providers, or connect a booking system. Until a provider confirms, requests must stay "received" or "sent to the provider".
+3. **Accounts.** Add authentication before storing anything server-side per person; `Repository` is already behind a storage interface.
+4. **Payments.** None are taken today. Add a payment provider only together with confirmed bookings, refunds and receipts.
+5. **Verification and reviews.** Check qualifications with their issuers before marking them verified; show ratings only from a verified review source.
+6. **Licensed photography of real venues**, children and older adults, with model releases (see [docs/ASSETS.md](docs/ASSETS.md)).
+7. **Legal review** of the privacy notice, terms, child-safety process and data retention for the countries you operate in. The pages in the app describe how the software behaves; they are not a statement of compliance.
 
-## Security and privacy
+Details in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
-- Workout data lives in your browser's local storage. It is not synced between devices or browsers and is lost if site data is cleared: export backups from Settings.
-- API keys stay in the server's environment; the browser never receives them.
-- Coach replies are validated against a schema and rendered as text, never as HTML.
-- More detail in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#security-model).
+## Security
 
-Icarus gives general fitness guidance for healthy adults. It is not medical advice. Stop exercising and seek help if you feel pain, dizziness or chest discomfort.
+- Loopback by default; host, origin and per-process token checks; a static file allow-list; strict Content Security Policy.
+- API keys stay in the server environment and never reach the browser, logs or error messages. Request message content is never logged.
+- Location access is allowed for this site only (`Permissions-Policy: geolocation=(self)`), requested only after the person presses "Use my location", and rounded before use.
+- Booking requests are validated with a strict schema on the server, priced from the listing (never from the client), rate limited (10 per 10 minutes per address), protected by a honeypot, stored with owner-only file permissions, and readable only with a per-request token whose hash is stored.
+- **There is no user authentication.** Anyone who can reach the server can use its AI providers within the rate limit. For public deployments see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
-## Limitations and next steps
+Icarus gives general fitness and nutrition information, not medical advice. Stop exercising and seek help if you feel pain, dizziness or chest discomfort.
 
-- **Single device, single person.** No accounts or sync yet. `Repository` is behind a key-value interface so a server-backed store can be added.
-- **AI providers were not exercised live** while building this version (no network access to the providers). The adapters are tested with fake transports; verify with your own keys.
-- **Exercise figures are schematic** side-view drawings, not video. Some movements share a pattern (for example, all rows use the same figure).
-- Possible next steps: accounts and sync, progression suggestions per exercise, plate calculator, offline install (service worker), exporting history as CSV, more exercises and demonstrations.
+## Limitations
+
+- Demonstration listings only, in four cities; the gym map needs a configured tile server for street maps.
+- No accounts, sync or payments (by design, until the steps above are done).
+- No licensed photographs of children or older adults were available; their audience cards use a typographic design instead, and exercise photos show adult models.
+- AI providers were exercised only through test doubles while building this version; verify with your own keys.
 
 ## Licence
 
-No licence has been chosen yet. Parts of the server (the subprocess runner, credential redaction, lint script and the original shape of the provider adapters) came from a starter project supplied by a third party; confirm you hold the rights to that code before publishing under an open-source licence. Bundled fonts (Cormorant Garamond, Barlow Condensed, Inter) are under the SIL Open Font License; their licence texts are copied to `dist/web/fonts/LICENSES.txt` at build time.
+No licence has been chosen yet. Parts of the server (the subprocess runner, credential redaction, lint script and the original shape of the provider adapters) came from a starter project supplied by a third party; confirm you hold the rights to that code before publishing under an open-source licence. Exercise photographs and instructions are public domain (Free Exercise DB, Unlicense); fonts are under the SIL Open Font License. See [docs/ASSETS.md](docs/ASSETS.md).

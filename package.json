@@ -1,7 +1,8 @@
 {
-  "name": "icarus-workout",
-  "version": "3.0.0",
-  "description": "Icarus: a premium fitness coaching app with plans, guided workouts, set tracking, progress and an AI coach.",
+  "name": "icarus",
+  "version": "4.0.0",
+  "description": "Icarus: discover gyms and memberships, book a trainer and nutritionist together, and train with guided workouts, real exercise demonstrations and an AI coach.",
+  "keywords": ["fitness", "gym", "personal-training", "nutrition", "workout", "membership"],
   "private": true,
   "type": "module",
   "engines": {

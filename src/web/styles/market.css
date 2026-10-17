@@ -439,3 +439,5 @@ section.surface-light, section.surface-dark { background: var(--bg); color: var(
 /* Headings focused after navigation (for screen readers) do not need a visible ring. */
 h1[tabindex='-1']:focus { outline: none; }
 .back-link + .page-head { padding-top: var(--s4); }
+button.text-link { background: none; border: 0; border-bottom: var(--hair) solid var(--line-strong); padding: 0 0 2px; font: inherit; cursor: pointer; border-radius: 0; }
+section[id], [id='plans'] { scroll-margin-top: calc(var(--nav-h) + 24px); }
