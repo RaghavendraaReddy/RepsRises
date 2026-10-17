@@ -1,3 +1,4 @@
+import { readLocal, type LocalState } from '../marketplace/local.js';
 import { EQUIPMENT, GOALS, LEVELS, type ActiveSession, type CompletedWorkout, type Equipment, type Plan, type Preferences, type Profile } from './types.js';
 
 // Persistence sits behind two small interfaces so a server-backed store can replace browser storage
@@ -20,7 +21,7 @@ export class MemoryStore implements KeyValueStore {
 export class StorageError extends Error {}
 
 const PREFIX = 'icarus.v1.';
-export const KEYS = { profile: 'profile', plans: 'plans', activePlan: 'active-plan', history: 'history', session: 'session', prefs: 'prefs', coach: 'coach' } as const;
+export const KEYS = { profile: 'profile', plans: 'plans', activePlan: 'active-plan', history: 'history', session: 'session', prefs: 'prefs', coach: 'coach', local: 'marketplace' } as const;
 
 const isObject = (value: unknown): value is Record<string, unknown> => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 const isString = (value: unknown, max = 200): value is string => typeof value === 'string' && value.length <= max;
@@ -188,8 +189,16 @@ export class Repository {
     this.put(KEYS.coach, messages.slice(-40));
   }
 
+  /** Audience, location, saved items, comparison, submitted requests and meal notes. */
+  local(): LocalState { return readLocal(this.get(KEYS.local)); }
+  saveLocal(state: LocalState) {
+    const checked = readLocal(state);
+    if (JSON.stringify(checked) !== JSON.stringify(state)) throw new StorageError('Some details are invalid and were not saved.');
+    this.put(KEYS.local, state);
+  }
+
   exportAll() {
-    return { format: 'icarus-export', version: 1, exportedAt: new Date().toISOString(), profile: this.profile(), plans: this.plans(), activePlanId: this.activePlanId(), history: this.history(), preferences: this.preferences() };
+    return { format: 'icarus-export', version: 1, exportedAt: new Date().toISOString(), profile: this.profile(), plans: this.plans(), activePlanId: this.activePlanId(), history: this.history(), preferences: this.preferences(), local: this.local() };
   }
 
   /** Replaces local data with a previous export. Validates everything before writing anything. */
@@ -205,6 +214,7 @@ export class Repository {
     this.put(KEYS.history, history);
     this.saveActivePlanId(typeof data.activePlanId === 'string' && plans.some(plan => (plan as Plan).id === data.activePlanId) ? data.activePlanId : null);
     if (isPreferences(data.preferences)) this.put(KEYS.prefs, data.preferences);
+    if (isObject(data.local)) this.put(KEYS.local, readLocal(data.local));
     return { plans: plans.length, workouts: history.length };
   }
 

@@ -40,8 +40,12 @@ ul[role='list'], ol[role='list'] { list-style: none; padding: 0; }
 .container { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
 .section { padding-block: clamp(56px, 9vw, 128px); }
 .section-tight { padding-block: clamp(32px, 5vw, 64px); }
-.stack > * + * { margin-top: var(--stack, var(--s4)); }
-:where(span.stack, .stack > span) { display: block; }
+/* Vertical rhythm. Each stack sets its own gap; it is not inherited, so nested stacks keep theirs. */
+@property --stack { syntax: '<length>'; inherits: false; initial-value: 16px; }
+.stack { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: var(--stack, var(--s4)); }
+.stack > * { min-width: 0; }
+.stack > :is(.btn, .text-link, .link-btn, .chip, .badge, .audience-switch, .back-link, .confirmation-mark, .monogram, .save-btn) { justify-self: start; }
+:where(.stack > span) { display: block; }
 .row { display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; }
 .row.between { justify-content: space-between; }
 .row.end { justify-content: flex-end; }

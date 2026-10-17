@@ -7,7 +7,7 @@ import { defaultProvider, providerStatuses } from '../dist/server/config.js';
 import { anthropicParams } from '../dist/server/providers/anthropic.js';
 import { openaiPayload } from '../dist/server/providers/openai.js';
 
-const context = { name: null, goal: 'muscle', level: 'beginner', equipment: ['bodyweight', 'dumbbells'], minutes: 40, units: 'kg', plan: '', recent: '', session: '' };
+const context = { name: null, goal: 'muscle', level: 'beginner', equipment: ['bodyweight', 'dumbbells'], minutes: 40, units: 'kg', plan: '', recent: '', session: '', audience: 'adults' };
 const body = (text, provider = 'offline', extra = {}) => ({ provider, messages: [{ role: 'user', content: text }], context, ...extra });
 const goodReply = { reply: 'A session.', workout: null, split: null, suggestions: [] };
 

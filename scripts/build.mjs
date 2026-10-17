@@ -1,9 +1,9 @@
 // Copies browser assets next to the TypeScript output: the page, one concatenated stylesheet,
 // self-hosted fonts (with their licences) and static icons. No bundler is needed: the browser
 // loads the compiled ES modules directly.
-import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { copyFile, cp, mkdir, readFile, writeFile } from 'node:fs/promises';
 
-const STYLES = ['tokens', 'base', 'components', 'views', 'motion'];
+const STYLES = ['tokens', 'base', 'components', 'views', 'market', 'motion'];
 const FONTS = [
   ['@fontsource/cormorant-garamond', 'cormorant-garamond-latin-300-normal.woff2'],
   ['@fontsource/cormorant-garamond', 'cormorant-garamond-latin-300-italic.woff2'],
@@ -16,6 +16,8 @@ const FONTS = [
 await mkdir('dist/web/fonts', { recursive: true });
 await copyFile('src/web/index.html', 'dist/web/index.html');
 for (const file of ['icon.svg', 'manifest.webmanifest']) await copyFile(`src/web/static/${file}`, `dist/web/${file}`);
+// Exercise photographs (Free Exercise DB, public domain). See docs/ASSETS.md.
+await cp('src/web/static/media', 'dist/web/media', { recursive: true });
 const css = await Promise.all(STYLES.map(name => readFile(`src/web/styles/${name}.css`, 'utf8')));
 await writeFile('dist/web/app.css', css.join('\n'));
 

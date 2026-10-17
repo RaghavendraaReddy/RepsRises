@@ -95,6 +95,8 @@ export function offlineCoach(input: CoachMessage[], context: CoachContext): Coac
   const level: Level = context.level ?? 'beginner';
   const goal: Goal = context.goal ?? 'general';
   const equipment: Equipment[] = context.equipment.length ? context.equipment : ['bodyweight'];
+  const audience = context.audience;
+  const kidsNote = audience === 'kids' ? '\n\nFor children: keep it playful, stop while they are still enjoying it, and make sure an adult is supervising.' : audience === 'older' ? '\n\nMove at a comfortable pace, use support for balance when you need it, and stop if anything feels wrong.' : '';
 
   if (SYMPTOMS.test(text) && !/(how|what).*(prevent|avoid)/i.test(text)) return safetyReply();
 
@@ -110,7 +112,7 @@ export function offlineCoach(input: CoachMessage[], context: CoachContext): Coac
     ?? EXERCISES.find(item => text.toLowerCase().includes(item.name.toLowerCase()));
 
   if (exercise && /\b(replace|substitut|swap|alternative|instead of|don'?t have|can'?t do)/i.test(text)) {
-    const options = substitutes(exercise.id, equipment, level).slice(0, 4);
+    const options = substitutes(exercise.id, equipment, level, audience).slice(0, 4);
     if (!options.length) return { reply: `I could not find a close match for **${exercise.name}** with your current equipment. Adding a set of resistance bands opens up most movement patterns.`, workout: null, split: null, suggestions: ['Update my equipment', 'Build me a bodyweight workout'] };
     return {
       reply: `Good swaps for **${exercise.name}** with your equipment:\n\n${options.map(item => `- **${item.name}**: ${item.summary}`).join('\n')}\n\nKeep the same sets and rep range, and choose a load that leaves 1–3 reps in reserve.`,
@@ -129,10 +131,10 @@ export function offlineCoach(input: CoachMessage[], context: CoachContext): Coac
 
   if (/\b(split|program|routine|weekly|per week|a week|days? plan|plan for (the|my) week|schedule)\b/i.test(text)) {
     const days = Number(text.match(/(\d)\s*[- ]?days?/i)?.[1] ?? context.plan.match(/(\d) days/)?.[1] ?? 3);
-    const split = recommendedSplit(Math.max(1, Math.min(7, days)), levelFrom(text, level));
+    const split = recommendedSplit(Math.max(1, Math.min(7, days)), levelFrom(text, level), audience);
     const info = SPLITS.find(item => item.id === split)!;
     return {
-      reply: `For ${days} day${days === 1 ? '' : 's'} a week at ${levelFrom(text, level) === 'intermediate' ? 'an' : 'a'} ${levelFrom(text, level)} level, I recommend **${info.name}**. ${info.summary}\n\nI will fill it with exercises that match your equipment, and you can change anything in the plan builder. Treat it as a strong starting point, not a guarantee; adjust it to how you recover.`,
+      reply: `For ${days} day${days === 1 ? '' : 's'} a week at ${levelFrom(text, level) === 'intermediate' ? 'an' : 'a'} ${levelFrom(text, level)} level, I recommend **${info.name}**. ${info.summary}\n\nI will fill it with exercises that match your equipment, and you can change anything in the plan builder. Treat it as a strong starting point, not a guarantee; adjust it to how you recover.${kidsNote}`,
       workout: null, split, suggestions: ['How do I progress?', 'How long should I rest?'],
     };
   }
@@ -143,13 +145,13 @@ export function offlineCoach(input: CoachMessage[], context: CoachContext): Coac
     const minutes = minutesFrom(text) ?? context.minutes ?? 45;
     const chosenLevel = levelFrom(text, level);
     const chosenEquipment = equipmentFrom(text, equipment);
-    const items = generateSession({ muscles: muscles.length ? muscles : ['full'], level: chosenLevel, goal, equipment: chosenEquipment, minutes });
+    const items = generateSession({ muscles: muscles.length ? muscles : ['full'], level: chosenLevel, goal, equipment: chosenEquipment, minutes, audience });
     if (!items.length) return { reply: 'I could not build that session with your equipment. Try a different focus, or update your equipment in Settings.', workout: null, split: null, suggestions: ['Full body, bodyweight only'] };
     const title = muscles.length ? muscles.slice(0, 3).map(muscle => MUSCLE_TITLE[muscle] ?? titleCase(muscle)).join(' & ') : 'Full Body';
     const estimate = estimateMinutes(items);
     const lines = items.map(item => `- **${exerciseById(item.exerciseId)!.name}** · ${describeTarget(item)}`).join('\n');
     return {
-      reply: `Here is ${chosenLevel === 'intermediate' ? 'an' : 'a'} ${chosenLevel} **${title}** session, about ${estimate} minutes${chosenEquipment.length === 1 && chosenEquipment[0] === 'bodyweight' ? ', bodyweight only' : ''}.\n\n${lines}\n\nWarm up for five minutes first. Pick loads that leave 1–3 good reps in reserve; stop any exercise that causes pain.`,
+      reply: `Here is ${chosenLevel === 'intermediate' ? 'an' : 'a'} ${chosenLevel} **${title}** session, about ${estimate} minutes${chosenEquipment.length === 1 && chosenEquipment[0] === 'bodyweight' ? ', bodyweight only' : ''}.\n\n${lines}\n\nWarm up for five minutes first. Pick loads that leave 1–3 good reps in reserve; stop any exercise that causes pain.${kidsNote}`,
       workout: { title, focus: muscles.length ? `${title} focus` : 'Balanced full-body session', minutes: estimate, exercises: draft(items) },
       split: null, suggestions: ['Make it shorter', 'Make it harder', 'Explain the first exercise'],
     };

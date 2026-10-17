@@ -2,6 +2,19 @@ import { s } from '../core/dom.js';
 
 // A small line-icon set drawn for Icarus: 24px grid, 1.5px strokes, square-ish terminals.
 const PATHS: Record<string, string[]> = {
+  menu: ['M4 7h16', 'M4 12h16', 'M4 17h16'],
+  pin: ['M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z', 'M12 7.5a2.5 2.5 0 1 0 0 5a2.5 2.5 0 1 0 0-5'],
+  locate: ['M12 5a7 7 0 1 0 0 14a7 7 0 1 0 0-14', 'M12 2.5V5', 'M12 19v2.5', 'M2.5 12H5', 'M19 12h2.5', 'M12 10a2 2 0 1 0 0 4a2 2 0 1 0 0-4'],
+  heart: ['M12 19.5s-7.5-4.6-7.5-10a4.2 4.2 0 0 1 7.5-2.6 4.2 4.2 0 0 1 7.5 2.6c0 5.4-7.5 10-7.5 10z'],
+  compare: ['M5 4.5v15', 'M12 4.5v15', 'M19 4.5v15', 'M3 8h4', 'M10 14h4', 'M17 10h4'],
+  map: ['M4 6.5l5-2 6 2 5-2v13l-5 2-6-2-5 2z', 'M9 4.5v13', 'M15 6.5v13'],
+  list: ['M8.5 6.5h11', 'M8.5 12h11', 'M8.5 17.5h11', 'M4.5 6.5h.01', 'M4.5 12h.01', 'M4.5 17.5h.01'],
+  leaf: ['M5 19c0-8 5-13.5 14-14.5-.5 9-6 14.5-14 14.5z', 'M5 19l7.5-7.5'],
+  users: ['M9 4.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 0 0-7', 'M2.5 19.5c.8-3.2 3.4-5 6.5-5s5.7 1.8 6.5 5', 'M16 5a3 3 0 0 1 0 6', 'M17.5 14.7c2 .6 3.4 2.2 4 4.8'],
+  mail: ['M3.5 6h17v12h-17z', 'M3.5 6.5l8.5 7 8.5-7'],
+  phone: ['M6.5 3.5h3l1.5 4.5-2 1.5a11 11 0 0 0 5.5 5.5l1.5-2 4.5 1.5v3a2 2 0 0 1-2 2C10.5 19.5 4.5 13.5 4.5 5.5a2 2 0 0 1 2-2z'],
+  filter: ['M4 6h16', 'M7 12h10', 'M10 18h4'],
+  bookmark: ['M6.5 4h11v16l-5.5-4-5.5 4z'],
   arrow: ['M4 12h15', 'M13 6l6 6-6 6'],
   'arrow-left': ['M20 12H5', 'M11 6l-6 6 6 6'],
   down: ['M12 4v15', 'M6 13l6 6 6-6'],
@@ -50,8 +63,9 @@ const PATHS: Record<string, string[]> = {
 export type IconName = keyof typeof PATHS;
 
 export function icon(name: string, className = ''): SVGSVGElement {
+  const filled = name === 'play' || name === 'skip' || name === 'heart-filled' || name === 'bookmark-filled';
+  if (name.endsWith('-filled')) name = name.slice(0, -7);
   const paths = PATHS[name] ?? PATHS.info;
-  const filled = name === 'play' || name === 'skip';
   return s('svg', { viewBox: '0 0 24 24', 'aria-hidden': 'true', focusable: 'false', class: `icon ${className}`.trim(), fill: 'none', stroke: 'currentColor', 'stroke-width': '1.5', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' },
     paths.map((d, index) => s('path', { d, fill: filled && index === 0 ? 'currentColor' : 'none' })));
 }

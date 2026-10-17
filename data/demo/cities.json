@@ -1,0 +1,182 @@
+{
+  "notice": "Demonstration data. Every gym, professional, price and offer is fictional and must be labelled as such in the interface.",
+  "generated": "scripts/generate-demo-data.mjs",
+  "items": [
+    {
+      "id": "bengaluru",
+      "name": "Bengaluru",
+      "region": "Karnataka",
+      "country": "India",
+      "currency": "INR",
+      "lat": 12.9716,
+      "lng": 77.5946,
+      "areas": [
+        {
+          "name": "Indiranagar",
+          "lat": 12.9784,
+          "lng": 77.6408,
+          "postcodes": [
+            "560038"
+          ]
+        },
+        {
+          "name": "Koramangala",
+          "lat": 12.9352,
+          "lng": 77.6245,
+          "postcodes": [
+            "560034",
+            "560095"
+          ]
+        },
+        {
+          "name": "Whitefield",
+          "lat": 12.9698,
+          "lng": 77.75,
+          "postcodes": [
+            "560066"
+          ]
+        },
+        {
+          "name": "Jayanagar",
+          "lat": 12.925,
+          "lng": 77.5938,
+          "postcodes": [
+            "560041",
+            "560011"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mumbai",
+      "name": "Mumbai",
+      "region": "Maharashtra",
+      "country": "India",
+      "currency": "INR",
+      "lat": 19.076,
+      "lng": 72.8777,
+      "areas": [
+        {
+          "name": "Bandra West",
+          "lat": 19.0596,
+          "lng": 72.8295,
+          "postcodes": [
+            "400050"
+          ]
+        },
+        {
+          "name": "Andheri West",
+          "lat": 19.1364,
+          "lng": 72.8296,
+          "postcodes": [
+            "400053",
+            "400058"
+          ]
+        },
+        {
+          "name": "Powai",
+          "lat": 19.1176,
+          "lng": 72.906,
+          "postcodes": [
+            "400076"
+          ]
+        },
+        {
+          "name": "Lower Parel",
+          "lat": 18.998,
+          "lng": 72.8302,
+          "postcodes": [
+            "400013"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "delhi",
+      "name": "New Delhi",
+      "region": "Delhi",
+      "country": "India",
+      "currency": "INR",
+      "lat": 28.6139,
+      "lng": 77.209,
+      "areas": [
+        {
+          "name": "Saket",
+          "lat": 28.5245,
+          "lng": 77.2066,
+          "postcodes": [
+            "110017"
+          ]
+        },
+        {
+          "name": "Vasant Kunj",
+          "lat": 28.52,
+          "lng": 77.159,
+          "postcodes": [
+            "110070"
+          ]
+        },
+        {
+          "name": "Dwarka",
+          "lat": 28.5921,
+          "lng": 77.046,
+          "postcodes": [
+            "110075",
+            "110078"
+          ]
+        },
+        {
+          "name": "Connaught Place",
+          "lat": 28.6315,
+          "lng": 77.2167,
+          "postcodes": [
+            "110001"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyderabad",
+      "name": "Hyderabad",
+      "region": "Telangana",
+      "country": "India",
+      "currency": "INR",
+      "lat": 17.385,
+      "lng": 78.4867,
+      "areas": [
+        {
+          "name": "Banjara Hills",
+          "lat": 17.4156,
+          "lng": 78.4347,
+          "postcodes": [
+            "500034"
+          ]
+        },
+        {
+          "name": "Gachibowli",
+          "lat": 17.4401,
+          "lng": 78.3489,
+          "postcodes": [
+            "500032"
+          ]
+        },
+        {
+          "name": "Madhapur",
+          "lat": 17.4483,
+          "lng": 78.3915,
+          "postcodes": [
+            "500081"
+          ]
+        },
+        {
+          "name": "Kondapur",
+          "lat": 17.46,
+          "lng": 78.36,
+          "postcodes": [
+            "500084"
+          ]
+        }
+      ]
+    }
+  ]
+}

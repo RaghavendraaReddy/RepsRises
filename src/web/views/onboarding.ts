@@ -6,6 +6,9 @@ import type { View, ViewContext } from '../core/router.js';
 import { store } from '../core/store.js';
 import { button, choices, eyebrow, segmented, textField, toast } from '../ui/components.js';
 import { icon } from '../ui/icons.js';
+import { notice } from '../ui/market-ui.js';
+import { AUDIENCE_INFO, safetyNote } from '../../shared/audience.js';
+import type { Audience } from '../../shared/fitness/types.js';
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 export const DEFAULT_DAYS: Record<number, number[]> = { 1: [0], 2: [0, 3], 3: [0, 2, 4], 4: [0, 1, 3, 4], 5: [0, 1, 2, 3, 4], 6: [0, 1, 2, 3, 4, 5], 7: [0, 1, 2, 3, 4, 5, 6] };
@@ -15,6 +18,16 @@ export const GOAL_CHOICES: { value: Goal; title: string; text: string }[] = [
   { value: 'endurance', title: 'Build endurance', text: 'Higher reps, shorter rest, more conditioning.' },
   { value: 'general', title: 'All-round fitness', text: 'A balanced mix of strength and stamina.' },
 ];
+/** Children train for play, skill and stamina; strength and muscle-building goals are for adults. */
+function goalChoices(audience: Audience) {
+  if (audience === 'kids') return [
+    { value: 'general' as Goal, title: 'Active play', text: 'Running, jumping, balance and bodyweight games.' },
+    { value: 'endurance' as Goal, title: 'Sport stamina', text: 'Longer play and more movement for active children.' },
+  ];
+  if (audience === 'older') return GOAL_CHOICES.map(item => item.value === 'strength' ? { ...item, text: 'Strength for everyday life: stairs, lifting and getting up easily.' } : item.value === 'muscle' ? { ...item, text: 'Keep and rebuild muscle with steady, moderate loads.' } : item);
+  return GOAL_CHOICES;
+}
+
 export const LEVEL_CHOICES: { value: Level; title: string; text: string }[] = [
   { value: 'beginner', title: 'Beginner', text: 'New, or returning after a long break. Under six months of consistent training.' },
   { value: 'intermediate', title: 'Intermediate', text: 'Six months to two years of regular training. Comfortable with the main lifts.' },
@@ -49,19 +62,25 @@ export function onboardingView(context: ViewContext): View {
     : { name: '', goal: null, level: null, equipment: ['dumbbells', 'bench', 'bands'], daysPerWeek: 3, trainingDays: DEFAULT_DAYS[3], minutes: 45, units: 'kg' };
   let step = 0;
   let error = '';
+  const audience = store.audience();
+  const goals = goalChoices(audience);
+  const levels = audience === 'kids' ? LEVEL_CHOICES.filter(item => item.value !== 'advanced') : LEVEL_CHOICES;
+  if (draft.goal && !goals.some(item => item.value === draft.goal)) draft.goal = null;
+  if (draft.level && !levels.some(item => item.value === draft.level)) draft.level = null;
 
   const steps: { label: string; title: string; why: string; render: () => HTMLElement; valid: () => string }[] = [
     {
       label: 'Goal', title: 'What are you training for?', why: 'Your goal sets the rep ranges and rest times in every plan Icarus builds for you.',
       valid: () => draft.goal ? '' : 'Choose the goal that fits best. You can change it later.',
       render: () => h('div', { class: 'stack', style: { '--stack': '28px' } },
-        textField({ label: 'Your first name (optional)', value: draft.name, maxLength: 40, autocomplete: 'given-name', placeholder: 'For a more personal greeting', onInput: value => { draft.name = value.trim(); } }),
-        choices({ legend: 'Primary goal', name: 'goal', items: GOAL_CHOICES, selected: draft.goal ? [draft.goal] : [], onChange: ([value]) => { draft.goal = value; clearError(); } })),
+        audience !== 'adults' ? notice([h('strong', null, `Setting up for ${AUDIENCE_INFO[audience].label.toLowerCase()}. `), audience === 'kids' ? 'A parent or guardian should complete this and supervise every session. We do not ask for the child’s name.' : '', ' ', safetyNote(audience)], 'safety') : null,
+        audience === 'kids' ? null : textField({ label: 'Your first name (optional)', value: draft.name, maxLength: 40, autocomplete: 'given-name', placeholder: 'For a more personal greeting', onInput: value => { draft.name = value.trim(); } }),
+        choices({ legend: 'Primary goal', name: 'goal', items: goals, selected: draft.goal ? [draft.goal] : [], onChange: ([value]) => { draft.goal = value; clearError(); } })),
     },
     {
       label: 'Experience', title: 'How experienced are you?', why: 'Experience decides which exercises appear and how many sets you start with. Be honest: starting a little easy is the fastest way to progress.',
       valid: () => draft.level ? '' : 'Choose your experience level.',
-      render: () => choices({ legend: 'Training experience', name: 'level', items: LEVEL_CHOICES, selected: draft.level ? [draft.level] : [], onChange: ([value]) => { draft.level = value; clearError(); } }),
+      render: () => choices({ legend: 'Training experience', name: 'level', items: levels, selected: draft.level ? [draft.level] : [], onChange: ([value]) => { draft.level = value; clearError(); } }),
     },
     {
       label: 'Equipment', title: 'What can you train with?', why: 'Icarus only suggests exercises you can actually do where you train. Bodyweight exercises are always included.',
@@ -93,9 +112,10 @@ export function onboardingView(context: ViewContext): View {
       label: 'Review', title: 'Your programme', why: 'Everything here can be changed later in Settings and the plan builder. Plans are sensible starting points, not guarantees: adjust them to how you feel and recover.',
       valid: () => '',
       render: () => {
-        const split = SPLITS.find(item => item.id === recommendedSplit(draft.daysPerWeek, draft.level ?? 'beginner'))!;
+        const split = SPLITS.find(item => item.id === recommendedSplit(draft.daysPerWeek, draft.level ?? 'beginner', audience))!;
         const rows: [string, string][] = [
-          ['Goal', GOAL_CHOICES.find(item => item.value === draft.goal)?.title ?? '—'],
+          ['For', AUDIENCE_INFO[audience].label],
+          ['Goal', goals.find(item => item.value === draft.goal)?.title ?? '—'],
           ['Experience', LEVEL_CHOICES.find(item => item.value === draft.level)?.title ?? '—'],
           ['Equipment', draft.equipment.length ? draft.equipment.map(item => EQUIPMENT_LABEL[item]).join(', ') : 'Bodyweight only'],
           ['Schedule', `${draft.trainingDays.map(day => DAYS[day]).join(', ')} · ${draft.minutes} min`],
@@ -114,7 +134,7 @@ export function onboardingView(context: ViewContext): View {
   const finish = (button: HTMLButtonElement) => {
     button.classList.add('busy');
     const profile: Profile = {
-      version: 1, name: draft.name, goal: draft.goal!, level: draft.level!, equipment: ['bodyweight', ...draft.equipment],
+      version: 1, name: audience === 'kids' ? '' : draft.name, goal: draft.goal!, level: draft.level!, equipment: ['bodyweight', ...draft.equipment],
       daysPerWeek: draft.trainingDays.length, trainingDays: draft.trainingDays, minutes: draft.minutes, units: draft.units, createdAt: existing?.createdAt ?? Date.now(),
     };
     try {

@@ -165,16 +165,6 @@ dialog.dialog[open] { animation: dialog-in var(--t-med) var(--ease); display: fl
 .prose strong { font-weight: 600; color: var(--fg); }
 .prose li::marker { color: var(--accent); }
 
-/* Figures */
-.figure { color: var(--fg); }
-.figure svg { width: 100%; height: auto; overflow: visible; }
-.figure .limb { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
-.figure .far { opacity: 0.38; }
-.figure .joint { fill: var(--bg); stroke: currentColor; }
-.figure .kit { fill: none; stroke: var(--accent); stroke-linecap: round; stroke-linejoin: round; }
-.figure .kit-fill { fill: var(--accent); }
-.figure .ground { stroke: var(--line-strong); stroke-width: 1; }
-.figure .guide { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 5; fill: none; }
 
 /* Progress ring (timers) */
 .ring { position: relative; display: grid; place-items: center; }

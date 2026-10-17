@@ -8,7 +8,7 @@ import { cliEnvironment, resolveBinary } from '../dist/server/providers/cli-comm
 import { subprocess } from '../dist/server/subprocess.js';
 import { redact, redactValue } from '../dist/shared/redact.js';
 
-const context = { name: null, goal: 'muscle', level: 'beginner', equipment: ['bodyweight', 'dumbbells'], minutes: 40, units: 'kg', plan: '', recent: '', session: '' };
+const context = { name: null, goal: 'muscle', level: 'beginner', equipment: ['bodyweight', 'dumbbells'], minutes: 40, units: 'kg', plan: '', recent: '', session: '', audience: 'adults' };
 const request = (provider, content = 'Build me a leg session') => ({ provider, messages: [{ role: 'user', content }], context });
 const reply = { reply: 'Here is a session.', workout: { title: 'Legs', focus: 'Quads', minutes: 30, exercises: [{ name: 'Goblet Squat', exerciseId: 'goblet-squat', sets: 3, reps: 10, repsMax: 12, seconds: null, restSec: 90, cue: 'Chest up' }] }, split: null, suggestions: ['Make it shorter'] };
 const cfg = { binary: '/trusted/claude', model: '', timeoutMs: 1000 };

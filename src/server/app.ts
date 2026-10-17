@@ -15,20 +15,24 @@ import { claudeTurn } from './providers/claude-cli.js';
 import { codexTurn } from './providers/codex-cli.js';
 import { openaiTurn } from './providers/openai.js';
 import type { ProcessTransport } from './subprocess.js';
+import { createProvider, type MarketplaceProvider } from './marketplace/provider.js';
+import { RequestStore } from './marketplace/requests.js';
+import { handleMarketplace } from './marketplace/routes.js';
 export { readConfig } from './config.js';
 
-const CSP = "default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; media-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'";
-const SECURITY_HEADERS = {
-  'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer', 'Content-Security-Policy': CSP, 'X-Frame-Options': 'DENY',
-  'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=()',
+const cspFor = (tileOrigin: string | null) => `default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:${tileOrigin ? ` ${tileOrigin}` : ''}; connect-src 'self'; manifest-src 'self'; media-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'`;
+let SECURITY_HEADERS: Record<string, string> = {
+  'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer', 'Content-Security-Policy': cspFor(null), 'X-Frame-Options': 'DENY',
+  // Geolocation is allowed for this site only; the browser still asks the user before sharing it.
+  'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Permissions-Policy': 'camera=(), microphone=(), geolocation=(self), payment=()',
 };
 const MIME: Record<string, string> = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml',
-  '.woff2': 'font/woff2', '.png': 'image/png', '.webmanifest': 'application/manifest+json', '.txt': 'text/plain; charset=utf-8', '.ico': 'image/x-icon',
+  '.woff2': 'font/woff2', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.webmanifest': 'application/manifest+json', '.txt': 'text/plain; charset=utf-8', '.ico': 'image/x-icon',
 };
 const COMPRESSIBLE = new Set(['.html', '.css', '.js', '.svg', '.webmanifest', '.txt']);
 
-export type Dependencies = { fetch?: typeof fetch; anthropic?: AnthropicClient; process?: ProcessTransport; resolveCli?: (path: string) => Promise<string>; log?: (line: string) => void };
+export type Dependencies = { fetch?: typeof fetch; anthropic?: AnthropicClient; process?: ProcessTransport; resolveCli?: (path: string) => Promise<string>; log?: (line: string) => void; provider?: MarketplaceProvider; webhookFetch?: typeof fetch };
 
 function json(res: ServerResponse, status: number, value: unknown, extra: Record<string, string> = {}) {
   res.writeHead(status, { ...SECURITY_HEADERS, 'Cache-Control': 'no-store', 'Content-Type': 'application/json; charset=utf-8', ...extra });
@@ -40,7 +44,7 @@ async function readBody(req: IncomingMessage): Promise<unknown> {
   let length = 0;
   for await (const chunk of req) {
     length += chunk.length;
-    if (length > 256_000) throw new PublicError('INPUT', 'This conversation is too long. Start a new one.', 413);
+    if (length > 256_000) throw new PublicError('INPUT', 'This request is too large.', 413);
     chunks.push(chunk);
   }
   try { return JSON.parse(Buffer.concat(chunks).toString('utf8')); } catch { throw new PublicError('INPUT', 'The request was not valid JSON.', 400); }
@@ -67,6 +71,10 @@ export function createApp(config: Config, deps: Dependencies = {}) {
   // A per-process token the page must echo. It blocks cross-site form posts; it is not user authentication.
   const token = randomBytes(32).toString('hex');
   const live = new RateLimiter(config.aiRequestsPer10Min, 10 * 60_000);
+  const bookingLimiter = new RateLimiter(10, 10 * 60_000);
+  const provider = deps.provider ?? createProvider(config.root);
+  const requests = new RequestStore(config.dataDir, config.retentionDays, config.webhookUrl, deps.webhookFetch ?? fetch, line => log(line));
+  SECURITY_HEADERS = { ...SECURITY_HEADERS, 'Content-Security-Policy': cspFor(config.map ? new URL(config.map.tileUrl.replace(/\{[a-z]\}/g, 'a')).origin : null) };
   const offline = new RateLimiter(120, 60_000);
   const assets = new Map<string, { raw: Buffer; gzip: Buffer | null }>();
   const log = deps.log ?? (() => {});
@@ -89,7 +97,7 @@ export function createApp(config: Config, deps: Dependencies = {}) {
 
   async function serveStatic(req: IncomingMessage, res: ServerResponse, path: string) {
     const file = path === '/' ? 'web/index.html' : decodeURIComponent(path.slice(1));
-    if (!/^(web|shared)\/[a-zA-Z0-9/_.-]+\.(js|css|html|svg|woff2|png|webmanifest|txt|ico)$/.test(file) || file.includes('..')) { json(res, 404, { error: 'Not found.' }); return; }
+    if (!/^(web|shared)\/[a-zA-Z0-9/_.-]+\.(js|css|html|svg|woff2|png|webp|jpg|webmanifest|txt|ico)$/.test(file) || file.includes('..')) { json(res, 404, { error: 'Not found.' }); return; }
     let entry = assets.get(file);
     const ext = extname(file);
     if (!entry) {
@@ -104,7 +112,7 @@ export function createApp(config: Config, deps: Dependencies = {}) {
     const gzip = entry.gzip && /\bgzip\b/.test(String(req.headers['accept-encoding'] ?? ''));
     res.writeHead(200, {
       ...SECURITY_HEADERS, 'Content-Type': MIME[ext], Vary: 'Accept-Encoding',
-      'Cache-Control': ext === '.woff2' || ext === '.png' ? 'public, max-age=604800' : 'no-cache',
+      'Cache-Control': ['.woff2', '.png', '.webp', '.jpg'].includes(ext) ? 'public, max-age=604800' : 'no-cache',
       ...(gzip ? { 'Content-Encoding': 'gzip' } : {}),
     });
     res.end(gzip ? entry.gzip : entry.raw);
@@ -123,7 +131,8 @@ export function createApp(config: Config, deps: Dependencies = {}) {
       const path = new URL(req.url ?? '/', 'http://localhost').pathname;
       if (path === '/api/health' && req.method === 'GET') { json(res, 200, { ok: true, version: APP_VERSION }); return; }
       if (path === '/api/config' && req.method === 'GET') {
-        json(res, 200, { appVersion: APP_VERSION, token, providers: providerStatuses(config), defaultProvider: defaultProvider(config), limits: LIMITS, testFaults: config.testFaults });
+        json(res, 200, { appVersion: APP_VERSION, token, providers: providerStatuses(config), defaultProvider: defaultProvider(config), limits: LIMITS, testFaults: config.testFaults,
+          map: config.map, supportEmail: config.supportEmail, marketplace: { name: provider.name, demo: provider.demo }, requestsForwarded: Boolean(config.webhookUrl), retentionDays: config.retentionDays });
         return;
       }
       if (path === '/api/coach' && req.method === 'POST') {
@@ -155,7 +164,17 @@ export function createApp(config: Config, deps: Dependencies = {}) {
         } finally { clearTimeout(timeout); active--; }
         return;
       }
-      if (path.startsWith('/api/')) { json(res, 404, { error: 'Not found.' }); return; }
+      if (path.startsWith('/api/')) {
+        const client = () => (config.trustProxy ? String(req.headers['x-forwarded-for'] ?? '').split(',')[0].trim() : '') || req.socket.remoteAddress || 'unknown';
+        if (req.method !== 'GET' && req.method !== 'HEAD') {
+          const supplied = Buffer.from(String(req.headers['x-icarus-token'] ?? ''));
+          if (supplied.length !== token.length || !timingSafeEqual(supplied, Buffer.from(token))) throw new PublicError('FORBIDDEN', 'The app was updated. Reload the page and try again.', 403);
+          if (req.method === 'POST' && !String(req.headers['content-type'] ?? '').startsWith('application/json')) throw new PublicError('INPUT', 'Expected JSON.', 415);
+        }
+        const url = new URL(req.url ?? '/', 'http://localhost');
+        if (await handleMarketplace(req, res, path, url, { provider, requests, respond: (r, status, value) => json(r, status, value), readBody, allowRequest: () => bookingLimiter.take(client()) })) return;
+        json(res, 404, { error: 'Not found.' }); return;
+      }
       if (req.method !== 'GET' && req.method !== 'HEAD') { json(res, 405, { error: 'Method not allowed.' }); return; }
       await serveStatic(req, res, path);
     } catch (error) {

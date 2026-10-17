@@ -1,0 +1,1062 @@
+{
+  "notice": "Demonstration data. Every gym, professional, price and offer is fictional and must be labelled as such in the interface.",
+  "generated": "scripts/generate-demo-data.mjs",
+  "items": [
+    {
+      "id": "aarav-rao",
+      "demo": true,
+      "role": "trainer",
+      "name": "Aarav Rao",
+      "initials": "AR",
+      "cityId": "bengaluru",
+      "areas": [
+        "Indiranagar",
+        "Whitefield"
+      ],
+      "gymIds": [
+        "forge-athletic-club",
+        "meridian-health-swim"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Strength training",
+        "Muscle building",
+        "Technique coaching"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "experienceYears": 14,
+      "qualifications": [
+        {
+          "name": "Certified Personal Trainer (Level 3)",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Strength and conditioning certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Marathi"
+      ],
+      "bio": "Demonstration profile. Aarav Rao represents how a strength training coach would present their experience, specialties and availability on Icarus.",
+      "rate": 1000,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "meera-khanna",
+      "demo": true,
+      "role": "trainer",
+      "name": "Meera Khanna",
+      "initials": "MK",
+      "cityId": "bengaluru",
+      "areas": [
+        "Jayanagar"
+      ],
+      "gymIds": [
+        "little-strides-sports-centre"
+      ],
+      "formats": [
+        "in-person"
+      ],
+      "specialties": [
+        "Youth sport",
+        "Coordination and agility",
+        "Fun fitness for children"
+      ],
+      "audiences": [
+        "kids"
+      ],
+      "experienceYears": 10,
+      "qualifications": [
+        {
+          "name": "Youth sports coaching certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Child safeguarding training",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Paediatric first aid",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Telugu"
+      ],
+      "bio": "Demonstration profile. Meera Khanna represents how a youth sport coach would present their experience, specialties and availability on Icarus.",
+      "rate": 1450,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "kabir-qureshi",
+      "demo": true,
+      "role": "trainer",
+      "name": "Kabir Qureshi",
+      "initials": "KQ",
+      "cityId": "bengaluru",
+      "areas": [
+        "Koramangala",
+        "Jayanagar"
+      ],
+      "gymIds": [
+        "kinetic-yard",
+        "little-strides-sports-centre"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Strength and balance for older adults",
+        "Falls prevention",
+        "Mobility"
+      ],
+      "audiences": [
+        "older",
+        "adults"
+      ],
+      "experienceYears": 4,
+      "qualifications": [
+        {
+          "name": "Exercise for older adults certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Certified Personal Trainer (Level 3)",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "First aid",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Tamil"
+      ],
+      "bio": "Demonstration profile. Kabir Qureshi represents how a strength and balance for older adults coach would present their experience, specialties and availability on Icarus.",
+      "rate": 1300,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "ananya-iyer",
+      "demo": true,
+      "role": "nutritionist",
+      "name": "Ananya Iyer",
+      "initials": "AI",
+      "cityId": "bengaluru",
+      "areas": [
+        "Indiranagar",
+        "Koramangala"
+      ],
+      "gymIds": [
+        "forge-athletic-club",
+        "meridian-health-swim"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Sports nutrition",
+        "Body composition",
+        "Meal planning"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "experienceYears": 7,
+      "qualifications": [
+        {
+          "name": "Registered Dietitian",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Sports nutrition diploma",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Kannada"
+      ],
+      "bio": "Demonstration profile. Ananya Iyer represents how a nutrition professional focused on sports nutrition would present their services on Icarus.",
+      "rate": 2350,
+      "mealPlanFee": 1900,
+      "currency": "INR",
+      "availability": "Online consultations most weekdays; in-person by request."
+    },
+    {
+      "id": "rohan-reddy",
+      "demo": true,
+      "role": "nutritionist",
+      "name": "Rohan Reddy",
+      "initials": "RR",
+      "cityId": "bengaluru",
+      "areas": [
+        "Indiranagar",
+        "Koramangala"
+      ],
+      "gymIds": [
+        "forge-athletic-club",
+        "meridian-health-swim"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Family nutrition",
+        "Healthy eating for children",
+        "Nutrition in later life"
+      ],
+      "audiences": [
+        "kids",
+        "adults",
+        "older"
+      ],
+      "experienceYears": 12,
+      "qualifications": [
+        {
+          "name": "Registered Dietitian",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Paediatric nutrition course",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Kannada"
+      ],
+      "bio": "Demonstration profile. Rohan Reddy represents how a nutrition professional focused on family nutrition would present their services on Icarus.",
+      "rate": 1650,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Online consultations most weekdays; in-person by request."
+    },
+    {
+      "id": "isha-malhotra",
+      "demo": true,
+      "role": "trainer",
+      "name": "Isha Malhotra",
+      "initials": "IM",
+      "cityId": "mumbai",
+      "areas": [
+        "Lower Parel",
+        "Bandra West"
+      ],
+      "gymIds": [
+        "tidewater-strength-co",
+        "halcyon-wellness-studio"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Strength training",
+        "Muscle building",
+        "Technique coaching"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "experienceYears": 6,
+      "qualifications": [
+        {
+          "name": "Certified Personal Trainer (Level 3)",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Strength and conditioning certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Hindi"
+      ],
+      "bio": "Demonstration profile. Isha Malhotra represents how a strength training coach would present their experience, specialties and availability on Icarus.",
+      "rate": 1250,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "vikram-kapoor",
+      "demo": true,
+      "role": "trainer",
+      "name": "Vikram Kapoor",
+      "initials": "VK",
+      "cityId": "mumbai",
+      "areas": [
+        "Powai"
+      ],
+      "gymIds": [
+        "powai-junior-athletics"
+      ],
+      "formats": [
+        "in-person"
+      ],
+      "specialties": [
+        "Youth sport",
+        "Coordination and agility",
+        "Fun fitness for children"
+      ],
+      "audiences": [
+        "kids"
+      ],
+      "experienceYears": 13,
+      "qualifications": [
+        {
+          "name": "Youth sports coaching certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Child safeguarding training",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Paediatric first aid",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Telugu"
+      ],
+      "bio": "Demonstration profile. Vikram Kapoor represents how a youth sport coach would present their experience, specialties and availability on Icarus.",
+      "rate": 1700,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "nisha-desai",
+      "demo": true,
+      "role": "trainer",
+      "name": "Nisha Desai",
+      "initials": "ND",
+      "cityId": "mumbai",
+      "areas": [
+        "Bandra West",
+        "Andheri West"
+      ],
+      "gymIds": [
+        "halcyon-wellness-studio",
+        "northline-fitness-club"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Strength and balance for older adults",
+        "Falls prevention",
+        "Mobility"
+      ],
+      "audiences": [
+        "older",
+        "adults"
+      ],
+      "experienceYears": 14,
+      "qualifications": [
+        {
+          "name": "Exercise for older adults certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Certified Personal Trainer (Level 3)",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "First aid",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Kannada"
+      ],
+      "bio": "Demonstration profile. Nisha Desai represents how a strength and balance for older adults coach would present their experience, specialties and availability on Icarus.",
+      "rate": 1450,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "arjun-gill",
+      "demo": true,
+      "role": "nutritionist",
+      "name": "Arjun Gill",
+      "initials": "AG",
+      "cityId": "mumbai",
+      "areas": [
+        "Bandra West",
+        "Andheri West"
+      ],
+      "gymIds": [
+        "tidewater-strength-co",
+        "halcyon-wellness-studio"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Sports nutrition",
+        "Body composition",
+        "Meal planning"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "experienceYears": 11,
+      "qualifications": [
+        {
+          "name": "Registered Dietitian",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Sports nutrition diploma",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Marathi"
+      ],
+      "bio": "Demonstration profile. Arjun Gill represents how a nutrition professional focused on sports nutrition would present their services on Icarus.",
+      "rate": 1300,
+      "mealPlanFee": 1750,
+      "currency": "INR",
+      "availability": "Online consultations most weekdays; in-person by request."
+    },
+    {
+      "id": "tara-menon",
+      "demo": true,
+      "role": "nutritionist",
+      "name": "Tara Menon",
+      "initials": "TM",
+      "cityId": "mumbai",
+      "areas": [
+        "Bandra West",
+        "Andheri West"
+      ],
+      "gymIds": [
+        "tidewater-strength-co",
+        "halcyon-wellness-studio"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Family nutrition",
+        "Healthy eating for children",
+        "Nutrition in later life"
+      ],
+      "audiences": [
+        "kids",
+        "adults",
+        "older"
+      ],
+      "experienceYears": 9,
+      "qualifications": [
+        {
+          "name": "Registered Dietitian",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Paediatric nutrition course",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Hindi"
+      ],
+      "bio": "Demonstration profile. Tara Menon represents how a nutrition professional focused on family nutrition would present their services on Icarus.",
+      "rate": 1700,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Online consultations most weekdays; in-person by request."
+    },
+    {
+      "id": "dev-sethi",
+      "demo": true,
+      "role": "trainer",
+      "name": "Dev Sethi",
+      "initials": "DS",
+      "cityId": "delhi",
+      "areas": [
+        "Saket",
+        "Vasant Kunj"
+      ],
+      "gymIds": [
+        "atlas-performance-lab",
+        "evergreen-active-living"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Strength training",
+        "Muscle building",
+        "Technique coaching"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "experienceYears": 14,
+      "qualifications": [
+        {
+          "name": "Certified Personal Trainer (Level 3)",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Strength and conditioning certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Hindi"
+      ],
+      "bio": "Demonstration profile. Dev Sethi represents how a strength training coach would present their experience, specialties and availability on Icarus.",
+      "rate": 950,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "kavya-sen",
+      "demo": true,
+      "role": "trainer",
+      "name": "Kavya Sen",
+      "initials": "KS",
+      "cityId": "delhi",
+      "areas": [
+        "Dwarka"
+      ],
+      "gymIds": [
+        "dwarka-youth-sports-hub"
+      ],
+      "formats": [
+        "in-person"
+      ],
+      "specialties": [
+        "Youth sport",
+        "Coordination and agility",
+        "Fun fitness for children"
+      ],
+      "audiences": [
+        "kids"
+      ],
+      "experienceYears": 7,
+      "qualifications": [
+        {
+          "name": "Youth sports coaching certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Child safeguarding training",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Paediatric first aid",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Marathi"
+      ],
+      "bio": "Demonstration profile. Kavya Sen represents how a youth sport coach would present their experience, specialties and availability on Icarus.",
+      "rate": 1550,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "sameer-shah",
+      "demo": true,
+      "role": "trainer",
+      "name": "Sameer Shah",
+      "initials": "SS",
+      "cityId": "delhi",
+      "areas": [
+        "Vasant Kunj",
+        "Connaught Place"
+      ],
+      "gymIds": [
+        "evergreen-active-living",
+        "capital-fitness-commons"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Strength and balance for older adults",
+        "Falls prevention",
+        "Mobility"
+      ],
+      "audiences": [
+        "older",
+        "adults"
+      ],
+      "experienceYears": 11,
+      "qualifications": [
+        {
+          "name": "Exercise for older adults certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Certified Personal Trainer (Level 3)",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "First aid",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Telugu"
+      ],
+      "bio": "Demonstration profile. Sameer Shah represents how a strength and balance for older adults coach would present their experience, specialties and availability on Icarus.",
+      "rate": 950,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "leela-pillai",
+      "demo": true,
+      "role": "nutritionist",
+      "name": "Leela Pillai",
+      "initials": "LP",
+      "cityId": "delhi",
+      "areas": [
+        "Saket",
+        "Vasant Kunj"
+      ],
+      "gymIds": [
+        "atlas-performance-lab",
+        "evergreen-active-living"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Sports nutrition",
+        "Body composition",
+        "Meal planning"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "experienceYears": 8,
+      "qualifications": [
+        {
+          "name": "Registered Dietitian",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Sports nutrition diploma",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Telugu"
+      ],
+      "bio": "Demonstration profile. Leela Pillai represents how a nutrition professional focused on sports nutrition would present their services on Icarus.",
+      "rate": 1400,
+      "mealPlanFee": 2500,
+      "currency": "INR",
+      "availability": "Online consultations most weekdays; in-person by request."
+    },
+    {
+      "id": "imran-ahmed",
+      "demo": true,
+      "role": "nutritionist",
+      "name": "Imran Ahmed",
+      "initials": "IA",
+      "cityId": "delhi",
+      "areas": [
+        "Saket",
+        "Vasant Kunj"
+      ],
+      "gymIds": [
+        "atlas-performance-lab",
+        "evergreen-active-living"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Family nutrition",
+        "Healthy eating for children",
+        "Nutrition in later life"
+      ],
+      "audiences": [
+        "kids",
+        "adults",
+        "older"
+      ],
+      "experienceYears": 11,
+      "qualifications": [
+        {
+          "name": "Registered Dietitian",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Paediatric nutrition course",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Bengali"
+      ],
+      "bio": "Demonstration profile. Imran Ahmed represents how a nutrition professional focused on family nutrition would present their services on Icarus.",
+      "rate": 1850,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Online consultations most weekdays; in-person by request."
+    },
+    {
+      "id": "priya-nair",
+      "demo": true,
+      "role": "trainer",
+      "name": "Priya Nair",
+      "initials": "PN",
+      "cityId": "hyderabad",
+      "areas": [
+        "Madhapur",
+        "Gachibowli"
+      ],
+      "gymIds": [
+        "ironstone-barbell-club",
+        "gachibowli-movement-studio"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Strength training",
+        "Muscle building",
+        "Technique coaching"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "experienceYears": 8,
+      "qualifications": [
+        {
+          "name": "Certified Personal Trainer (Level 3)",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Strength and conditioning certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Marathi"
+      ],
+      "bio": "Demonstration profile. Priya Nair represents how a strength training coach would present their experience, specialties and availability on Icarus.",
+      "rate": 1500,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "neel-varma",
+      "demo": true,
+      "role": "trainer",
+      "name": "Neel Varma",
+      "initials": "NV",
+      "cityId": "hyderabad",
+      "areas": [
+        "Kondapur"
+      ],
+      "gymIds": [
+        "kondapur-kids-family-sports"
+      ],
+      "formats": [
+        "in-person"
+      ],
+      "specialties": [
+        "Youth sport",
+        "Coordination and agility",
+        "Fun fitness for children"
+      ],
+      "audiences": [
+        "kids"
+      ],
+      "experienceYears": 3,
+      "qualifications": [
+        {
+          "name": "Youth sports coaching certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Child safeguarding training",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Paediatric first aid",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Telugu"
+      ],
+      "bio": "Demonstration profile. Neel Varma represents how a youth sport coach would present their experience, specialties and availability on Icarus.",
+      "rate": 900,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "radhika-kulkarni",
+      "demo": true,
+      "role": "trainer",
+      "name": "Radhika Kulkarni",
+      "initials": "RK",
+      "cityId": "hyderabad",
+      "areas": [
+        "Madhapur",
+        "Gachibowli"
+      ],
+      "gymIds": [
+        "ironstone-barbell-club",
+        "gachibowli-movement-studio"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Strength and balance for older adults",
+        "Falls prevention",
+        "Mobility"
+      ],
+      "audiences": [
+        "older",
+        "adults"
+      ],
+      "experienceYears": 10,
+      "qualifications": [
+        {
+          "name": "Exercise for older adults certificate",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Certified Personal Trainer (Level 3)",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "First aid",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Telugu"
+      ],
+      "bio": "Demonstration profile. Radhika Kulkarni represents how a strength and balance for older adults coach would present their experience, specialties and availability on Icarus.",
+      "rate": 1750,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Request a time; the coach replies with available slots."
+    },
+    {
+      "id": "farhan-bose",
+      "demo": true,
+      "role": "nutritionist",
+      "name": "Farhan Bose",
+      "initials": "FB",
+      "cityId": "hyderabad",
+      "areas": [
+        "Banjara Hills",
+        "Gachibowli"
+      ],
+      "gymIds": [
+        "ironstone-barbell-club",
+        "summit-spring-club"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Sports nutrition",
+        "Body composition",
+        "Meal planning"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "experienceYears": 12,
+      "qualifications": [
+        {
+          "name": "Registered Dietitian",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Sports nutrition diploma",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Bengali"
+      ],
+      "bio": "Demonstration profile. Farhan Bose represents how a nutrition professional focused on sports nutrition would present their services on Icarus.",
+      "rate": 2000,
+      "mealPlanFee": 2250,
+      "currency": "INR",
+      "availability": "Online consultations most weekdays; in-person by request."
+    },
+    {
+      "id": "sanya-joshi",
+      "demo": true,
+      "role": "nutritionist",
+      "name": "Sanya Joshi",
+      "initials": "SJ",
+      "cityId": "hyderabad",
+      "areas": [
+        "Banjara Hills",
+        "Gachibowli"
+      ],
+      "gymIds": [
+        "ironstone-barbell-club",
+        "summit-spring-club"
+      ],
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "specialties": [
+        "Family nutrition",
+        "Healthy eating for children",
+        "Nutrition in later life"
+      ],
+      "audiences": [
+        "kids",
+        "adults",
+        "older"
+      ],
+      "experienceYears": 7,
+      "qualifications": [
+        {
+          "name": "Registered Dietitian",
+          "issuer": "Not yet verified",
+          "verified": false
+        },
+        {
+          "name": "Paediatric nutrition course",
+          "issuer": "Not yet verified",
+          "verified": false
+        }
+      ],
+      "languages": [
+        "English",
+        "Bengali"
+      ],
+      "bio": "Demonstration profile. Sanya Joshi represents how a nutrition professional focused on family nutrition would present their services on Icarus.",
+      "rate": 1450,
+      "mealPlanFee": null,
+      "currency": "INR",
+      "availability": "Online consultations most weekdays; in-person by request."
+    }
+  ]
+}

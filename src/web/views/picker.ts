@@ -3,7 +3,7 @@ import { MUSCLES, type Exercise, type Muscle } from '../../shared/fitness/types.
 import { h, replace } from '../core/dom.js';
 import { store } from '../core/store.js';
 import { openDialog } from '../ui/components.js';
-import { figure } from '../ui/figure.js';
+import { thumb } from '../ui/photo.js';
 import { icon } from '../ui/icons.js';
 
 /** Exercise chooser used to add or replace exercises. Resolves with the chosen exercise, or null. */
@@ -18,7 +18,7 @@ export function pickExercise(options: { title: string; replacing?: string }): Pr
     const suggestions = options.replacing ? substitutes(options.replacing, equipment).slice(0, 4) : [];
 
     const row = (exercise: Exercise, close: () => void) => h('li', null, h('button', { type: 'button', class: 'list-row exercise-row', onclick: () => { chosen = exercise; close(); } },
-      h('span', { class: 'thumb', 'aria-hidden': 'true' }, figure(exercise.id, { animate: false, ground: false })),
+      thumb(exercise.id),
       h('span', { class: 'stack', style: { '--stack': '2px' } }, h('span', { class: 'list-title' }, exercise.name), h('span', { class: 'list-meta' }, `${exercise.primary.map(item => MUSCLE_LABEL[item]).join(' · ')} · ${exercise.equipment.length ? exercise.equipment.join(', ') : 'bodyweight'}`)),
       icon('plus')));
 

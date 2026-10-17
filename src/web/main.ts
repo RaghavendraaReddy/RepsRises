@@ -7,7 +7,16 @@ import { mark } from './ui/brand.js';
 import { toast } from './ui/components.js';
 import { icon } from './ui/icons.js';
 import { coachView } from './views/coach.js';
-import { landingView } from './views/landing.js';
+import { homeView, welcomeView } from './views/home.js';
+import { gymsView, gymView } from './views/gyms.js';
+import { membershipsView } from './views/memberships.js';
+import { bookingView, coachingView, proView } from './views/coaching.js';
+import { enquireView, requestView } from './views/request.js';
+import { nutritionView } from './views/nutrition.js';
+import { profileView } from './views/profile.js';
+import { privacyView, supportView, termsView } from './views/info.js';
+import { workoutsView } from './views/workouts.js';
+import { audienceSwitch } from './ui/market-ui.js';
 import { libraryView, exerciseView } from './views/library.js';
 import { notFoundView } from './views/not-found.js';
 import { onboardingView } from './views/onboarding.js';
@@ -21,13 +30,20 @@ import { formatClock } from '../shared/fitness/stats.js';
 import { elapsedMs } from '../shared/fitness/session.js';
 
 const NAV = [
+  { href: '#/gyms', label: 'Discover Gyms', key: 'gyms' },
+  { href: '#/coaching', label: 'Personal Training', key: 'coaching' },
+  { href: '#/nutrition', label: 'Nutrition', key: 'nutrition' },
+  { href: '#/workouts', label: 'Workouts', key: 'workouts' },
+  { href: '#/memberships', label: 'Memberships & Offers', key: 'memberships' },
+];
+const TRAINING = new Set(['today', 'workouts', 'plans', 'coach', 'progress', 'library', 'settings']);
+const TABS = [
   { href: '#/today', label: 'Today', icon: 'today', key: 'today' },
   { href: '#/plans', label: 'Plans', icon: 'plans', key: 'plans' },
   { href: '#/coach', label: 'Coach', icon: 'coach', key: 'coach' },
   { href: '#/progress', label: 'Progress', icon: 'chart', key: 'progress' },
   { href: '#/library', label: 'Library', icon: 'library', key: 'library' },
 ];
-const TABS = [...NAV.slice(0, 4), { href: '#/settings', label: 'Settings', icon: 'settings', key: 'settings' }];
 
 const shell = document.getElementById('shell')!;
 const topbar = document.getElementById('topbar')!;
@@ -41,15 +57,43 @@ function resumePill() {
     h('span', { class: 'dot', 'aria-hidden': 'true' }), h('span', { class: 'resume-time tabular' }, store.session.pausedAt ? 'Paused' : formatClock(elapsedMs(store.session, Date.now()))), h('span', { class: 'resume-label' }, 'Resume'));
 }
 
+/** Where "Get started" leads: audience first, then the training set-up, then discovery. */
+function startHref() {
+  if (!store.local.audience) return '#/welcome';
+  if (!store.profile) return '#/onboarding';
+  return '#/gyms';
+}
+
+function openMenu(trigger: HTMLElement) {
+  const close = () => { panel.close(); };
+  const panel = h('dialog', { class: 'menu-panel surface-dark', 'aria-label': 'Menu' },
+    h('div', { class: 'menu-head container' },
+      h('a', { class: 'brand', href: '#/', onclick: close }, mark(), h('span', { class: 'wordmark' }, 'Icarus')),
+      h('button', { type: 'button', class: 'btn ghost icon small', 'aria-label': 'Close menu', onclick: close }, icon('close'))),
+    h('nav', { class: 'menu-links container', 'aria-label': 'Main' },
+      h('ul', { role: 'list' }, [{ href: '#/', label: 'Home', key: 'home' }, ...NAV].map((item, index) => h('li', null,
+        h('a', { href: item.href, onclick: close, 'aria-current': currentNav === item.key ? 'page' : null, style: { '--i': String(index) } }, h('span', { class: 'numeral' }, String(index + 1).padStart(2, '0')), item.label))))),
+    h('div', { class: 'menu-foot container' },
+      audienceSwitch(),
+      h('a', { class: 'btn ghost', href: '#/profile', onclick: close }, icon('user'), 'Profile'),
+      h('a', { class: 'btn primary', href: startHref(), onclick: close }, 'Get Started')));
+  panel.addEventListener('close', () => { panel.remove(); trigger.focus(); });
+  panel.addEventListener('click', event => { if ((event.target as HTMLElement).closest('.audience-switch')) close(); });
+  document.body.append(panel);
+  panel.showModal();
+}
+
 function renderChrome() {
-  const onboarded = Boolean(store.profile);
+  const training = TRAINING.has(currentNav) && Boolean(store.profile);
+  const menuButton = h('button', { type: 'button', class: 'btn ghost icon small nav-menu', 'aria-label': 'Open menu', 'aria-haspopup': 'dialog', onclick: (event: Event) => openMenu(event.currentTarget as HTMLElement) }, icon('menu'));
   replace(topbar, h('div', { class: 'container' },
-    h('a', { class: 'brand', href: onboarded ? '#/today' : '#/welcome', 'aria-label': 'Icarus home' }, mark(), h('span', { class: 'wordmark' }, 'Icarus')),
-    onboarded ? h('nav', { class: 'nav-links', 'aria-label': 'Primary' }, NAV.map(item => h('a', { class: 'nav-link', href: item.href, 'aria-current': currentNav === item.key ? 'page' : null }, item.label))) : null,
+    h('a', { class: 'brand', href: '#/', 'aria-label': 'Icarus home' }, mark(), h('span', { class: 'wordmark' }, 'Icarus')),
+    h('nav', { class: 'nav-links', 'aria-label': 'Primary' }, NAV.map(item => h('a', { class: 'nav-link', href: item.href, 'aria-current': currentNav === item.key || (item.key === 'workouts' && training) ? 'page' : null }, item.label))),
     h('div', { class: 'nav-actions' }, resumePill(),
-      onboarded ? h('a', { class: 'btn ghost icon small nav-settings', href: '#/settings', 'aria-label': 'Settings', 'aria-current': currentNav === 'settings' ? 'page' : null }, icon('settings'))
-        : h('a', { class: 'nav-link', href: '#/onboarding' }, 'Get started'))));
-  tabbar.hidden = !onboarded || immersive;
+      h('a', { class: 'nav-link nav-profile', href: '#/profile', 'aria-current': currentNav === 'profile' ? 'page' : null }, icon('user'), h('span', null, 'Profile')),
+      currentNav === 'welcome' ? null : h('a', { class: 'btn primary small nav-start', href: startHref() }, 'Get Started'),
+      menuButton)));
+  tabbar.hidden = !training || immersive;
   replace(tabbar, TABS.map(item => h('a', { href: item.href, 'aria-current': currentNav === item.key ? 'page' : null }, icon(item.icon), item.label)));
 }
 
@@ -60,14 +104,31 @@ const router = new Router(outlet, (view: View) => {
   document.body.className = `surface-${view.surface}`;
   shell.classList.toggle('immersive', immersive);
   renderChrome();
+  shell.classList.toggle('has-tabbar', !tabbar.hidden);
 }, notFoundView);
 
-const needsProfile = (factory: Parameters<Router['add']>[1]): Parameters<Router['add']>[1] => context => store.profile ? factory(context) : '#/welcome';
+const needsProfile = (factory: Parameters<Router['add']>[1]): Parameters<Router['add']>[1] => context => store.profile ? factory(context) : '#/onboarding';
+// First visit: ask who Icarus is for before showing tailored content.
+const needsAudience = (factory: Parameters<Router['add']>[1]): Parameters<Router['add']>[1] => context => store.local.audience ? factory(context) : `#/welcome?next=${encodeURIComponent(location.hash || '#/')}`;
 
 router
-  .add('/', () => store.profile ? '#/today' : '#/welcome')
-  .add('/welcome', landingView)
-  .add('/onboarding', onboardingView)
+  .add('/', needsAudience(homeView))
+  .add('/welcome', welcomeView)
+  .add('/gyms', needsAudience(gymsView))
+  .add('/gyms/:id', needsAudience(gymView))
+  .add('/memberships', needsAudience(membershipsView))
+  .add('/coaching', needsAudience(coachingView))
+  .add('/coaching/:id', needsAudience(bookingView))
+  .add('/pros/:id', needsAudience(proView))
+  .add('/enquire', needsAudience(enquireView))
+  .add('/requests/:ref', requestView)
+  .add('/nutrition', needsAudience(nutritionView))
+  .add('/workouts', needsAudience(workoutsView))
+  .add('/profile', profileView)
+  .add('/privacy', privacyView)
+  .add('/terms', termsView)
+  .add('/support', supportView)
+  .add('/onboarding', needsAudience(onboardingView))
   .add('/today', needsProfile(todayView))
   .add('/workout', needsProfile(workoutView))
   .add('/summary/:id', needsProfile(summaryView))
@@ -81,7 +142,7 @@ router
 
 // Data changed in another tab: redraw what is on screen.
 store.subscribe(reason => {
-  if (reason === 'external' || reason === 'reset' || reason === 'import') router.refresh();
+  if (reason === 'external' || reason === 'reset' || reason === 'import' || reason === 'audience') router.refresh();
   else renderChrome();
 });
 

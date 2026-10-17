@@ -176,7 +176,7 @@ test('storage validates on read and write, de-duplicates workouts, and round-tri
   assert.equal(fresh.history().length, 1, 'a rejected import changes nothing');
 });
 
-const context = { name: 'Sam', goal: 'muscle', level: 'intermediate', equipment: HOME, minutes: 40, units: 'kg', plan: '', recent: '', session: '' };
+const context = { name: 'Sam', goal: 'muscle', level: 'intermediate', equipment: HOME, minutes: 40, units: 'kg', plan: '', recent: '', session: '', audience: 'adults' };
 const ask = text => offlineCoach([{ role: 'user', content: text }], context);
 
 test('offline coach builds real sessions that respect equipment and time', () => {

@@ -6,7 +6,7 @@ import { h } from '../core/dom.js';
 import { primeAudio } from '../core/feedback.js';
 import { store } from '../core/store.js';
 import { confirmDialog, toast } from '../ui/components.js';
-import { figure } from '../ui/figure.js';
+import { thumb } from '../ui/photo.js';
 
 export function startWorkout(input: SessionInput, navigate: (hash: string) => void): boolean {
   primeAudio();
@@ -32,7 +32,7 @@ export function startDay(plan: Plan, day: PlanDay, navigate: (hash: string) => v
 export function exerciseRow(item: PlanExercise, options: { href?: boolean } = {}) {
   const exercise = exerciseById(item.exerciseId);
   const content = [
-    h('span', { class: 'thumb', 'aria-hidden': 'true' }, figure(item.exerciseId, { animate: false, ground: false })),
+    thumb(item.exerciseId),
     h('span', { class: 'stack', style: { '--stack': '2px' } }, h('span', { class: 'list-title' }, exercise?.name ?? item.exerciseId), h('span', { class: 'list-meta' }, exercise ? exercise.primary.map(muscle => muscle[0].toUpperCase() + muscle.slice(1)).join(' · ') : '')),
     h('span', { class: 'target tabular' }, describeTarget(item)),
   ];

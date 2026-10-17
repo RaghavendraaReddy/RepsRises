@@ -7,7 +7,7 @@ import { cue, primeAudio } from '../core/feedback.js';
 import type { View, ViewContext } from '../core/router.js';
 import { store } from '../core/store.js';
 import { button, confirmDialog, ring, stepper, toast } from '../ui/components.js';
-import { figure } from '../ui/figure.js';
+import { demo } from '../ui/photo.js';
 import { icon } from '../ui/icons.js';
 import { plural, relativeDay } from './shared.js';
 
@@ -166,7 +166,7 @@ export function workoutView(context: ViewContext): View | string {
         info ? h('p', { class: 'muscles' }, info.primary.map(muscle => h('span', { class: 'tag accent' }, MUSCLE_LABEL[muscle]))) : null,
         previous ? h('p', { class: 'small muted' }, `Last time (${relativeDay(previous.at).toLowerCase()}): ${previous.sets.map(set => exercise.kind === 'time' ? `${set.seconds ?? 0}s` : `${set.reps ?? 0}${set.loadKg ? ` @ ${formatLoad(set.loadKg, units)}` : ''}`).join(', ')}`) : null,
         exercise.note ? h('p', { class: 'notice' }, icon('info'), exercise.note) : null),
-      h('div', { class: 'stage-figure' }, figure(exercise.exerciseId, { title: `${exercise.name} demonstration` })),
+      h('div', { class: 'stage-figure' }, demo(exercise.exerciseId, { title: exercise.name })),
       info ? h('details', { class: 'technique', open: current.index === 0 && stats.done === 0 },
         h('summary', null, h('span', { class: 'eyebrow' }, 'Technique'), icon('down-small')),
         h('div', { class: 'technique-body' },

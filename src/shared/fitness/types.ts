@@ -15,6 +15,9 @@ export type Goal = typeof GOALS[number];
 
 export type Units = 'kg' | 'lb';
 
+export const AUDIENCES = ['kids', 'adults', 'older'] as const;
+export type Audience = typeof AUDIENCES[number];
+
 /** Movement families. Each one has a drawn demonstration in the web app. */
 export type Pattern =
   | 'squat' | 'hinge' | 'lunge' | 'push-floor' | 'press-bench' | 'press-overhead' | 'pull-vertical' | 'row'
@@ -38,6 +41,14 @@ export type Exercise = {
   summary: string;
   cues: string[];
   mistakes: string[];
+  /** Free Exercise DB id of the two-frame photo demonstration (start and end position). */
+  photo: string;
+  /** Shown under the photo when it differs slightly from the listed equipment. */
+  photoNote?: string;
+  /** Who the exercise is offered to by default. */
+  audiences: Audience[];
+  easier?: string;
+  harder?: string;
 };
 
 export type Profile = {
@@ -67,7 +78,7 @@ export type PlanExercise = {
 
 export type PlanDay = { id: string; name: string; focus: string; exercises: PlanExercise[] };
 
-export type SplitId = 'full-body-3' | 'upper-lower-4' | 'ppl-3' | 'ppl-6' | 'hybrid-5' | 'full-week-7' | 'custom';
+export type SplitId = 'full-body-3' | 'upper-lower-4' | 'ppl-3' | 'ppl-6' | 'hybrid-5' | 'full-week-7' | 'play-move-3' | 'active-ageing-3' | 'custom';
 
 export type Plan = {
   version: 1;

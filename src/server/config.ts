@@ -1,4 +1,4 @@
-import { isAbsolute } from 'node:path';
+import { isAbsolute, join } from 'node:path';
 import type { ProviderId, ProviderStatus } from '../shared/coach/contracts.js';
 
 export const DEFAULT_MODELS = { openai: 'gpt-6-astra', anthropic: 'claude-opus-5-5' } as const;
@@ -23,6 +23,14 @@ export type Config = {
   /** Lets tests ask the offline coach to fail or be slow. Never enable in production. */
   testFaults: boolean;
   warnings: string[];
+  /** Where booking and enquiry requests are stored. */
+  dataDir: string;
+  retentionDays: number;
+  /** Optional HTTPS endpoint that receives each new request (your CRM, a provider integration, or a ticketing tool). */
+  webhookUrl: string | null;
+  /** Map view is offered only when a tile provider is configured. */
+  map: { tileUrl: string; attribution: string } | null;
+  supportEmail: string | null;
 };
 
 function model(value: string | undefined, fallback: string, name: string) {
@@ -35,6 +43,21 @@ function cliPath(value: string | undefined, name: string, warnings: string[]) {
   const path = value?.trim() ?? '';
   if (path && !isAbsolute(path)) { warnings.push(`${name} must be an absolute path; that provider stays off.`); return ''; }
   return path;
+}
+
+function positive(value: string | undefined, fallback: number) {
+  const number = Number(value);
+  return Number.isInteger(number) && number > 0 && number <= 3650 ? number : fallback;
+}
+
+function httpsUrl(value: string | undefined, name: string, warnings: string[], template = false): string | null {
+  const raw = value?.trim();
+  if (!raw) return null;
+  try {
+    const url = new URL(template ? raw.replace(/\{[a-z]\}/g, 'a') : raw);
+    if (url.protocol !== 'https:') throw new Error();
+    return raw;
+  } catch { warnings.push(`${name} must be an https:// URL; it was ignored.`); return null; }
 }
 
 export function readConfig(env: NodeJS.ProcessEnv, root: string): Config {
@@ -57,6 +80,11 @@ export function readConfig(env: NodeJS.ProcessEnv, root: string): Config {
     aiRequestsPer10Min: Number.isInteger(limit) && limit > 0 ? limit : 40,
     testFaults: env.ICARUS_TEST_FAULTS === '1',
     warnings,
+    dataDir: env.DATA_DIR?.trim() || join(root, 'data/runtime'),
+    retentionDays: positive(env.REQUEST_RETENTION_DAYS, 90),
+    webhookUrl: httpsUrl(env.REQUEST_WEBHOOK_URL, 'REQUEST_WEBHOOK_URL', warnings),
+    map: (() => { const url = httpsUrl(env.MAP_TILE_URL, 'MAP_TILE_URL', warnings, true); return url ? { tileUrl: url, attribution: (env.MAP_ATTRIBUTION ?? '').slice(0, 200) || 'Map data © its providers' } : null; })(),
+    supportEmail: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(env.SUPPORT_EMAIL ?? '') ? env.SUPPORT_EMAIL!.trim() : null,
   };
 }
 

@@ -1,5 +1,4 @@
 import { s } from '../core/dom.js';
-import { figureFor } from './figure.js';
 
 /** The Icarus mark: a sun with a single wing of five feathers crossing it. */
 export function mark(title = 'Icarus'): SVGSVGElement {
@@ -17,24 +16,3 @@ export function mark(title = 'Icarus'): SVGSVGElement {
     ...feathers);
 }
 
-/** The arrival composition: sun disc, orbit rings, a fan of feather lines and a figure mid-stride. */
-export function heroArt(): HTMLElement {
-  const feathers = Array.from({ length: 22 }, (_, i) => {
-    const angle = (-172 + i * 6.2) * (Math.PI / 180);
-    const len = 230 + i * 9 + (i % 3) * 14;
-    const x = 300 + Math.cos(angle) * len, y = 560 + Math.sin(angle) * len;
-    const cx = 300 + Math.cos(angle + 0.18) * len * 0.55, cy = 560 + Math.sin(angle + 0.18) * len * 0.55;
-    return s('path', { d: `M300 560 Q${cx.toFixed(0)} ${cy.toFixed(0)} ${x.toFixed(0)} ${y.toFixed(0)}`, class: 'hero-feather', style: { '--i': String(i), '--len': '900' } });
-  });
-  const svg = s('svg', { viewBox: '0 0 800 760', 'aria-hidden': 'true', class: 'hero-svg', preserveAspectRatio: 'xMidYMid slice' },
-    s('g', { class: 'hero-rings' }, [140, 196, 262, 340].map((r, i) => s('circle', { cx: 520, cy: 300, r, class: 'hero-ring', style: { '--i': String(i) } }))),
-    s('circle', { cx: 520, cy: 300, r: 118, class: 'hero-sun' }),
-    s('g', { class: 'hero-wing' }, feathers),
-  );
-  const figureEl = figureFor('lunge', [], 'hero', { title: 'Athlete in a lunge', ground: false, strokeScale: 0.9 });
-  figureEl.classList.add('hero-figure');
-  const wrap = document.createElement('div');
-  wrap.className = 'hero-art';
-  wrap.append(svg, figureEl);
-  return wrap;
-}

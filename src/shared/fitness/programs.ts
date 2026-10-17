@@ -1,5 +1,5 @@
 import { available, exerciseById, levelAllows } from './exercises.js';
-import type { Equipment, Exercise, Goal, Level, Plan, PlanDay, PlanExercise, SplitId } from './types.js';
+import type { Audience, Equipment, Exercise, Goal, Level, Plan, PlanDay, PlanExercise, SplitId } from './types.js';
 
 export function uid(prefix = 'id'): string {
   const random = typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
@@ -12,24 +12,26 @@ export function uid(prefix = 'id'): string {
 // variants (A/B days) start further down the list for variety.
 const SLOTS = {
   squat: ['back-squat', 'front-squat', 'goblet-squat', 'leg-press', 'split-squat', 'bodyweight-squat'],
-  hinge: ['deadlift', 'romanian-deadlift', 'kettlebell-swing', 'hip-thrust', 'good-morning', 'glute-bridge', 'superman'],
-  lunge: ['split-squat', 'dumbbell-lunge', 'reverse-lunge'],
-  hpush: ['bench-press', 'dumbbell-bench-press', 'push-up', 'incline-push-up'],
-  vpush: ['barbell-press', 'overhead-press', 'band-press', 'pike-push-up', 'push-up'],
-  vpull: ['pull-up', 'chin-up', 'lat-pulldown', 'band-pulldown', 'inverted-row', 'band-row', 'doorway-row'],
-  hpull: ['barbell-row', 'dumbbell-row', 'cable-row', 'inverted-row', 'band-row', 'doorway-row'],
-  chest: ['cable-fly', 'dumbbell-bench-press', 'incline-push-up', 'push-up', 'diamond-push-up'],
-  delts: ['lateral-raise', 'face-pull', 'band-pull-apart', 'pike-push-up', 'prone-y-raise'],
-  biceps: ['dumbbell-curl', 'hammer-curl', 'band-curl', 'chin-up', 'inverted-row', 'doorway-row'],
-  triceps: ['cable-pushdown', 'triceps-extension', 'dip', 'diamond-push-up', 'push-up'],
-  glutes: ['hip-thrust', 'glute-bridge'],
-  hamstrings: ['romanian-deadlift', 'good-morning', 'glute-bridge', 'superman'],
-  calves: ['dumbbell-calf-raise', 'calf-raise'],
-  core: ['hanging-knee-raise', 'cable-crunch', 'dead-bug', 'crunch', 'plank'],
-  hold: ['plank', 'side-plank', 'dead-bug', 'wall-sit'],
-  conditioning: ['kettlebell-swing', 'burpee', 'mountain-climber', 'high-knees', 'jumping-jack'],
-  carry: ['farmer-carry', 'kettlebell-carry', 'plank'],
-  mobility: ['worlds-greatest-stretch', 'cat-cow'],
+  hinge: ['deadlift', 'barbell-rdl', 'romanian-deadlift', 'kettlebell-swing', 'hip-thrust', 'good-morning', 'glute-bridge', 'superman'],
+  lunge: ['dumbbell-lunge', 'split-squat', 'dumbbell-step-up', 'walking-lunge', 'step-up-knee-raise'],
+  hpush: ['bench-press', 'dumbbell-bench-press', 'dumbbell-floor-press', 'push-up', 'incline-push-up'],
+  vpush: ['barbell-press', 'overhead-press', 'kettlebell-press', 'arnold-press', 'push-up'],
+  vpull: ['pull-up', 'chin-up', 'lat-pulldown', 'inverted-row', 'band-back-fly'],
+  hpull: ['barbell-row', 'dumbbell-row', 'cable-row', 'inverted-row', 'band-back-fly'],
+  chest: ['cable-fly', 'dumbbell-bench-press', 'dumbbell-floor-press', 'incline-push-up', 'push-up', 'close-grip-push-up'],
+  delts: ['lateral-raise', 'face-pull', 'rear-delt-raise', 'band-pull-apart', 'arm-circles'],
+  biceps: ['dumbbell-curl', 'hammer-curl', 'chin-up', 'inverted-row'],
+  triceps: ['cable-pushdown', 'triceps-extension', 'dip', 'close-grip-push-up', 'push-up'],
+  glutes: ['hip-thrust', 'single-leg-glute-bridge', 'glute-bridge', 'glute-kickback'],
+  hamstrings: ['barbell-rdl', 'romanian-deadlift', 'single-leg-rdl', 'good-morning', 'glute-bridge', 'superman'],
+  calves: ['calf-raise', 'dumbbell-calf-raise', 'band-calf-raise'],
+  core: ['hanging-leg-raise', 'cable-crunch', 'dead-bug', 'crunch', 'flutter-kicks', 'plank'],
+  hold: ['plank', 'side-plank', 'dead-bug', 'superman'],
+  conditioning: ['kettlebell-swing', 'treadmill-jog', 'mountain-climber', 'jump-squat', 'fast-skipping', 'treadmill-walk'],
+  carry: ['farmer-carry', 'plank'],
+  mobility: ['cat-cow', 'hip-circles', 'arm-circles', 'calf-stretch', 'ankle-circles', 'chair-back-stretch'],
+  play: ['fast-skipping', 'lateral-cone-hops', 'butt-kicks', 'mountain-climber', 'jump-squat'],
+  balance: ['step-up-knee-raise', 'split-squat', 'hip-circles', 'ankle-circles'],
 } satisfies Record<string, string[]>;
 
 type Slot = keyof typeof SLOTS;
@@ -47,6 +49,10 @@ const LEGS: DayTemplate = { name: 'Legs', focus: 'Quads, hamstrings, glutes and 
 const variant = (day: DayTemplate, name: string, shift: number): DayTemplate =>
   ({ name, focus: day.focus, slots: day.slots.map(([slot, role, offset]) => [slot, role, (offset ?? 0) + shift] as SlotUse) });
 
+const SPLIT_AUDIENCES: Record<Exclude<SplitId, 'custom'>, Audience[]> = {
+  'full-body-3': ['adults', 'older'], 'upper-lower-4': ['adults'], 'ppl-3': ['adults'], 'ppl-6': ['adults'], 'hybrid-5': ['adults'], 'full-week-7': ['adults'], 'play-move-3': ['kids'], 'active-ageing-3': ['older'],
+};
+
 const TEMPLATES: Record<Exclude<SplitId, 'custom'>, { name: string; summary: string; days: DayTemplate[] }> = {
   'full-body-3': {
     name: 'Full Body · 3 days', summary: 'Every major muscle three times a week. The most efficient start for most people.',
@@ -60,6 +66,22 @@ const TEMPLATES: Record<Exclude<SplitId, 'custom'>, { name: string; summary: str
   'ppl-3': { name: 'Push / Pull / Legs · 3 days', summary: 'Each session owns one movement family. Simple to follow, easy to progress.', days: [PUSH, PULL, LEGS] },
   'ppl-6': { name: 'Push / Pull / Legs · 6 days', summary: 'The classic high-frequency split for experienced lifters with time to train.', days: [PUSH, PULL, LEGS, variant(PUSH, 'Push B', 1), variant(PULL, 'Pull B', 1), variant(LEGS, 'Legs B', 1)] },
   'hybrid-5': { name: 'Hybrid · 5 days', summary: 'Upper and lower early in the week, push, pull and legs to finish.', days: [UPPER_A, LOWER_A, PUSH, PULL, LEGS] },
+  'play-move-3': {
+    name: 'Play & Move · 3 days', summary: 'Short, game-like sessions for kids: running, hopping, balance and bodyweight strength. Always supervised by an adult.',
+    days: [
+      { name: 'Jump & Balance', focus: 'Coordination, hopping and balance', slots: [['mobility', 'recovery', 2], ['play', 'recovery'], ['squat', 'recovery', 5], ['play', 'recovery', 1], ['hold', 'recovery'], ['mobility', 'recovery']] },
+      { name: 'Animal Strength', focus: 'Bodyweight strength through play', slots: [['mobility', 'recovery', 2], ['hpush', 'recovery', 4], ['glutes', 'recovery', 2], ['lunge', 'recovery', 3], ['play', 'recovery', 3], ['hold', 'recovery', 1]] },
+      { name: 'Run & Stretch', focus: 'Running games and gentle stretching', slots: [['play', 'recovery'], ['play', 'recovery', 2], ['hinge', 'recovery', 7], ['mobility', 'recovery'], ['mobility', 'recovery', 4]] },
+    ],
+  },
+  'active-ageing-3': {
+    name: 'Active Ageing · 3 days', summary: 'Strength, balance and mobility for older adults, with supported options for every exercise. Check with a health professional if you have medical concerns.',
+    days: [
+      { name: 'Strength & Balance A', focus: 'Legs, balance and posture', slots: [['mobility', 'recovery', 2], ['squat', 'accessory', 3], ['balance', 'accessory'], ['hpull', 'accessory', 2], ['hold', 'core', 2], ['calves', 'accessory', 2]] },
+      { name: 'Walk & Mobility', focus: 'Steady cardio and joint mobility', slots: [['conditioning', 'recovery', 5], ['mobility', 'recovery'], ['mobility', 'recovery', 1], ['mobility', 'recovery', 3], ['glutes', 'recovery', 2]] },
+      { name: 'Strength & Balance B', focus: 'Upper body, hips and balance', slots: [['mobility', 'recovery', 1], ['hpush', 'accessory', 2], ['vpull', 'accessory', 2], ['balance', 'accessory', 1], ['hamstrings', 'accessory', 1], ['delts', 'accessory', 3]] },
+    ],
+  },
   'full-week-7': {
     name: 'Full Week · 7 days', summary: 'Five training days plus two lighter recovery days for conditioning and mobility.',
     days: [UPPER_A, LOWER_A,
@@ -69,9 +91,14 @@ const TEMPLATES: Record<Exclude<SplitId, 'custom'>, { name: string; summary: str
   },
 };
 
-export const SPLITS = Object.entries(TEMPLATES).map(([id, template]) => ({ id: id as Exclude<SplitId, 'custom'>, name: template.name, summary: template.summary, days: template.days.length }));
+export const SPLITS = Object.entries(TEMPLATES).map(([id, template]) => ({ id: id as Exclude<SplitId, 'custom'>, name: template.name, summary: template.summary, days: template.days.length, audiences: SPLIT_AUDIENCES[id as Exclude<SplitId, 'custom'>] }));
 
-export function recommendedSplit(daysPerWeek: number, level: Level): Exclude<SplitId, 'custom'> {
+/** Which audiences each programme is offered to. Kids only see the supervised play programme. */
+export function splitsFor(audience: Audience) { return SPLITS.filter(split => split.audiences.includes(audience)); }
+
+export function recommendedSplit(daysPerWeek: number, level: Level, audience: Audience = 'adults'): Exclude<SplitId, 'custom'> {
+  if (audience === 'kids') return 'play-move-3';
+  if (audience === 'older') return daysPerWeek >= 3 ? 'active-ageing-3' : 'full-body-3';
   if (daysPerWeek <= 3) return level === 'beginner' ? 'full-body-3' : daysPerWeek === 3 ? 'ppl-3' : 'full-body-3';
   if (daysPerWeek === 4) return 'upper-lower-4';
   if (daysPerWeek === 5) return 'hybrid-5';
@@ -82,7 +109,10 @@ export function recommendedSplit(daysPerWeek: number, level: Level): Exclude<Spl
 type Prescription = { sets: number; reps: number | null; repsMax: number | null; seconds: number | null; restSec: number };
 
 /** Sensible starting points, not guarantees. Users adjust everything in the plan builder. */
-export function prescribe(exercise: Exercise, role: Role, level: Level, goal: Goal): Prescription {
+export function prescribe(exercise: Exercise, role: Role, level: Level, goal: Goal, audience: Audience = 'adults'): Prescription {
+  // Kids: short, playful bouts. Older adults: moderate reps and generous rest. No heavy low-rep work for either.
+  if (audience === 'kids') return exercise.kind === 'time' ? { sets: 2, reps: null, repsMax: null, seconds: 20, restSec: 45 } : { sets: 2, reps: 6, repsMax: 10, seconds: null, restSec: 45 };
+  if (audience === 'older') return exercise.kind === 'time' ? { sets: 2, reps: null, repsMax: null, seconds: exercise.pattern === 'cardio' ? 300 : 30, restSec: 60 } : { sets: role === 'main' ? 3 : 2, reps: 8, repsMax: 12, seconds: null, restSec: 90 };
   const tier = level === 'beginner' ? 0 : level === 'intermediate' ? 1 : 2;
   if (role === 'recovery') return exercise.kind === 'time'
     ? { sets: 2, reps: null, repsMax: null, seconds: exercise.pattern === 'mobility' ? 45 : [30, 40, 45][tier], restSec: 30 }
@@ -102,9 +132,9 @@ export function prescribe(exercise: Exercise, role: Role, level: Level, goal: Go
   return { sets, reps, repsMax, seconds: null, restSec };
 }
 
-function choose(slot: Slot, shift: number, equipment: readonly Equipment[], level: Level, used: Set<string>): Exercise | undefined {
+function choose(slot: Slot, shift: number, equipment: readonly Equipment[], level: Level, used: Set<string>, audience: Audience = 'adults'): Exercise | undefined {
   const candidates = SLOTS[slot].map(id => exerciseById(id)).filter((exercise): exercise is Exercise =>
-    Boolean(exercise) && available(exercise!, equipment) && levelAllows(level, exercise!.level));
+    Boolean(exercise) && available(exercise!, equipment) && levelAllows(level, exercise!.level) && exercise!.audiences.includes(audience));
   const fresh = candidates.filter(exercise => !used.has(exercise.id));
   const pool = fresh.length ? fresh : candidates;
   return pool.length ? pool[shift % pool.length] : undefined;
@@ -140,7 +170,7 @@ export function fitToTime(exercises: PlanExercise[], minutes: number): PlanExerc
   return result;
 }
 
-export type GenerateOptions = { split: Exclude<SplitId, 'custom'>; level: Level; goal: Goal; equipment: readonly Equipment[]; minutes: number; now?: number };
+export type GenerateOptions = { split: Exclude<SplitId, 'custom'>; level: Level; goal: Goal; equipment: readonly Equipment[]; minutes: number; now?: number; audience?: Audience };
 
 export function generatePlan(options: GenerateOptions): Plan {
   const template = TEMPLATES[options.split];
@@ -149,10 +179,10 @@ export function generatePlan(options: GenerateOptions): Plan {
     const used = new Set<string>();
     const exercises: PlanExercise[] = [];
     for (const [slot, role, shift = 0] of day.slots) {
-      const exercise = choose(slot, shift, equipment, options.level, used);
+      const exercise = choose(slot, shift, equipment, options.level, used, options.audience);
       if (!exercise || used.has(exercise.id)) continue;
       used.add(exercise.id);
-      exercises.push(planExercise(exercise, prescribe(exercise, role, options.level, options.goal)));
+      exercises.push(planExercise(exercise, prescribe(exercise, role, options.level, options.goal, options.audience)));
     }
     return { id: uid('day'), name: day.name, focus: day.focus, exercises: fitToTime(exercises, options.minutes) };
   });
@@ -161,7 +191,7 @@ export function generatePlan(options: GenerateOptions): Plan {
 }
 
 /** A focused single session (used by the offline coach and quick start). */
-export function generateSession(options: { muscles: string[]; level: Level; goal: Goal; equipment: readonly Equipment[]; minutes: number }): PlanExercise[] {
+export function generateSession(options: { muscles: string[]; level: Level; goal: Goal; equipment: readonly Equipment[]; minutes: number; audience?: Audience }): PlanExercise[] {
   const wanted = new Set(options.muscles);
   const pick: SlotUse[] = [];
   const add = (...uses: SlotUse[]) => pick.push(...uses);
@@ -179,10 +209,10 @@ export function generateSession(options: { muscles: string[]; level: Level; goal
   const used = new Set<string>();
   const exercises: PlanExercise[] = [];
   for (const [slot, role, shift = 0] of pick) {
-    const exercise = choose(slot, shift, options.equipment.length ? options.equipment : ['bodyweight'], options.level, used);
+    const exercise = choose(slot, shift, options.equipment.length ? options.equipment : ['bodyweight'], options.level, used, options.audience);
     if (!exercise || used.has(exercise.id)) continue;
     used.add(exercise.id);
-    exercises.push(planExercise(exercise, prescribe(exercise, role, options.level, options.goal)));
+    exercises.push(planExercise(exercise, prescribe(exercise, role, options.level, options.goal, options.audience)));
   }
   return fitToTime(exercises.slice(0, 8), options.minutes);
 }

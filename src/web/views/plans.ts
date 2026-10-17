@@ -5,7 +5,7 @@ import { debounce, h, replace } from '../core/dom.js';
 import type { View, ViewContext } from '../core/router.js';
 import { store } from '../core/store.js';
 import { button, confirmDialog, empty, eyebrow, linkButton, segmented, stepper, tabs, toast } from '../ui/components.js';
-import { figure } from '../ui/figure.js';
+import { thumb } from '../ui/photo.js';
 import { icon } from '../ui/icons.js';
 import { pickExercise } from './picker.js';
 import { plural, startDay } from './shared.js';
@@ -107,7 +107,7 @@ export function planEditorView(context: ViewContext): View {
         h('button', { type: 'button', class: 'btn ghost icon small move-up', 'aria-label': `Move ${name} up`, disabled: index === 0, onclick: () => move(-1) }, icon('up')),
         h('button', { type: 'button', class: 'btn ghost icon small move-down', 'aria-label': `Move ${name} down`, disabled: index === list.length - 1, onclick: () => move(1) }, icon('down-small'))),
       h('a', { class: 'editor-ex', href: `#/library/${item.exerciseId}` },
-        h('span', { class: 'thumb', 'aria-hidden': 'true' }, figure(item.exerciseId, { animate: false, ground: false })),
+        thumb(item.exerciseId),
         h('span', { class: 'stack', style: { '--stack': '2px' } }, h('span', { class: 'list-title' }, name), h('span', { class: 'list-meta' }, exercise?.primary.map(muscle => MUSCLE_LABEL[muscle]).join(' · ') ?? ''))),
       h('div', { class: 'editor-fields' },
         h('label', { class: 'mini-field' }, h('span', null, 'Sets'), stepper({ label: `Sets for ${name}`, compact: true, value: item.sets, min: 1, max: 10, onChange: value => { item.sets = value ?? 1; changed(); } })),

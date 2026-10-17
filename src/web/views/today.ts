@@ -7,7 +7,7 @@ import { h } from '../core/dom.js';
 import type { View, ViewContext } from '../core/router.js';
 import { store } from '../core/store.js';
 import { button, empty, eyebrow, linkButton, openDialog, stat } from '../ui/components.js';
-import { figure } from '../ui/figure.js';
+import { demo } from '../ui/photo.js';
 import { icon } from '../ui/icons.js';
 import { dayMeta, exerciseRow, plural, relativeDay, startDay, startWorkout } from './shared.js';
 
@@ -60,7 +60,7 @@ export function todayView(context: ViewContext): View {
   if (session) {
     const done = progress(session);
     const current = session.exercises[session.index];
-    heroFigure.append(figure(current.exerciseId, { title: current.name }));
+    heroFigure.append(demo(current.exerciseId, { title: current.name, caption: false }));
     heroBody.append(
       h('p', { class: 'eyebrow' }, 'Session in progress'),
       h('h1', { class: 'display' }, session.title),
@@ -73,7 +73,7 @@ export function todayView(context: ViewContext): View {
       h('h1', { class: 'display' }, greeting(profile.name)),
       h('p', { class: 'lead' }, 'You do not have an active plan. Build one from a template in a few seconds, or ask the coach for a single session.'),
       h('div', { class: 'row' }, linkButton('Build a plan', '#/plans', { variant: 'primary', iconAfter: 'arrow' }), linkButton('Ask the coach', '#/coach', { variant: 'ghost' })));
-    heroFigure.append(figure('goblet-squat', { title: 'Training figure' }));
+    heroFigure.append(demo('goblet-squat', { caption: false, controls: false }));
   } else if (!trainingDay) {
     const mobility = generateSession({ muscles: ['mobility'], level: profile.level, goal: profile.goal, equipment: profile.equipment, minutes: 15 });
     heroBody.append(
@@ -83,7 +83,7 @@ export function todayView(context: ViewContext): View {
       h('div', { class: 'row' },
         button('Start 15-min mobility', () => startWorkout({ title: 'Mobility & Recovery', source: 'quick', exercises: mobility }, context.navigate), { variant: 'primary', iconAfter: 'arrow' }),
         button(`Train ${day.name} anyway`, () => startDay(plan, day!, context.navigate), { variant: 'ghost' })));
-    heroFigure.append(figure('worlds-greatest-stretch', { title: 'Mobility figure' }));
+    heroFigure.append(demo('cat-cow', { caption: false, controls: false }));
   } else {
     heroBody.append(
       h('p', { class: 'eyebrow' }, `${date} · ${greeting(profile.name)}`),
@@ -93,7 +93,7 @@ export function todayView(context: ViewContext): View {
       h('div', { class: 'row' },
         button('Begin session', () => startDay(plan, day!, context.navigate), { variant: 'signal', iconAfter: 'arrow' }),
         plan.days.length > 1 ? button('Choose another day', chooseDay, { variant: 'ghost' }) : null));
-    if (day.exercises[0]) heroFigure.append(figure(day.exercises[0].exerciseId, { title: exerciseById(day.exercises[0].exerciseId)?.name }));
+    if (day.exercises[0]) heroFigure.append(demo(day.exercises[0].exerciseId, { title: exerciseById(day.exercises[0].exerciseId)?.name, caption: false }));
   }
 
   // Week strip

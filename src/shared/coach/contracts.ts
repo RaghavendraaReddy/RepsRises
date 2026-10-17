@@ -1,5 +1,5 @@
 import { exerciseById, findExercise } from '../fitness/exercises.js';
-import { EQUIPMENT, GOALS, LEVELS } from '../fitness/types.js';
+import { AUDIENCES, EQUIPMENT, GOALS, LEVELS } from '../fitness/types.js';
 import { int, list, nullable, obj, oneOf, str, valid } from '../schema.js';
 
 export const APP_VERSION = '3.0.0';
@@ -8,7 +8,7 @@ export const PROVIDERS = ['offline', 'anthropic-api', 'openai-api', 'claude-cli'
 export type ProviderId = typeof PROVIDERS[number];
 export type ProviderStatus = { id: ProviderId; label: string; enabled: boolean; model: string; detail: string };
 
-export const SPLIT_IDS = ['full-body-3', 'upper-lower-4', 'ppl-3', 'ppl-6', 'hybrid-5', 'full-week-7'] as const;
+export const SPLIT_IDS = ['full-body-3', 'upper-lower-4', 'ppl-3', 'ppl-6', 'hybrid-5', 'full-week-7', 'play-move-3', 'active-ageing-3'] as const;
 
 // Product limits. They keep requests bounded and screens readable; they are not coaching rules.
 export const LIMITS = { messages: 40, userChars: 4000, assistantChars: 12000, replyChars: 8000, draftExercises: 20, maxSets: 10, maxReps: 100, maxSeconds: 3600, maxRest: 600 } as const;
@@ -17,6 +17,8 @@ export type CoachMessage = { role: 'user' | 'assistant'; content: string };
 export type CoachContext = {
   name: string | null; goal: typeof GOALS[number] | null; level: typeof LEVELS[number] | null; equipment: typeof EQUIPMENT[number][];
   minutes: number | null; units: 'kg' | 'lb'; plan: string; recent: string; session: string;
+  /** Who is training: shapes exercise choice, volume and safety advice. */
+  audience: typeof AUDIENCES[number];
 };
 export type CoachRequest = { provider: ProviderId; messages: CoachMessage[]; context: CoachContext; fault?: 'none' | 'error' | 'slow' };
 
@@ -26,7 +28,7 @@ export type CoachReply = { reply: string; workout: WorkoutDraft | null; split: t
 
 export const contextSchema = obj({
   name: nullable(str(60)), goal: nullable(oneOf(GOALS)), level: nullable(oneOf(LEVELS)), equipment: list(oneOf(EQUIPMENT), EQUIPMENT.length),
-  minutes: nullable(int(5, 240)), units: oneOf(['kg', 'lb']), plan: str(4000, 0), recent: str(4000, 0), session: str(3000, 0),
+  minutes: nullable(int(5, 240)), units: oneOf(['kg', 'lb']), plan: str(4000, 0), recent: str(4000, 0), session: str(3000, 0), audience: oneOf(AUDIENCES),
 });
 
 export const requestSchema = obj({

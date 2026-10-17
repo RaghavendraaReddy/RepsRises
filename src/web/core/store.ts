@@ -3,6 +3,9 @@ import { generatePlan, recommendedSplit } from '../../shared/fitness/programs.js
 import { finish, seedFromHistory, settle, startSession, type SessionInput } from '../../shared/fitness/session.js';
 import { lastPerformance, weekday } from '../../shared/fitness/stats.js';
 import { MemoryStore, Repository, StorageError, type KeyValueStore } from '../../shared/fitness/storage.js';
+import { coarseLocation, readLocal, toggleCompare, toggleSaved, type CompareItem, type LocalRequest, type LocalState, type SavedKind } from '../../shared/marketplace/local.js';
+import type { UserLocation } from '../../shared/marketplace/types.js';
+import type { Audience } from '../../shared/fitness/types.js';
 import type { ActiveSession, CompletedWorkout, Plan, PlanDay, Preferences, Profile } from '../../shared/fitness/types.js';
 
 class BrowserStore implements KeyValueStore {
@@ -22,7 +25,8 @@ function pickStore(): { store: KeyValueStore; persistent: boolean } {
   }
 }
 
-export type ServerConfig = { appVersion: string; token: string; providers: ProviderStatus[]; defaultProvider: ProviderId; testFaults: boolean };
+export type ServerConfig = { appVersion: string; token: string; providers: ProviderStatus[]; defaultProvider: ProviderId; testFaults: boolean;
+  map: { tileUrl: string; attribution: string } | null; supportEmail: string | null; marketplace: { name: string; demo: boolean }; requestsForwarded: boolean; retentionDays: number };
 export type StoredMessage = { role: 'user' | 'assistant'; content: string; workout?: unknown; split?: unknown; suggestions?: unknown; error?: boolean };
 
 type Listener = (reason: string) => void;
@@ -40,6 +44,7 @@ export class AppStore {
   history: CompletedWorkout[];
   session: ActiveSession | null;
   prefs: Preferences;
+  local: LocalState;
   config: ServerConfig | null = null;
   configError = '';
   private listeners = new Set<Listener>();
@@ -55,6 +60,7 @@ export class AppStore {
     this.history = this.repo.history();
     this.session = this.repo.session();
     this.prefs = this.repo.preferences();
+    this.local = this.repo.local();
     if (this.activePlanId && !this.plans.some(plan => plan.id === this.activePlanId)) this.activePlanId = this.plans[0]?.id ?? null;
     // Another tab changed the data: reload so both stay consistent.
     window.addEventListener('storage', event => { if (event.key?.startsWith('icarus.v1.')) { this.reload(); this.emit('external'); } });
@@ -67,6 +73,7 @@ export class AppStore {
     this.history = this.repo.history();
     this.session = this.repo.session();
     this.prefs = this.repo.preferences();
+    this.local = this.repo.local();
   }
 
   subscribe(listener: Listener) { this.listeners.add(listener); return () => this.listeners.delete(listener); }
@@ -114,7 +121,8 @@ export class AppStore {
   }
   /** Creates the recommended plan for a profile (used at the end of onboarding). */
   createRecommendedPlan(profile: Profile): Plan {
-    const plan = generatePlan({ split: recommendedSplit(profile.daysPerWeek, profile.level), level: profile.level, goal: profile.goal, equipment: profile.equipment, minutes: profile.minutes });
+    const audience = this.audience();
+    const plan = generatePlan({ split: recommendedSplit(profile.daysPerWeek, profile.level, audience), level: profile.level, goal: profile.goal, equipment: profile.equipment, minutes: profile.minutes, audience });
     return this.upsertPlan(plan, true);
   }
 
@@ -180,6 +188,28 @@ export class AppStore {
   // Coach conversation
   coachMessages(): StoredMessage[] { return this.repo.coach() as StoredMessage[]; }
   saveCoachMessages(messages: StoredMessage[]) { try { this.repo.saveCoach(messages); } catch { /* the conversation is a convenience; failing to keep it is not fatal */ } }
+
+  // Marketplace and audience (kept on this device)
+  /** The chosen audience; adults until the visitor chooses. */
+  audience(): Audience { return this.local.audience ?? 'adults'; }
+  private saveLocal(next: LocalState, reason: string) {
+    const clean = readLocal(next);
+    this.guard(() => this.repo.saveLocal(clean));
+    this.local = clean;
+    this.emit(reason);
+  }
+  setAudience(audience: Audience) { this.saveLocal({ ...this.local, audience }, 'audience'); }
+  setLocation(location: UserLocation | null) { this.saveLocal({ ...this.local, location: location ? coarseLocation(location) : null }, 'location'); }
+  isSaved(kind: SavedKind, id: string) { return this.local.saved[kind].includes(id); }
+  toggleSaved(kind: SavedKind, id: string) { this.saveLocal(toggleSaved(this.local, kind, id), 'saved'); return this.isSaved(kind, id); }
+  inCompare(item: CompareItem) { return this.local.compare.some(entry => entry.gymId === item.gymId && entry.planId === item.planId); }
+  /** Returns false when the comparison is full. */
+  toggleCompare(item: CompareItem) { const next = toggleCompare(this.local, item); if (!next) return false; this.saveLocal(next, 'compare'); return true; }
+  clearCompare() { this.saveLocal({ ...this.local, compare: [] }, 'compare'); }
+  addRequest(request: LocalRequest) { this.saveLocal({ ...this.local, requests: [request, ...this.local.requests.filter(item => item.ref !== request.ref)].slice(0, 50) }, 'requests'); }
+  updateRequest(ref: string, change: Partial<LocalRequest>) { this.saveLocal({ ...this.local, requests: this.local.requests.map(item => item.ref === ref ? { ...item, ...change } : item) }, 'requests'); }
+  forgetRequest(ref: string) { this.saveLocal({ ...this.local, requests: this.local.requests.filter(item => item.ref !== ref) }, 'requests'); }
+  saveNutrition(nutrition: LocalState['nutrition']) { this.saveLocal({ ...this.local, nutrition }, 'nutrition'); }
 
   // Data management
   importData(data: unknown) {

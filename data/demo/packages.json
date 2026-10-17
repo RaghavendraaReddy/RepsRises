@@ -1,0 +1,151 @@
+{
+  "notice": "Demonstration data. Every gym, professional, price and offer is fictional and must be labelled as such in the interface.",
+  "generated": "scripts/generate-demo-data.mjs",
+  "items": [
+    {
+      "id": "fitness-essentials",
+      "name": "Fitness Essentials",
+      "summary": "A coached start: technique, a simple plan and practical eating habits.",
+      "weeks": 4,
+      "trainingSessions": 8,
+      "nutritionConsults": 2,
+      "mealPlanning": false,
+      "assessments": "Movement assessment in week 1",
+      "followUps": "Check-in after week 2 and a review in week 4",
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "audiences": [
+        "adults",
+        "older"
+      ],
+      "includes": [
+        "Personal programme",
+        "Technique coaching",
+        "Two nutrition consultations",
+        "Shared goals between your trainer and nutritionist"
+      ]
+    },
+    {
+      "id": "strength-performance",
+      "name": "Strength & Performance",
+      "summary": "Progressive strength training with nutrition to support it.",
+      "weeks": 8,
+      "trainingSessions": 16,
+      "nutritionConsults": 3,
+      "mealPlanning": true,
+      "assessments": "Strength baseline in week 1, retest in week 8",
+      "followUps": "Fortnightly nutrition check-ins",
+      "formats": [
+        "in-person",
+        "hybrid"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "includes": [
+        "Periodised strength plan",
+        "Twice-weekly coached sessions",
+        "Performance-focused meal plan",
+        "Joint progress reviews"
+      ]
+    },
+    {
+      "id": "complete-transformation",
+      "name": "Complete Transformation",
+      "summary": "Twelve weeks of coordinated training and nutrition for a major change.",
+      "weeks": 12,
+      "trainingSessions": 24,
+      "nutritionConsults": 6,
+      "mealPlanning": true,
+      "assessments": "Assessments in weeks 1, 6 and 12",
+      "followUps": "Fortnightly consultations and weekly messages",
+      "formats": [
+        "in-person",
+        "online",
+        "hybrid"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "includes": [
+        "Training and nutrition plans built together",
+        "Meal planning",
+        "Habit coaching",
+        "Three joint reviews"
+      ]
+    },
+    {
+      "id": "premium-coaching",
+      "name": "Premium Personal Coaching",
+      "summary": "Three sessions a week and close nutrition support.",
+      "weeks": 12,
+      "trainingSessions": 36,
+      "nutritionConsults": 8,
+      "mealPlanning": true,
+      "assessments": "Monthly assessments",
+      "followUps": "Weekly check-ins with both professionals",
+      "formats": [
+        "in-person",
+        "hybrid"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "includes": [
+        "Three sessions every week",
+        "Weekly nutrition check-ins",
+        "Meal planning",
+        "Priority scheduling"
+      ]
+    },
+    {
+      "id": "young-athlete",
+      "name": "Young Athlete Foundations",
+      "summary": "Supervised movement skills, coordination and sport for children.",
+      "weeks": 8,
+      "trainingSessions": 8,
+      "nutritionConsults": 0,
+      "mealPlanning": false,
+      "assessments": "Fun movement skills check in week 1",
+      "followUps": "Update for parents after week 4 and week 8",
+      "formats": [
+        "in-person"
+      ],
+      "audiences": [
+        "kids"
+      ],
+      "includes": [
+        "Weekly coached session with a checked youth coach",
+        "A parent or guardian attends or stays on site",
+        "Progress notes for parents"
+      ]
+    },
+    {
+      "id": "active-ageing",
+      "name": "Active Ageing",
+      "summary": "Strength, balance and confidence, with nutrition advice for later life.",
+      "weeks": 8,
+      "trainingSessions": 12,
+      "nutritionConsults": 2,
+      "mealPlanning": false,
+      "assessments": "Balance and strength assessment in weeks 1 and 8",
+      "followUps": "Check-in every two weeks",
+      "formats": [
+        "in-person",
+        "hybrid"
+      ],
+      "audiences": [
+        "older"
+      ],
+      "includes": [
+        "Supported strength and balance sessions",
+        "Falls-prevention exercises",
+        "Two nutrition consultations",
+        "Plans shared with your doctor if you wish"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4287 @@
+{
+  "notice": "Demonstration data. Every gym, professional, price and offer is fictional and must be labelled as such in the interface.",
+  "generated": "scripts/generate-demo-data.mjs",
+  "items": [
+    {
+      "id": "forge-athletic-club",
+      "demo": true,
+      "name": "Forge Athletic Club",
+      "tagline": "Platforms, racks and coaches who care about technique.",
+      "description": "Forge Athletic Club is a demonstration listing in Indiranagar, Bengaluru. It shows how a real strength venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "bengaluru",
+      "area": "Indiranagar",
+      "address": "Demonstration listing · Indiranagar, Bengaluru",
+      "lat": 12.9821,
+      "lng": 77.644,
+      "categories": [
+        "strength"
+      ],
+      "facilities": [
+        "free-weights",
+        "machines",
+        "cardio",
+        "functional",
+        "showers",
+        "lockers"
+      ],
+      "equipment": [
+        "Power racks and platforms",
+        "Barbells and bumper plates",
+        "Dumbbells to 50 kg",
+        "Cable stations",
+        "Benches",
+        "Rowers and air bikes"
+      ],
+      "classes": [
+        "Barbell technique",
+        "Strength foundations"
+      ],
+      "hours": {
+        "weekdays": "5:00–23:00",
+        "weekends": "6:00–21:00",
+        "open24h": false,
+        "earlyOpen": true,
+        "lateClose": true
+      },
+      "audiences": [
+        "adults"
+      ],
+      "accessibility": [
+        "step-free"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Barbell_Deadlift-0.webp",
+          "alt": "Lifter setting up a barbell deadlift on a lifting platform",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Barbell_Squat-0.webp",
+          "alt": "Squat rack with a loaded barbell",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Bent_Over_Barbell_Row-0.webp",
+          "alt": "Barbell row in front of a power rack",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Barbell_Bench_Press_-_Medium_Grip-0.webp",
+          "alt": "Bench press station",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 3500,
+          "billing": "upfront",
+          "joiningFee": 1050,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 6700,
+          "billing": "upfront",
+          "joiningFee": 1050,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 9650,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 17850,
+          "billing": "upfront",
+          "joiningFee": 1050,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 25200,
+          "billing": "upfront",
+          "joiningFee": 1050,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 27300,
+          "billing": "upfront",
+          "joiningFee": 1050,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 31500,
+          "billing": "upfront",
+          "joiningFee": 1050,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 2,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "aarav-rao"
+      ],
+      "nutritionistIds": [
+        "ananya-iyer",
+        "rohan-reddy"
+      ],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "meridian-health-swim",
+      "demo": true,
+      "name": "Meridian Health & Swim",
+      "tagline": "Pool, studios and a full gym under one roof.",
+      "description": "Meridian Health & Swim is a demonstration listing in Whitefield, Bengaluru. It shows how a real full service venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "bengaluru",
+      "area": "Whitefield",
+      "address": "Demonstration listing · Whitefield, Bengaluru",
+      "lat": 12.9706,
+      "lng": 77.7465,
+      "categories": [
+        "full-service"
+      ],
+      "facilities": [
+        "free-weights",
+        "machines",
+        "cardio",
+        "pool",
+        "sauna",
+        "studio",
+        "showers",
+        "lockers",
+        "parking",
+        "cafe"
+      ],
+      "equipment": [
+        "Treadmills, bikes and cross-trainers",
+        "Selectorised machines",
+        "Dumbbells to 40 kg",
+        "Cable stations",
+        "Smith machine",
+        "Stretching area"
+      ],
+      "classes": [
+        "Aqua fitness",
+        "Yoga",
+        "Pilates",
+        "Spin",
+        "Balance & mobility 60+"
+      ],
+      "hours": {
+        "weekdays": "6:00–22:00",
+        "weekends": "7:00–20:00",
+        "open24h": false,
+        "earlyOpen": false,
+        "lateClose": false
+      },
+      "audiences": [
+        "adults",
+        "older"
+      ],
+      "accessibility": [
+        "step-free",
+        "accessible-changing",
+        "lift",
+        "seated-equipment"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Walking_Treadmill-0.webp",
+          "alt": "Row of treadmills in a cardio area",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Wide-Grip_Lat_Pulldown-0.webp",
+          "alt": "Cable and pulldown machines",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Leg_Press-0.webp",
+          "alt": "Leg press machine",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Seated_Cable_Rows-0.webp",
+          "alt": "Seated cable row station",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 4800,
+          "billing": "upfront",
+          "joiningFee": 1450,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 9200,
+          "billing": "upfront",
+          "joiningFee": 1450,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 13250,
+          "billing": "upfront",
+          "joiningFee": 1450,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 24500,
+          "billing": "monthly",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 34550,
+          "billing": "monthly",
+          "joiningFee": 1450,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 37450,
+          "billing": "monthly",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 43200,
+          "billing": "monthly",
+          "joiningFee": 1450,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "aarav-rao"
+      ],
+      "nutritionistIds": [
+        "ananya-iyer",
+        "rohan-reddy"
+      ],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "kinetic-yard",
+      "demo": true,
+      "name": "Kinetic Yard",
+      "tagline": "Small-group conditioning with a coach at every session.",
+      "description": "Kinetic Yard is a demonstration listing in Koramangala, Bengaluru. It shows how a real boutique and crossfit style venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "bengaluru",
+      "area": "Koramangala",
+      "address": "Demonstration listing · Koramangala, Bengaluru",
+      "lat": 12.9337,
+      "lng": 77.6242,
+      "categories": [
+        "boutique",
+        "crossfit-style"
+      ],
+      "facilities": [
+        "functional",
+        "free-weights",
+        "studio",
+        "showers"
+      ],
+      "equipment": [
+        "Kettlebells",
+        "Dumbbells",
+        "Plyometric boxes",
+        "Rowers and ski-ergs",
+        "Sleds",
+        "Resistance bands"
+      ],
+      "classes": [
+        "Conditioning",
+        "Kettlebell",
+        "Mobility"
+      ],
+      "hours": {
+        "weekdays": "6:00–21:00",
+        "weekends": "7:00–13:00",
+        "open24h": false,
+        "earlyOpen": true,
+        "lateClose": false
+      },
+      "audiences": [
+        "adults"
+      ],
+      "accessibility": [],
+      "images": [
+        {
+          "src": "/web/media/exercises/Band_Pull_Apart-0.webp",
+          "alt": "Open functional training floor",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Incline_Push-Up-0.webp",
+          "alt": "Plyometric boxes on a training floor",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Dead_Bug-0.webp",
+          "alt": "Floor exercise in a dark studio",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Close-Grip_Push-Up_off_of_a_Dumbbell-0.webp",
+          "alt": "Dumbbell rack in a dark studio",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 5200,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 14350,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 26500,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 2,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 40550,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 3,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        }
+      ],
+      "trainerIds": [
+        "kabir-qureshi"
+      ],
+      "nutritionistIds": [],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "little-strides-sports-centre",
+      "demo": true,
+      "name": "Little Strides Sports Centre",
+      "tagline": "Supervised junior sports and a gym for parents.",
+      "description": "Little Strides Sports Centre is a demonstration listing in Jayanagar, Bengaluru. It shows how a real family and sports venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "bengaluru",
+      "area": "Jayanagar",
+      "address": "Demonstration listing · Jayanagar, Bengaluru",
+      "lat": 12.9295,
+      "lng": 77.5968,
+      "categories": [
+        "family",
+        "sports"
+      ],
+      "facilities": [
+        "sports-hall",
+        "studio",
+        "cardio",
+        "machines",
+        "showers",
+        "parking",
+        "childcare"
+      ],
+      "equipment": [
+        "Sports hall with markings",
+        "Junior-safe equipment",
+        "Cardio machines",
+        "Selectorised machines",
+        "Mats and soft play",
+        "Cones, balls and agility kit"
+      ],
+      "classes": [
+        "Junior athletics (5–12)",
+        "Mini gymnastics (5–8)",
+        "Family fitness",
+        "Adult circuits"
+      ],
+      "hours": {
+        "weekdays": "6:00–21:00",
+        "weekends": "8:00–18:00",
+        "open24h": false,
+        "earlyOpen": true,
+        "lateClose": false
+      },
+      "audiences": [
+        "kids",
+        "adults"
+      ],
+      "accessibility": [
+        "step-free",
+        "accessible-changing"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Lateral_Cone_Hops-0.webp",
+          "alt": "Agility cones laid out on a sports floor",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Fast_Skipping-0.webp",
+          "alt": "Open indoor floor for running drills",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Mountain_Climbers-0.webp",
+          "alt": "Bright training studio",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Bodyweight_Walking_Lunge-0.webp",
+          "alt": "Gym floor with space for movement drills",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 2600,
+          "billing": "upfront",
+          "joiningFee": 800,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 5000,
+          "billing": "upfront",
+          "joiningFee": 800,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 7200,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 13250,
+          "billing": "upfront",
+          "joiningFee": 800,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 18700,
+          "billing": "upfront",
+          "joiningFee": 800,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 20300,
+          "billing": "upfront",
+          "joiningFee": 800,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 23400,
+          "billing": "upfront",
+          "joiningFee": 800,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "junior-1m",
+          "name": "Junior · Monthly",
+          "months": 1,
+          "price": 2200,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "junior-3m",
+          "name": "Junior · 3-month",
+          "months": 3,
+          "price": 6050,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "junior-6m",
+          "name": "Junior · 6-month",
+          "months": 6,
+          "price": 11200,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "junior-10m",
+          "name": "Junior · 10-month",
+          "months": 10,
+          "price": 17150,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "meera-khanna",
+        "kabir-qureshi"
+      ],
+      "nutritionistIds": [],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Junior members must be accompanied to and from sessions by a parent or guardian.",
+        "guardian": "A parent or guardian signs up, gives consent and is the contact for all junior bookings."
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "tidewater-strength-co",
+      "demo": true,
+      "name": "Tidewater Strength Co.",
+      "tagline": "Open around the clock for serious strength training.",
+      "description": "Tidewater Strength Co. is a demonstration listing in Lower Parel, Mumbai. It shows how a real strength venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "mumbai",
+      "area": "Lower Parel",
+      "address": "Demonstration listing · Lower Parel, Mumbai",
+      "lat": 19.003,
+      "lng": 72.8331,
+      "categories": [
+        "strength"
+      ],
+      "facilities": [
+        "free-weights",
+        "machines",
+        "cardio",
+        "boxing",
+        "showers",
+        "lockers"
+      ],
+      "equipment": [
+        "Power racks and platforms",
+        "Barbells and bumper plates",
+        "Dumbbells to 50 kg",
+        "Cable stations",
+        "Benches",
+        "Rowers and air bikes"
+      ],
+      "classes": [
+        "Powerlifting basics",
+        "Boxing fitness"
+      ],
+      "hours": {
+        "weekdays": "24 hours",
+        "weekends": "24 hours",
+        "open24h": true,
+        "earlyOpen": true,
+        "lateClose": true
+      },
+      "audiences": [
+        "adults"
+      ],
+      "accessibility": [
+        "step-free",
+        "lift"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Barbell_Squat-0.webp",
+          "alt": "Squat rack with a loaded barbell",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Bent_Over_Barbell_Row-0.webp",
+          "alt": "Barbell row in front of a power rack",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Barbell_Bench_Press_-_Medium_Grip-0.webp",
+          "alt": "Bench press station",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Barbell_Deadlift-0.webp",
+          "alt": "Lifter setting up a barbell deadlift on a lifting platform",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 4500,
+          "billing": "upfront",
+          "joiningFee": 1350,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 8650,
+          "billing": "upfront",
+          "joiningFee": 1350,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 12400,
+          "billing": "upfront",
+          "joiningFee": 1350,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 22950,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 32400,
+          "billing": "upfront",
+          "joiningFee": 1350,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 35100,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 40500,
+          "billing": "upfront",
+          "joiningFee": 1350,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 2,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "isha-malhotra"
+      ],
+      "nutritionistIds": [
+        "arjun-gill",
+        "tara-menon"
+      ],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "halcyon-wellness-studio",
+      "demo": true,
+      "name": "Halcyon Wellness Studio",
+      "tagline": "Calm, unhurried training with small classes.",
+      "description": "Halcyon Wellness Studio is a demonstration listing in Bandra West, Mumbai. It shows how a real wellness and boutique venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "mumbai",
+      "area": "Bandra West",
+      "address": "Demonstration listing · Bandra West, Mumbai",
+      "lat": 19.0633,
+      "lng": 72.8245,
+      "categories": [
+        "wellness",
+        "boutique"
+      ],
+      "facilities": [
+        "studio",
+        "machines",
+        "cardio",
+        "sauna",
+        "showers",
+        "cafe"
+      ],
+      "equipment": [
+        "Seated and assisted machines",
+        "Recumbent bikes",
+        "Treadmills with handrails",
+        "Light dumbbells",
+        "Balance equipment",
+        "Reformer beds"
+      ],
+      "classes": [
+        "Pilates reformer",
+        "Gentle strength 60+",
+        "Yoga",
+        "Breathwork"
+      ],
+      "hours": {
+        "weekdays": "7:00–21:00",
+        "weekends": "8:00–17:00",
+        "open24h": false,
+        "earlyOpen": false,
+        "lateClose": false
+      },
+      "audiences": [
+        "adults",
+        "older"
+      ],
+      "accessibility": [
+        "step-free",
+        "accessible-changing",
+        "hearing-loop",
+        "seated-equipment"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Chair_Lower_Back_Stretch-0.webp",
+          "alt": "Bright stretching area with natural light",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Step-up_with_Knee_Raise-0.webp",
+          "alt": "Step-up platform in a gym",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Calf_Stretch_Hands_Against_Wall-0.webp",
+          "alt": "Wall space for supported stretching",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Walking_Treadmill-0.webp",
+          "alt": "Treadmills for steady walking",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 5500,
+          "billing": "upfront",
+          "joiningFee": 1650,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 10550,
+          "billing": "upfront",
+          "joiningFee": 1650,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 15200,
+          "billing": "upfront",
+          "joiningFee": 1650,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 28050,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 39600,
+          "billing": "upfront",
+          "joiningFee": 1650,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 42900,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 49500,
+          "billing": "upfront",
+          "joiningFee": 1650,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "active-65-1m",
+          "name": "Active 65+ · Monthly",
+          "months": 1,
+          "price": 4400,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access off-peak",
+            "Balance & mobility classes",
+            "Initial movement assessment"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "older"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "active-65-3m",
+          "name": "Active 65+ · 3-month",
+          "months": 3,
+          "price": 12150,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access off-peak",
+            "Balance & mobility classes",
+            "Initial movement assessment"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 1,
+          "audiences": [
+            "older"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "active-65-6m",
+          "name": "Active 65+ · 6-month",
+          "months": 6,
+          "price": 22450,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access off-peak",
+            "Balance & mobility classes",
+            "Initial movement assessment"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 2,
+          "audiences": [
+            "older"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "active-65-10m",
+          "name": "Active 65+ · 10-month",
+          "months": 10,
+          "price": 34300,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access off-peak",
+            "Balance & mobility classes",
+            "Initial movement assessment"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 3,
+          "audiences": [
+            "older"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "isha-malhotra",
+        "nisha-desai"
+      ],
+      "nutritionistIds": [
+        "arjun-gill",
+        "tara-menon"
+      ],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "northline-fitness-club",
+      "demo": true,
+      "name": "Northline Fitness Club",
+      "tagline": "Everything in one place, with long opening hours.",
+      "description": "Northline Fitness Club is a demonstration listing in Andheri West, Mumbai. It shows how a real full service venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "mumbai",
+      "area": "Andheri West",
+      "address": "Demonstration listing · Andheri West, Mumbai",
+      "lat": 19.131,
+      "lng": 72.8316,
+      "categories": [
+        "full-service"
+      ],
+      "facilities": [
+        "free-weights",
+        "machines",
+        "cardio",
+        "studio",
+        "pool",
+        "showers",
+        "lockers",
+        "parking"
+      ],
+      "equipment": [
+        "Treadmills, bikes and cross-trainers",
+        "Selectorised machines",
+        "Dumbbells to 40 kg",
+        "Cable stations",
+        "Smith machine",
+        "Stretching area"
+      ],
+      "classes": [
+        "Spin",
+        "HIIT",
+        "Zumba",
+        "Swim technique"
+      ],
+      "hours": {
+        "weekdays": "5:30–23:00",
+        "weekends": "6:00–22:00",
+        "open24h": false,
+        "earlyOpen": true,
+        "lateClose": true
+      },
+      "audiences": [
+        "adults",
+        "older"
+      ],
+      "accessibility": [
+        "step-free",
+        "lift"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Wide-Grip_Lat_Pulldown-0.webp",
+          "alt": "Cable and pulldown machines",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Leg_Press-0.webp",
+          "alt": "Leg press machine",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Seated_Cable_Rows-0.webp",
+          "alt": "Seated cable row station",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Walking_Treadmill-0.webp",
+          "alt": "Row of treadmills in a cardio area",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 3900,
+          "billing": "upfront",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 7500,
+          "billing": "upfront",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 10750,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 19900,
+          "billing": "monthly",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 28100,
+          "billing": "monthly",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 30400,
+          "billing": "monthly",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 35100,
+          "billing": "monthly",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "nisha-desai"
+      ],
+      "nutritionistIds": [],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "powai-junior-athletics",
+      "demo": true,
+      "name": "Powai Junior Athletics",
+      "tagline": "Coach-led sport for children, with checked coaches on every session.",
+      "description": "Powai Junior Athletics is a demonstration listing in Powai, Mumbai. It shows how a real family and sports venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "mumbai",
+      "area": "Powai",
+      "address": "Demonstration listing · Powai, Mumbai",
+      "lat": 19.1138,
+      "lng": 72.9044,
+      "categories": [
+        "family",
+        "sports"
+      ],
+      "facilities": [
+        "sports-hall",
+        "studio",
+        "showers",
+        "parking"
+      ],
+      "equipment": [
+        "Sports hall with markings",
+        "Junior-safe equipment",
+        "Cardio machines",
+        "Selectorised machines",
+        "Mats and soft play",
+        "Cones, balls and agility kit"
+      ],
+      "classes": [
+        "Football skills (6–12)",
+        "Athletics (8–12)",
+        "Movement & play (5–7)"
+      ],
+      "hours": {
+        "weekdays": "15:30–20:00",
+        "weekends": "8:00–14:00",
+        "open24h": false,
+        "earlyOpen": false,
+        "lateClose": false
+      },
+      "audiences": [
+        "kids"
+      ],
+      "accessibility": [
+        "step-free"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Fast_Skipping-0.webp",
+          "alt": "Open indoor floor for running drills",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Mountain_Climbers-0.webp",
+          "alt": "Bright training studio",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Bodyweight_Walking_Lunge-0.webp",
+          "alt": "Gym floor with space for movement drills",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Lateral_Cone_Hops-0.webp",
+          "alt": "Agility cones laid out on a sports floor",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "junior-1m",
+          "name": "Junior · Monthly",
+          "months": 1,
+          "price": 2400,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "junior-3m",
+          "name": "Junior · 3-month",
+          "months": 3,
+          "price": 6600,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "junior-6m",
+          "name": "Junior · 6-month",
+          "months": 6,
+          "price": 12250,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "junior-10m",
+          "name": "Junior · 10-month",
+          "months": 10,
+          "price": 18700,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "vikram-kapoor"
+      ],
+      "nutritionistIds": [],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Junior members must be accompanied to and from sessions by a parent or guardian.",
+        "guardian": "A parent or guardian signs up, gives consent and is the contact for all junior bookings."
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "atlas-performance-lab",
+      "demo": true,
+      "name": "Atlas Performance Lab",
+      "tagline": "Performance coaching for athletes and ambitious beginners.",
+      "description": "Atlas Performance Lab is a demonstration listing in Saket, New Delhi. It shows how a real strength and crossfit style venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "delhi",
+      "area": "Saket",
+      "address": "Demonstration listing · Saket, New Delhi",
+      "lat": 28.5213,
+      "lng": 77.2031,
+      "categories": [
+        "strength",
+        "crossfit-style"
+      ],
+      "facilities": [
+        "free-weights",
+        "functional",
+        "machines",
+        "cardio",
+        "showers",
+        "lockers",
+        "parking"
+      ],
+      "equipment": [
+        "Power racks and platforms",
+        "Barbells and bumper plates",
+        "Dumbbells to 50 kg",
+        "Cable stations",
+        "Benches",
+        "Rowers and air bikes"
+      ],
+      "classes": [
+        "Olympic lifting",
+        "Conditioning",
+        "Mobility"
+      ],
+      "hours": {
+        "weekdays": "5:00–22:00",
+        "weekends": "6:00–20:00",
+        "open24h": false,
+        "earlyOpen": true,
+        "lateClose": false
+      },
+      "audiences": [
+        "adults"
+      ],
+      "accessibility": [
+        "step-free"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Bent_Over_Barbell_Row-0.webp",
+          "alt": "Barbell row in front of a power rack",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Barbell_Bench_Press_-_Medium_Grip-0.webp",
+          "alt": "Bench press station",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Barbell_Deadlift-0.webp",
+          "alt": "Lifter setting up a barbell deadlift on a lifting platform",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Barbell_Squat-0.webp",
+          "alt": "Squat rack with a loaded barbell",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 4200,
+          "billing": "upfront",
+          "joiningFee": 1250,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 8050,
+          "billing": "upfront",
+          "joiningFee": 1250,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 11600,
+          "billing": "upfront",
+          "joiningFee": 1250,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 21400,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 30250,
+          "billing": "upfront",
+          "joiningFee": 1250,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 32750,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 37800,
+          "billing": "upfront",
+          "joiningFee": 1250,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 2,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "dev-sethi"
+      ],
+      "nutritionistIds": [
+        "leela-pillai",
+        "imran-ahmed"
+      ],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "evergreen-active-living",
+      "demo": true,
+      "name": "Evergreen Active Living",
+      "tagline": "Supportive strength and balance training for later life.",
+      "description": "Evergreen Active Living is a demonstration listing in Vasant Kunj, New Delhi. It shows how a real wellness venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "delhi",
+      "area": "Vasant Kunj",
+      "address": "Demonstration listing · Vasant Kunj, New Delhi",
+      "lat": 28.5239,
+      "lng": 77.1589,
+      "categories": [
+        "wellness"
+      ],
+      "facilities": [
+        "machines",
+        "cardio",
+        "studio",
+        "pool",
+        "showers",
+        "parking",
+        "cafe"
+      ],
+      "equipment": [
+        "Seated and assisted machines",
+        "Recumbent bikes",
+        "Treadmills with handrails",
+        "Light dumbbells",
+        "Balance equipment",
+        "Reformer beds"
+      ],
+      "classes": [
+        "Balance & falls prevention",
+        "Chair yoga",
+        "Aqua walking",
+        "Strength for life"
+      ],
+      "hours": {
+        "weekdays": "7:00–19:00",
+        "weekends": "8:00–14:00",
+        "open24h": false,
+        "earlyOpen": false,
+        "lateClose": false
+      },
+      "audiences": [
+        "older",
+        "adults"
+      ],
+      "accessibility": [
+        "step-free",
+        "accessible-changing",
+        "lift",
+        "hearing-loop",
+        "seated-equipment"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Step-up_with_Knee_Raise-0.webp",
+          "alt": "Step-up platform in a gym",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Calf_Stretch_Hands_Against_Wall-0.webp",
+          "alt": "Wall space for supported stretching",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Walking_Treadmill-0.webp",
+          "alt": "Treadmills for steady walking",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Chair_Lower_Back_Stretch-0.webp",
+          "alt": "Bright stretching area with natural light",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 3200,
+          "billing": "upfront",
+          "joiningFee": 950,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "older",
+            "adults"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 6150,
+          "billing": "upfront",
+          "joiningFee": 950,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "older",
+            "adults"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 8850,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "older",
+            "adults"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 16300,
+          "billing": "upfront",
+          "joiningFee": 950,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "older",
+            "adults"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 23050,
+          "billing": "upfront",
+          "joiningFee": 950,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "older",
+            "adults"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 24950,
+          "billing": "upfront",
+          "joiningFee": 950,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "older",
+            "adults"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 28800,
+          "billing": "upfront",
+          "joiningFee": 950,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "older",
+            "adults"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "active-65-1m",
+          "name": "Active 65+ · Monthly",
+          "months": 1,
+          "price": 2550,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access off-peak",
+            "Balance & mobility classes",
+            "Initial movement assessment"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "older"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "active-65-3m",
+          "name": "Active 65+ · 3-month",
+          "months": 3,
+          "price": 7050,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access off-peak",
+            "Balance & mobility classes",
+            "Initial movement assessment"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 1,
+          "audiences": [
+            "older"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "active-65-6m",
+          "name": "Active 65+ · 6-month",
+          "months": 6,
+          "price": 13050,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access off-peak",
+            "Balance & mobility classes",
+            "Initial movement assessment"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 2,
+          "audiences": [
+            "older"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "active-65-10m",
+          "name": "Active 65+ · 10-month",
+          "months": 10,
+          "price": 19950,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access off-peak",
+            "Balance & mobility classes",
+            "Initial movement assessment"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 3,
+          "audiences": [
+            "older"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "dev-sethi",
+        "sameer-shah"
+      ],
+      "nutritionistIds": [
+        "leela-pillai",
+        "imran-ahmed"
+      ],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "capital-fitness-commons",
+      "demo": true,
+      "name": "Capital Fitness Commons",
+      "tagline": "A central gym for before, after and between work.",
+      "description": "Capital Fitness Commons is a demonstration listing in Connaught Place, New Delhi. It shows how a real full service venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "delhi",
+      "area": "Connaught Place",
+      "address": "Demonstration listing · Connaught Place, New Delhi",
+      "lat": 28.6278,
+      "lng": 77.2201,
+      "categories": [
+        "full-service"
+      ],
+      "facilities": [
+        "free-weights",
+        "machines",
+        "cardio",
+        "studio",
+        "showers",
+        "lockers"
+      ],
+      "equipment": [
+        "Treadmills, bikes and cross-trainers",
+        "Selectorised machines",
+        "Dumbbells to 40 kg",
+        "Cable stations",
+        "Smith machine",
+        "Stretching area"
+      ],
+      "classes": [
+        "Spin",
+        "Circuit",
+        "Core"
+      ],
+      "hours": {
+        "weekdays": "6:00–22:30",
+        "weekends": "7:00–20:00",
+        "open24h": false,
+        "earlyOpen": true,
+        "lateClose": true
+      },
+      "audiences": [
+        "adults"
+      ],
+      "accessibility": [
+        "lift"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Leg_Press-0.webp",
+          "alt": "Leg press machine",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Seated_Cable_Rows-0.webp",
+          "alt": "Seated cable row station",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Walking_Treadmill-0.webp",
+          "alt": "Row of treadmills in a cardio area",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Wide-Grip_Lat_Pulldown-0.webp",
+          "alt": "Cable and pulldown machines",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 3800,
+          "billing": "upfront",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 7300,
+          "billing": "upfront",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 10500,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 19400,
+          "billing": "monthly",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 27350,
+          "billing": "monthly",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 29650,
+          "billing": "monthly",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 34200,
+          "billing": "monthly",
+          "joiningFee": 1150,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "sameer-shah"
+      ],
+      "nutritionistIds": [],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "dwarka-youth-sports-hub",
+      "demo": true,
+      "name": "Dwarka Youth Sports Hub",
+      "tagline": "Junior sports and family fitness close to home.",
+      "description": "Dwarka Youth Sports Hub is a demonstration listing in Dwarka, New Delhi. It shows how a real family and sports venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "delhi",
+      "area": "Dwarka",
+      "address": "Demonstration listing · Dwarka, New Delhi",
+      "lat": 28.5881,
+      "lng": 77.0513,
+      "categories": [
+        "family",
+        "sports"
+      ],
+      "facilities": [
+        "sports-hall",
+        "cardio",
+        "machines",
+        "studio",
+        "showers",
+        "parking",
+        "childcare"
+      ],
+      "equipment": [
+        "Sports hall with markings",
+        "Junior-safe equipment",
+        "Cardio machines",
+        "Selectorised machines",
+        "Mats and soft play",
+        "Cones, balls and agility kit"
+      ],
+      "classes": [
+        "Junior badminton (7–12)",
+        "Kids fitness games (5–9)",
+        "Parent & child yoga",
+        "Adult fitness"
+      ],
+      "hours": {
+        "weekdays": "6:00–21:00",
+        "weekends": "7:00–19:00",
+        "open24h": false,
+        "earlyOpen": true,
+        "lateClose": false
+      },
+      "audiences": [
+        "kids",
+        "adults"
+      ],
+      "accessibility": [
+        "step-free"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Mountain_Climbers-0.webp",
+          "alt": "Bright training studio",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Bodyweight_Walking_Lunge-0.webp",
+          "alt": "Gym floor with space for movement drills",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Lateral_Cone_Hops-0.webp",
+          "alt": "Agility cones laid out on a sports floor",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Fast_Skipping-0.webp",
+          "alt": "Open indoor floor for running drills",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 2300,
+          "billing": "upfront",
+          "joiningFee": 700,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 4400,
+          "billing": "upfront",
+          "joiningFee": 700,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 6350,
+          "billing": "upfront",
+          "joiningFee": 700,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 11750,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 16550,
+          "billing": "upfront",
+          "joiningFee": 700,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 17950,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 20700,
+          "billing": "upfront",
+          "joiningFee": 700,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "junior-1m",
+          "name": "Junior · Monthly",
+          "months": 1,
+          "price": 1900,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "junior-3m",
+          "name": "Junior · 3-month",
+          "months": 3,
+          "price": 5250,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "junior-6m",
+          "name": "Junior · 6-month",
+          "months": 6,
+          "price": 9700,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "junior-10m",
+          "name": "Junior · 10-month",
+          "months": 10,
+          "price": 14800,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "kavya-sen"
+      ],
+      "nutritionistIds": [],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Junior members must be accompanied to and from sessions by a parent or guardian.",
+        "guardian": "A parent or guardian signs up, gives consent and is the contact for all junior bookings."
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "ironstone-barbell-club",
+      "demo": true,
+      "name": "Ironstone Barbell Club",
+      "tagline": "Racks, platforms and plenty of plates.",
+      "description": "Ironstone Barbell Club is a demonstration listing in Madhapur, Hyderabad. It shows how a real strength venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "hyderabad",
+      "area": "Madhapur",
+      "address": "Demonstration listing · Madhapur, Hyderabad",
+      "lat": 17.4519,
+      "lng": 78.3943,
+      "categories": [
+        "strength"
+      ],
+      "facilities": [
+        "free-weights",
+        "machines",
+        "cardio",
+        "showers",
+        "lockers"
+      ],
+      "equipment": [
+        "Power racks and platforms",
+        "Barbells and bumper plates",
+        "Dumbbells to 50 kg",
+        "Cable stations",
+        "Benches",
+        "Rowers and air bikes"
+      ],
+      "classes": [
+        "Strength foundations",
+        "Powerlifting"
+      ],
+      "hours": {
+        "weekdays": "5:00–23:00",
+        "weekends": "6:00–22:00",
+        "open24h": false,
+        "earlyOpen": true,
+        "lateClose": true
+      },
+      "audiences": [
+        "adults"
+      ],
+      "accessibility": [],
+      "images": [
+        {
+          "src": "/web/media/exercises/Barbell_Bench_Press_-_Medium_Grip-0.webp",
+          "alt": "Bench press station",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Barbell_Deadlift-0.webp",
+          "alt": "Lifter setting up a barbell deadlift on a lifting platform",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Barbell_Squat-0.webp",
+          "alt": "Squat rack with a loaded barbell",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Bent_Over_Barbell_Row-0.webp",
+          "alt": "Barbell row in front of a power rack",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 3300,
+          "billing": "upfront",
+          "joiningFee": 1000,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 6350,
+          "billing": "upfront",
+          "joiningFee": 1000,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 9100,
+          "billing": "upfront",
+          "joiningFee": 1000,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 16850,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 23750,
+          "billing": "upfront",
+          "joiningFee": 1000,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 25750,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 29700,
+          "billing": "upfront",
+          "joiningFee": 1000,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access"
+          ],
+          "classesIncluded": false,
+          "ptSessions": 2,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "priya-nair",
+        "radhika-kulkarni"
+      ],
+      "nutritionistIds": [
+        "farhan-bose",
+        "sanya-joshi"
+      ],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "summit-spring-club",
+      "demo": true,
+      "name": "Summit & Spring Club",
+      "tagline": "A premium club with pool, climbing wall and spa.",
+      "description": "Summit & Spring Club is a demonstration listing in Banjara Hills, Hyderabad. It shows how a real full service and wellness venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "hyderabad",
+      "area": "Banjara Hills",
+      "address": "Demonstration listing · Banjara Hills, Hyderabad",
+      "lat": 17.4139,
+      "lng": 78.4347,
+      "categories": [
+        "full-service",
+        "wellness"
+      ],
+      "facilities": [
+        "free-weights",
+        "machines",
+        "cardio",
+        "pool",
+        "sauna",
+        "studio",
+        "climbing",
+        "showers",
+        "lockers",
+        "parking",
+        "cafe"
+      ],
+      "equipment": [
+        "Treadmills, bikes and cross-trainers",
+        "Selectorised machines",
+        "Dumbbells to 40 kg",
+        "Cable stations",
+        "Smith machine",
+        "Stretching area"
+      ],
+      "classes": [
+        "Climbing intro",
+        "Aqua fitness",
+        "Pilates",
+        "Active 65+ circuits"
+      ],
+      "hours": {
+        "weekdays": "6:00–22:00",
+        "weekends": "7:00–21:00",
+        "open24h": false,
+        "earlyOpen": true,
+        "lateClose": false
+      },
+      "audiences": [
+        "adults",
+        "older"
+      ],
+      "accessibility": [
+        "step-free",
+        "accessible-changing",
+        "lift",
+        "seated-equipment"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Seated_Cable_Rows-0.webp",
+          "alt": "Seated cable row station",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Walking_Treadmill-0.webp",
+          "alt": "Row of treadmills in a cardio area",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Wide-Grip_Lat_Pulldown-0.webp",
+          "alt": "Cable and pulldown machines",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Leg_Press-0.webp",
+          "alt": "Leg press machine",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 5600,
+          "billing": "upfront",
+          "joiningFee": 1700,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 10750,
+          "billing": "upfront",
+          "joiningFee": 1700,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 15450,
+          "billing": "upfront",
+          "joiningFee": 1700,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 28550,
+          "billing": "monthly",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 40300,
+          "billing": "monthly",
+          "joiningFee": 1700,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 43700,
+          "billing": "monthly",
+          "joiningFee": 0,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 50400,
+          "billing": "monthly",
+          "joiningFee": 1700,
+          "deposit": 500,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [],
+      "nutritionistIds": [
+        "farhan-bose",
+        "sanya-joshi"
+      ],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "gachibowli-movement-studio",
+      "demo": true,
+      "name": "Gachibowli Movement Studio",
+      "tagline": "Coached small-group sessions near the tech corridor.",
+      "description": "Gachibowli Movement Studio is a demonstration listing in Gachibowli, Hyderabad. It shows how a real boutique venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "hyderabad",
+      "area": "Gachibowli",
+      "address": "Demonstration listing · Gachibowli, Hyderabad",
+      "lat": 17.4424,
+      "lng": 78.3523,
+      "categories": [
+        "boutique"
+      ],
+      "facilities": [
+        "studio",
+        "functional",
+        "free-weights",
+        "showers"
+      ],
+      "equipment": [
+        "Kettlebells",
+        "Dumbbells",
+        "Plyometric boxes",
+        "Rowers and ski-ergs",
+        "Sleds",
+        "Resistance bands"
+      ],
+      "classes": [
+        "Strength & sculpt",
+        "Mobility flow",
+        "HIIT"
+      ],
+      "hours": {
+        "weekdays": "6:00–21:00",
+        "weekends": "7:00–12:00",
+        "open24h": false,
+        "earlyOpen": true,
+        "lateClose": false
+      },
+      "audiences": [
+        "adults"
+      ],
+      "accessibility": [
+        "step-free"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Close-Grip_Push-Up_off_of_a_Dumbbell-0.webp",
+          "alt": "Dumbbell rack in a dark studio",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Band_Pull_Apart-0.webp",
+          "alt": "Open functional training floor",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Incline_Push-Up-0.webp",
+          "alt": "Plyometric boxes on a training floor",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Dead_Bug-0.webp",
+          "alt": "Floor exercise in a dark studio",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 4600,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 12700,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 1,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 23450,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 2,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 35900,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 3,
+          "audiences": [
+            "adults"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "priya-nair",
+        "radhika-kulkarni"
+      ],
+      "nutritionistIds": [],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Members must be 18 or over. A short health questionnaire is completed at induction.",
+        "guardian": null
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    },
+    {
+      "id": "kondapur-kids-family-sports",
+      "demo": true,
+      "name": "Kondapur Kids & Family Sports",
+      "tagline": "Swimming and multisport for the whole family.",
+      "description": "Kondapur Kids & Family Sports is a demonstration listing in Kondapur, Hyderabad. It shows how a real family and sports venue would appear on Icarus: facilities, membership terms and services, all clearly priced.",
+      "cityId": "hyderabad",
+      "area": "Kondapur",
+      "address": "Demonstration listing · Kondapur, Hyderabad",
+      "lat": 17.4585,
+      "lng": 78.3612,
+      "categories": [
+        "family",
+        "sports"
+      ],
+      "facilities": [
+        "sports-hall",
+        "pool",
+        "cardio",
+        "machines",
+        "studio",
+        "showers",
+        "parking",
+        "childcare"
+      ],
+      "equipment": [
+        "Sports hall with markings",
+        "Junior-safe equipment",
+        "Cardio machines",
+        "Selectorised machines",
+        "Mats and soft play",
+        "Cones, balls and agility kit"
+      ],
+      "classes": [
+        "Learn to swim (5–12)",
+        "Junior multisport (6–12)",
+        "Family swim",
+        "Gentle fitness"
+      ],
+      "hours": {
+        "weekdays": "6:00–21:00",
+        "weekends": "7:00–19:00",
+        "open24h": false,
+        "earlyOpen": true,
+        "lateClose": false
+      },
+      "audiences": [
+        "kids",
+        "adults",
+        "older"
+      ],
+      "accessibility": [
+        "step-free",
+        "accessible-changing"
+      ],
+      "images": [
+        {
+          "src": "/web/media/exercises/Bodyweight_Walking_Lunge-0.webp",
+          "alt": "Gym floor with space for movement drills",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Lateral_Cone_Hops-0.webp",
+          "alt": "Agility cones laid out on a sports floor",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Fast_Skipping-0.webp",
+          "alt": "Open indoor floor for running drills",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        },
+        {
+          "src": "/web/media/exercises/Mountain_Climbers-0.webp",
+          "alt": "Bright training studio",
+          "caption": "Representative image from Free Exercise DB (public domain). Not a photo of this gym."
+        }
+      ],
+      "currency": "INR",
+      "memberships": [
+        {
+          "id": "1m",
+          "name": "Monthly",
+          "months": 1,
+          "price": 2400,
+          "billing": "upfront",
+          "joiningFee": 700,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "2m",
+          "name": "2-month",
+          "months": 2,
+          "price": 4600,
+          "billing": "upfront",
+          "joiningFee": 700,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 2 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "3m",
+          "name": "3-month",
+          "months": 3,
+          "price": 6600,
+          "billing": "upfront",
+          "joiningFee": 700,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "6m",
+          "name": "6-month",
+          "months": 6,
+          "price": 12250,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "9m",
+          "name": "9-month",
+          "months": 9,
+          "price": 17300,
+          "billing": "upfront",
+          "joiningFee": 700,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 9 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "10m",
+          "name": "10-month",
+          "months": 10,
+          "price": 18700,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": {
+            "label": "Demonstration offer: joining fee waived",
+            "validUntil": "2027-03-31",
+            "terms": "Applies to new members who start before the end date. Demonstration data, not a real offer."
+          }
+        },
+        {
+          "id": "12m",
+          "name": "Annual",
+          "months": 12,
+          "price": 21600,
+          "billing": "upfront",
+          "joiningFee": 700,
+          "deposit": 0,
+          "includes": [
+            "Gym floor access",
+            "Pool access",
+            "Group classes"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "adults",
+            "older"
+          ],
+          "renewal": "Ends after 12 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "junior-1m",
+          "name": "Junior · Monthly",
+          "months": 1,
+          "price": 2000,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Rolls monthly until cancelled.",
+          "cancellation": "Cancel any time with 30 days’ notice.",
+          "offer": null
+        },
+        {
+          "id": "junior-3m",
+          "name": "Junior · 3-month",
+          "months": 3,
+          "price": 5500,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 3 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "junior-6m",
+          "name": "Junior · 6-month",
+          "months": 6,
+          "price": 10200,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 6 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        },
+        {
+          "id": "junior-10m",
+          "name": "Junior · 10-month",
+          "months": 10,
+          "price": 15600,
+          "billing": "upfront",
+          "joiningFee": 0,
+          "deposit": 0,
+          "includes": [
+            "Supervised junior sessions",
+            "Coach-to-child ratio of 1:8 or better"
+          ],
+          "classesIncluded": true,
+          "ptSessions": 0,
+          "audiences": [
+            "kids"
+          ],
+          "renewal": "Ends after 10 months. You choose whether to renew.",
+          "cancellation": "Non-refundable after the first 14 days, except for medical reasons with a doctor’s note.",
+          "offer": null
+        }
+      ],
+      "trainerIds": [
+        "neel-varma"
+      ],
+      "nutritionistIds": [],
+      "policies": {
+        "cancellation": "Monthly plans: 30 days’ notice. Fixed terms: refundable within 14 days of purchase, then only for medical reasons.",
+        "renewal": "Fixed-term plans do not renew automatically. Monthly plans continue until cancelled.",
+        "fees": "Joining fees and deposits are shown on each plan. No other mandatory charges.",
+        "eligibility": "Junior members must be accompanied to and from sessions by a parent or guardian.",
+        "guardian": "A parent or guardian signs up, gives consent and is the contact for all junior bookings."
+      },
+      "reviews": null,
+      "contact": {
+        "method": "enquiry",
+        "phone": null,
+        "email": null,
+        "website": null
+      }
+    }
+  ]
+}

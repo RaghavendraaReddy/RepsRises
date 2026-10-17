@@ -41,6 +41,6 @@ export function coachContext(): CoachContext {
   const session = store.session ? `In progress: ${store.session.title}, on ${store.session.exercises[store.session.index]?.name}.` : '';
   return {
     name: profile?.name || null, goal: profile?.goal ?? null, level: profile?.level ?? null, equipment: profile?.equipment ?? [], minutes: profile?.minutes ?? null, units,
-    plan: planText.slice(0, 4000), recent: recent.slice(0, 4000), session: session.slice(0, 3000),
+    plan: planText.slice(0, 4000), recent: recent.slice(0, 4000), session: session.slice(0, 3000), audience: store.audience(),
   };
 }
