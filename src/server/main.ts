@@ -1,13 +1,26 @@
 import { fileURLToPath } from 'node:url';
 import { createApp, readConfig } from './app.js';
+
 const root = fileURLToPath(new URL('../../', import.meta.url));
 try {
   const config = readConfig(process.env, root);
-  const port = Number(process.env.PORT || 4319);
-  if (!Number.isInteger(port) || port < 1024 || port > 65535) throw new Error('PORT must be an integer from 1024 to 65535.');
-  const server = createApp(config);
-  server.on('error', () => { console.error('Could not start the local server. Try another PORT.'); process.exitCode = 1; });
-  server.listen(port, '127.0.0.1', () => console.log(`Workout canvas: http://127.0.0.1:${port} · starts in mock mode`));
+  for (const warning of config.warnings) console.warn(`Note: ${warning}`);
+  const server = createApp(config, { log: line => console.log(`[${new Date().toISOString()}] ${line}`) });
+  server.on('error', error => {
+    console.error((error as NodeJS.ErrnoException).code === 'EADDRINUSE' ? `Port ${config.port} is already in use. Set PORT in .env to another value.` : 'Could not start the server.');
+    process.exitCode = 1;
+  });
+  server.listen(config.port, config.host, () => {
+    const address = server.address();
+    const port = typeof address === 'object' && address ? address.port : config.port;
+    const coaches = (Object.entries({ 'Claude API': config.anthropic.key, 'OpenAI API': config.openai.key, 'Claude Code CLI': config.claude.binary, 'Codex CLI': config.codex.binary }) as [string, string][]).filter(([, value]) => value).map(([name]) => name);
+    console.log(`Icarus is running at http://${config.host === '0.0.0.0' ? 'localhost' : config.host}:${port}`);
+    console.log(`Coaches available: Icarus Offline${coaches.length ? `, ${coaches.join(', ')}` : ' (add an API key in .env for AI coaching)'}`);
+  });
+  const stop = () => server.close(() => process.exit(0));
+  process.on('SIGTERM', stop);
+  process.on('SIGINT', stop);
 } catch (error) {
-  console.error(error instanceof Error ? error.message : 'Invalid local configuration.'); process.exitCode = 1;
+  console.error(error instanceof Error ? error.message : 'Invalid configuration.');
+  process.exitCode = 1;
 }

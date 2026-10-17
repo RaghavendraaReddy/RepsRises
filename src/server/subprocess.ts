@@ -1,5 +1,5 @@
 import { spawn, type ChildProcessWithoutNullStreams } from 'node:child_process';
-import { PublicError } from './provider.js';
+import { PublicError } from './errors.js';
 
 export type Invocation = { binary: string; args: string[]; cwd: string; env: NodeJS.ProcessEnv; input: string; timeoutMs: number };
 export type ProcessResult = { stdout: string; stderr: string; exitCode: number | null };
